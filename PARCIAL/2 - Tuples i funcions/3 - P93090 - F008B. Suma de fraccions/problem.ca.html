@@ -1,0 +1,33 @@
+<h1 id="f008b.-suma-de-fraccions">F008B. Suma de fraccions</h1>
+<p>Feu un programa que calculi el resultat de sumar una seqüència de
+fraccions.</p>
+<p>Utilitzant la definició</p>
+<pre><code>    struct Fraccio {
+        int num, den;   // sempre estrictament positius
+    };</code></pre>
+<p>el vostre programa ha d’incloure i fer servir la funció</p>
+<pre><code>    Fraccio suma(const Fraccio&amp; x, const Fraccio&amp; y);</code></pre>
+<p>que retorna la suma de |x| i |y|, <em>sense factors comuns en el
+numerador i el denominador</em>.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada és una seqüència d’una o més fraccions simplificades
+separades per signes de suma, acabada en un igual. Cada fracció
+consisteix en el seu numerador, una barra, i el seu denominador. Els
+numeradors i els denominadors són naturals estrictament positius.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Escriviu la fracció simplificada corresponent a la suma de totes les
+fraccions donades.</p>
+<h2 class="unnumbered" id="observacions">Observacions</h2>
+<ul>
+<li><p>Per evitar sobreeixements, useu la funció |suma()| per acumular
+els càlculs parcials.</p></li>
+<li><p>Es valorà negativament el càlcul ineficient del màxim comú
+divisor.</p></li>
+<li><p>No podeu usar vectors per resoldre aquest problema.</p></li>
+</ul>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Professorat de P1</p>
+<p><span>Generació:</span> 2026-01-25T12:00:36.621Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

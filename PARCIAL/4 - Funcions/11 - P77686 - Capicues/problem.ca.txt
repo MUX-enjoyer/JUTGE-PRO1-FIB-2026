@@ -1,0 +1,35 @@
+Capicues
+
+Feu una funció que digui si un natural @n@ és capicua o no.
+
+Interfície
+
++-------:+:--------------------------------------------+
+| C++    |     bool es_capicua(int n);                 |
++--------+---------------------------------------------+
+| C      |     int es_capicua(int n);                  |
++--------+---------------------------------------------+
+| Java   |     public static boolean esCapicua(int n); |
++--------+---------------------------------------------+
+| Python |     es_capicua(n)  # returns bool           |
++--------+---------------------------------------------+
+|        |     es_capicua(n: int) -> bool              |
++--------+---------------------------------------------+
+
+Precondició
+
+@n@ és un natural.
+
+Observació
+
+Només cal enviar el procediment demanat; el programa principal serà
+ignorat.
+
+Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T11:56:56.002Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

@@ -1,0 +1,20 @@
+# Mínim de dos enters
+
+Feu un programa que llegeixi dos nombres i que n'escrigui el mínim.
+
+## Entrada
+
+L'entrada consisteix en dos enters.
+
+## Sortida
+
+Cal escriure una línia amb el mínim dels dos nombres.
+
+## Informació del problema
+
+Autoria: Maria Serna
+
+Generació: 2026-01-25T22:48:40.498Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

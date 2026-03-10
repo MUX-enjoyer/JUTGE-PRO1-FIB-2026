@@ -1,0 +1,77 @@
+<h1 id="point-inside-a-rectangle">Point inside a rectangle</h1>
+<p>Given list of pairs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="prefix">⟨</mo><annotation encoding="application/x-tex">\langle</annotation></semantics></math>point,rectangle<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="postfix">⟩</mo><annotation encoding="application/x-tex">\rangle</annotation></semantics></math>,
+for each pair we want to know if the point is inside, at the borders, or
+outside the rectangle. <span><strong>Complete (and respect) the
+following code to achieve this goal. Not respecting the code will
+invalidate your submission, even if it is accepted</strong></span></p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+// Represents a point by its coordinates x,y.
+struct Point {
+  int x,y;
+};
+
+// Reads a point from the standard input and returns it.
+Point read_point()
+{
+  Point p;
+  cin&gt;&gt;p.x&gt;&gt;p.y;
+  return p;
+}
+
+// Represents a rectangle by the positions its horizontal limits xmin&lt;xmax
+// and the positions of its vertical limits ymin&lt;ymax.
+struct Rectangle {
+  int xmin,ymin,xmax,ymax;
+};
+
+// Reads a rectangle from the input and returns it. Assumes that the input format is correct, i.e. xmin&lt;xmax and ymin&lt;ymax.
+Rectangle read_rectangle()
+{
+  Rectangle r;
+  cin&gt;&gt;r.xmin&gt;&gt;r.ymin&gt;&gt;r.xmax&gt;&gt;r.ymax;
+  return r;
+}
+
+// Returns &quot;inside&quot;, &quot;border&quot; or &quot;outside&quot; depending on whether
+// p is inside, at the border, or outside of r.
+string containtment(Point p,Rectangle r)
+{
+  ...
+}
+
+int main()
+{
+  ...
+}</code></pre>
+<p><span><strong>Exam score:</strong></span> 2.5 <span><strong>Automatic
+part:</strong></span> 100%</p>
+<h2 class="unnumbered" id="input">Input</h2>
+<p>The first line of the input has an integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\geq 1</annotation></semantics></math>.
+Each one of the next
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+lines has six integers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>,</mo><msub><mi>y</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>,</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>,</mo><msub><mi>y</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">x,y,x_{min},y_{min},x_{max},y_{max}</annotation></semantics></math>
+holding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>&lt;</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">x_{min}&lt;x_{max}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>&lt;</mo><msub><mi>y</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">y_{min}&lt;y_{max}</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="output">Output</h2>
+<p>For each input line with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>,</mo><msub><mi>y</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>,</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>,</mo><msub><mi>y</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">x,y,x_{min},y_{min},x_{max},y_{max}</annotation></semantics></math>,
+write &quot;inside&quot;, &quot;border&quot; or &quot;outside&quot; depending on whether the point
+represented by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math>
+is inside, at the border, or outside the rectangle represented by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>,</mo><msub><mi>y</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>,</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>,</mo><msub><mi>y</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">x_{min},y_{min},x_{max},y_{max}</annotation></semantics></math>,
+followed by an end of line.</p>
+<h2 class="unnumbered" id="problem-information">Problem information</h2>
+<p><span>Author:</span> Professorat de PRO1</p>
+<p><span>Generation:</span> 2026-01-25T22:40:21.910Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

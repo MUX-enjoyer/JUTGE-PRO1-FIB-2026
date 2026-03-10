@@ -1,0 +1,47 @@
+# F008B. Suma de fraccions
+
+Feu un programa que calculi el resultat de sumar una seqüència de
+fraccions.
+
+Utilitzant la definició
+
+        struct Fraccio {
+            int num, den;   // sempre estrictament positius
+        };
+
+el vostre programa ha d'incloure i fer servir la funció
+
+        Fraccio suma(const Fraccio& x, const Fraccio& y);
+
+que retorna la suma de \|x\| i \|y\|, *sense factors comuns en el
+numerador i el denominador*.
+
+## Entrada
+
+L'entrada és una seqüència d'una o més fraccions simplificades separades
+per signes de suma, acabada en un igual. Cada fracció consisteix en el
+seu numerador, una barra, i el seu denominador. Els numeradors i els
+denominadors són naturals estrictament positius.
+
+## Sortida
+
+Escriviu la fracció simplificada corresponent a la suma de totes les
+fraccions donades.
+
+## Observacions
+
+- Per evitar sobreeixements, useu la funció \|suma()\| per acumular els
+  càlculs parcials.
+
+- Es valorà negativament el càlcul ineficient del màxim comú divisor.
+
+- No podeu usar vectors per resoldre aquest problema.
+
+## Informació del problema
+
+Autoria: Professorat de P1
+
+Generació: 2026-01-25T12:00:36.621Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

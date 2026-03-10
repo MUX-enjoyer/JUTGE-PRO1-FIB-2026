@@ -1,0 +1,79 @@
+# Múltiples de tres
+
+Una propietat matemàtica ben coneguda diu que un natural és múltiple de
+tres si i només si la suma dels seus dígits també és múltiple de tres.
+Per exemple, la suma dels dígits de 8472 és $8 + 4 + 7 + 2 = 21$, el
+qual és múltiple de tres. Per tant, 8472 també és múltiple de tres.
+
+Feu una funció recursiva que indiqui si el natural estrictament positiu
+\@n@ és múltiple de tres o no.
+
+## Interfície
+
++-------:+:------------------------------------------+
+| C++    | ``` c++                                   |
+|        | bool es_multiple_3(int n);                |
+|        | ```                                       |
++--------+-------------------------------------------+
+| C      | ``` c                                     |
+|        | int es_multiple_3(int n);                 |
+|        | ```                                       |
++--------+-------------------------------------------+
+| Java   | ``` java                                  |
+|        | public static boolean esMultiple3(int n); |
+|        | ```                                       |
++--------+-------------------------------------------+
+| Python | ``` python                                |
+|        | es_multiple_3(n)  # returns bool          |
+|        | ```                                       |
++--------+-------------------------------------------+
+|        | ``` python                                |
+|        | es_multiple_3(n: int) -> bool             |
+|        | ```                                       |
++--------+-------------------------------------------+
+
+Resoleu aquest problema utilitzant la funció recursiva que retorna la
+suma dels dígits d'un natural \@n@.
+
+## Interfície
+
++-------:+:-------------------------------------+
+| C++    | ``` c++                              |
+|        | int suma_digits(int n);              |
+|        | ```                                  |
++--------+--------------------------------------+
+| C      | ``` c                                |
+|        | int suma_digits(int n);              |
+|        | ```                                  |
++--------+--------------------------------------+
+| Java   | ``` java                             |
+|        | public static int sumaDigits(int n); |
+|        | ```                                  |
++--------+--------------------------------------+
+| Python | ``` python                           |
+|        | suma_digits(n)  # returns int        |
+|        | ```                                  |
++--------+--------------------------------------+
+|        | ``` python                           |
+|        | suma_digits(n: int) -> int           |
+|        | ```                                  |
++--------+--------------------------------------+
+
+## Observació
+
+Aquí, només podeu usar les operacions de divisió i mòdul amb el nombre
+10. Altrament, aquest exercici seria totalment trivial!
+
+## Observació
+
+Només cal enviar el procediment demanat; el programa principal serà
+ignorat.
+
+## Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T11:11:16.458Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

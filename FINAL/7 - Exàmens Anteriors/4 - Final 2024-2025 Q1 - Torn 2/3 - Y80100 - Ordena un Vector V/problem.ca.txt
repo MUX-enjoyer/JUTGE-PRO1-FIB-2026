@@ -1,0 +1,55 @@
+Ordena un Vector V
+
+Un vector V és un vector que està compost de dues parts:
+
+v = x₁ x₂ x₃ x₄…x_(n) y₁ y₂ y₃…y_(m)
+
+tals que x₁…x_(n) està ordenat de manera escrictament decreixent i
+y₁…y_(m) està ordenat de manera escrictament creixent. A més,
+x_(n) > y₁. Finalment tenim que n, m > 0. És a dir, cap de totes dues
+parts és buida.
+
+Cal implementar la funció
+
+void ordena(const vector<int>& v, int pos, vector<int>& r)
+
+amb la següent especificació:
+
+PRE: v és un vector V tal que ∣ v ∣ ≥ 3, pos és la posició en què es
+troba y₁ a v i ∣ v ∣ = ∣ r ∣.
+
+POST: El vector r conté tots els elements del vector v i està ordenat.
+
+Observació
+
+Només cal que envieu la funció que us demanem i les accions i funcions
+que vosaltres mateixos definiu. La resta no es tindrà en compte.
+
+No es pot fer servir l’operació sort de la biblioteca stl.
+
+Pista: saber la posició en què es troba y₁ us pot ajudar a ordenar el
+vector en temps lineal.
+
+IMPORTANT: Només cal que envieu la funció que us demanem i les accions i
+funcions que vosaltres mateixos definiu. Mantingueu, però, les
+definicions de tipus i els #includes.
+
+Entrada
+
+Un nombre indeterminat de vectors V amb el següent format: un enter que
+n’indica la mida, després el vector V, després la posició on es troba y₁
+a v i finalment un vector r de la mateixa mida que v. Tot vector V té
+una mida més gran o igual a 3.
+
+Sortida
+
+El vector r està ordenat i conté tots els elements de v.
+
+Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T23:07:30.570Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

@@ -1,0 +1,40 @@
+<h1 id="seqüència-de-nombres-diferents">Seqüència de nombres
+diferents</h1>
+<p>Igual que en el problema &quot;Diferència entre Nombres&quot;, la
+<em>diferència</em> entre dos nombres es defineix com la suma dels
+valors absoluts de les restes dígit a dígit.</p>
+<p>Una sequencia és <strong>creixent respecte a la diferència</strong>
+entre adjacents si per a cada 3 numeros adjacents de la sequencia:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>…</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msub><mi>x</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msub><mi>x</mi><mi>i</mi></msub><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msub><mi>x</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>…</mi></mrow><annotation encoding="application/x-tex">\dots ~~ x_{i-1} ~~ x_i ~~ x_{i+1} ~~ \dots</annotation></semantics></math></p>
+<p>es compleix que</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>i</mi></msub><mo>≤</mo><msub><mi>d</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">d_i \leq d_{i+1}</annotation></semantics></math></p>
+<p>on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math>
+es la diferència entre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">x_{i-1}</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>,
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">d_{i+1}</annotation></semantics></math>
+es la diferència entre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">x_{i+1}</annotation></semantics></math>.</p>
+<p>Cal implementar un <strong>programa</strong> que digui si una
+seqüència és creixent respecte a la diferència.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Una seqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+d’enters positius, sense sentinella.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>El programa ha d’escriure &quot;<code>SI</code>&quot; pel canal d’entrada en
+cas que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+sigui creixent respecte a la diferència, i &quot;<code>NO</code>&quot;
+altrament.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T12:52:48.342Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

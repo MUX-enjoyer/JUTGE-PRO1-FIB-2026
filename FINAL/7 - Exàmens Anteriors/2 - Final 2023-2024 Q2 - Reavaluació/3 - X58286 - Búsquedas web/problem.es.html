@@ -1,0 +1,65 @@
+<h1 id="búsquedas-web">Búsquedas web</h1>
+<p>La información de una búsqueda web la almacenamos en la siguiente
+estructura:</p>
+<pre><code>struct Search {
+    string word;
+    int stime;         // tiempo de respuesta
+};</code></pre>
+<p>Dado un conjunto de búsquedas web S y un conjunto de palabras P
+decir, por cada palabra p en P, cuál ha sido el tiempo de la búsqueda
+web más lenta de esa palabra p en S.</p>
+<p>Utiliza la estructura que te damos a continuación, introduciendo
+código SÓLO en los lugares indicados. En caso contrario el problema se
+considerará INVÁLIDO.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+struct Search {
+    string word;
+    int stime;
+};
+
+// Pre: n &gt;= 0
+// Post: lee de la entrada una secuencia S de n búsquedas y retorna
+//       esa información almacenada en un vector de Search
+vector&lt;Search&gt; read_data(int n) {
+    // tu código aquí
+}
+
+// Pre: -
+// Post: retorna el tiempo de respuesta más lento de la palabra p  
+//       en v (si existe), o 0 en caso contrario
+int tiempo_maximo(const vector&lt;Search&gt;&amp; v, string p) {
+    // tu código aquí
+}
+
+int main() {
+    // tu código aquí
+}
+</code></pre>
+<p><span><strong>Puntos examen:</strong></span> 2.50 <span><strong>Parte
+automática:</strong></span> 0.00%</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>La entrada consta de dos secuencias:</p>
+<ul>
+<li><p>La primera, la secuencia S de búsquedas es una secuencia de pares
+string p, int t que indican palabra buscada (en minúsculas y sin
+espacios en blanco) y su tiempo de respuesta, respectivamente. Antes de
+la secuencia S nos dirán el número de pares de la secuencia.
+<strong>Implementa y usa la función read_data para leer esta secuencia
+de la entrada</strong>.</p></li>
+<li><p>A continuación, la secuencia P de palabras (en minúsculas y sin
+espacios en blanco).</p></li>
+</ul>
+<h2 class="unnumbered" id="salida">Salida</h2>
+<p>Para cada palabra p de la secuencia P, decir cuál ha sido su tiempo
+máximo de respuesta en las búsquedas de la secuencia S. Si p no aparece
+en S, entonces el tiempo máximo de respuesta será 0. Sigue el formato de
+los ejemplos.</p>
+<h2 class="unnumbered" id="información-del-problema">Información del
+problema</h2>
+<p><span>Autoría:</span> Pro1</p>
+<p><span>Generación:</span> 2026-01-25T17:06:45.871Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

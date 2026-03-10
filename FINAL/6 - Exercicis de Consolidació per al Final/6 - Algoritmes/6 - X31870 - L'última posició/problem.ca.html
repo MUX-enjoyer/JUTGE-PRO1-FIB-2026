@@ -1,0 +1,83 @@
+<h1 id="lúltima-posició">L’última posició</h1>
+<p>Disposem d’una llista ordenada de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+nombres
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>,</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_0, x_1,\ldots, x_{n - 1}</annotation></semantics></math>
+i d’un nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+tal que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>≤</mo><mi>z</mi><mo>&lt;</mo><msub><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_0 \le z &lt; x_{n - 1}</annotation></semantics></math>.
+Es demana una funció <span><code>effi_last_pos</code></span> amb un codi
+molt eficient que calculi l’última posició
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+tal que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>≤</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">x_i \le z</annotation></semantics></math>.
+La funció ha d’estar convenientment documentada i s’ha d’utilitzar per
+completar el següent programa.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+
+///////////////////////////////////////////
+//
+// documentation and code of effi_last_pos 
+// function must be here
+//
+///////////////////////////////////////////
+
+
+//gets vector v from input chanel
+void read_vector(vector&lt;int&gt;&amp; v) {
+    int n = v.size();
+    for (int i = 0; i &lt; n; ++i) cin &gt;&gt; v[i];
+}
+
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    vector&lt;int&gt; v(n);
+    read_vector(v);
+    int z;
+    while (cin &gt;&gt; z)
+        cout &lt;&lt; effi_last_pos(v, z) &lt;&lt; endl;
+}</code></pre>
+<p><span><strong>Punts examen:</strong></span> 1.750000
+<span><strong>Part automàtica:</strong></span> 40.000000%</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada té tres parts. En la primera apareix un nombre enter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+més gran que un. Després hi ha una llista de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+enters ordenats de menor a major
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>,</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_0, x_1, \ldots, x_{n - 1}</annotation></semantics></math>.
+Finalment, trobem una seqüència de nombres enters. Cada número
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+de l’última seqüència és tal que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>≤</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">x_0 \le z</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>&lt;</mo><msub><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">z &lt; x_{n-1}</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Per a cada nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+de la seqüència, una línia amb l’última posició
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+on el valor de la llista
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>
+no superi a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>,
+és a dir
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>≤</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">x_i \le z</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Les implementacions de la funció
+<span><code>effi_last_pos</code></span> que puguin tenir un temps
+d’execució proporcional a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+seran invalidades.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Pro1</p>
+<p><span>Generació:</span> 2026-01-25T15:09:01.284Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

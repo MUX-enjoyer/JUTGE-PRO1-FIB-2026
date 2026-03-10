@@ -1,0 +1,52 @@
+# Països i províncies (1)
+
+La ONU vol guardar informació sobre l'organització dels seus països
+membres i de les províncies que aquests contenen, juntament amb el seu
+PIB (producte interior brut).
+
+La informació sobre una província determinada es guarda en el tuple
+següent:
+
+        struct Provincia {
+            string nom;
+            string capital;
+            int habitants;
+            int area;   
+            double pib;
+        };
+
+La informació sobre un pais determinat es guarda en el tuple següent:
+
+        struct Pais {
+            string nom;
+            string capital;
+            vector<Provincia> provs;
+        };
+
+La informació sobre tots els paisos es guarda en un vector de paisos:
+
+        typedef vector<Pais> Paisos;
+
+Utilitzant les definicions anteriors, implementeu la funció
+
+        double pib(const Paisos& p, char c, double d);
+
+que retorni la suma dels productes interiors bruts de totes les
+províncies amb densitat estrictament superior a \@d@ de tots els paisos
+en \@p@ que comencin per la lletra \@c@.
+
+## Observació
+
+Només cal enviar el procediment demanat; el programa principal serà
+ignorat.
+
+Seguiu estrictament la definició dels tipus de l'enunciat.
+
+## Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T11:51:22.844Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

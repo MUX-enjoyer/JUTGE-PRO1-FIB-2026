@@ -1,0 +1,29 @@
+# Molts en ratlla
+
+Feu un programa que llegeixi cubs $n \times n \times n$ d'enters i
+calculi quantes ratlles de mida $m$ conté, per a tota $m$ entre 2 i $n$.
+Aquí, una ratlla és una seqüència d'enters idèntics adjacents en la
+mateixa direcció. Les direccions considerades són la vertical,
+horitzontal, de fondària, i totes les diagonals en dues o tres
+dimensions (en total, 26 sentits en 13 direccions).
+
+## Entrada
+
+L'entrada consisteix en una seqüència de descripcions de cubs separades
+amb una línia buida. Cada descripció comença amb un natural $n \ge 2$.
+Segueixen, separades amb una línia buida, $n$ descripcions de cada pla
+del cub, cadascuna de les quals té $n$ files amb $n$ enters cadascuna.
+
+## Sortida
+
+Per a cada cub, escriviu quantes ratlles de mida $m$ conté, per a tota
+$m$ entre 2 i $n$. Separeu les diverses sortides amb una línia buida.
+
+## Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T10:59:54.197Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

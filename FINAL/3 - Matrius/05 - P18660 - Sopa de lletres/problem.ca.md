@@ -1,0 +1,30 @@
+# Sopa de lletres
+
+Feu un programa que resolgui sopes de lletres! Les paraules es poden
+trobar escrites horitzontalment (d'esquerra a dreta), verticalment (de
+dalt a baix) o diagonalment (d'esquerra a dreta i de dalt a baix).
+
+## Entrada
+
+L'entrada consisteix de diferents jocs de proves. Cada joc de proves
+conté tres parts: La primer part conté tres naturals $x$, $m$ i $n$ no
+nuls. La segona part és una seqüència de $x$ paraules. La tercera part
+és una matriu amb $m$ files i $n$ columnes que representa la sopa de
+lletres. Tots els símbols que apareixen a les paraules i a la sopa són
+lletres minúscules $a,\dots,z$.
+
+## Sortida
+
+Per a cada joc de proves cal reproduir la matriu d'entrada, però
+canviant totes les lletres que formen part de paraules en majúscules.
+Separeu cada lletra de la sopa per un espai en blanc; separeu cada joc
+de proves per una línia en blanc.
+
+## Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T10:38:56.756Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

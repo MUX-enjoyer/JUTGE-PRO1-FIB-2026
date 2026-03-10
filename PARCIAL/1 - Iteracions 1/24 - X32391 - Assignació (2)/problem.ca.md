@@ -1,0 +1,38 @@
+# Assignació (2)
+
+Teniu $n$ euros estalviats. Addicionalment, durant les properes $t$
+setmanes us donaran, cada dilluns, una assignació setmanal de $a_1, 
+a_2, ..., a_t$ euros, respectivament. Cada setmana, però, teniu un
+seguit de despeses fixes que ascendeixen exactament a $d$ euros.
+
+Escriviu un programa que compti quantes setmanes acaben amb un saldo
+estrictament positiu.
+
+## Entrada
+
+L'entrada consisteix en tres naturals $d \geq 0$, $n \geq 0$ i $t>0$,
+que representen les despeses fixes setmanals, els estalvis inicials, i
+el nombre de setmanes amb assignació, respectivament.
+
+A continuació s'hi troben les quantitats corresponents a les $t$
+diferents assignacions setmanals $a_1, ..., a_t$. Tota assignació és un
+natural $a_{i} \geq 0$.
+
+## Sortida
+
+La sortida és un número natural que indica quantes de les $t$ setmanes
+s'ha tingut saldo estrictament positiu després de pagar les despeses de
+la setmana.
+
+Feu servir el format especificat als exemples. El vostre codi ha de
+seguir les normes d'estil i contenir els comentaris que considereu
+oportuns.  \
+
+## Informació del problema
+
+Autoria: Maria J. Blesa
+
+Generació: 2026-01-25T22:47:02.936Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

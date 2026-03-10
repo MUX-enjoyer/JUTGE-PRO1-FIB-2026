@@ -1,0 +1,40 @@
+# Números sense zeros
+
+Escriu un programa que tracti una seqüència de números enters majors que
+zero. Per a cadascun d'ells, s'ha d'escriure el número que resulta
+d'eliminar-li tots els seus dígits iguals a $0$. Per example, si
+eliminem els zeros del número $3097601$, el resultat és $39761$.
+
+El programa ha d'implementar i fer servir la següent funció
+**RECURSIVA**:
+
+    // Pre: x > 0
+    // Post: retorna el valor que resulta d'eliminar a x els seus dígits igual a 0
+    int elimina_zeros(int x) {
+        ...
+    }
+
+**Punts examen:** 2.00 **Part automàtica:** 40.00%
+
+## Entrada
+
+L'entrada és una seqüència de números enters majors que zero.
+
+## Sortida
+
+Per cada element de la seqüència, el programa escriu el valor que
+resulta d'eliminar els dígits igual a 0 d'aquell element.
+
+## Observació
+
+Una implementació **no recursiva** de la funció serà avaluada com a
+**invàlida**.
+
+## Informació del problema
+
+Autoria: Pro1
+
+Generació: 2026-01-25T13:28:52.990Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

@@ -1,0 +1,28 @@
+# Elements comuns
+
+Feu una funció
+
+        int elements_comuns (const vector<int>& X, const vector<int>& Y);
+
+que donats dos vectors \@X@ i \@Y@ ordenats estrictament creixentment,
+retorni el nombre d'elements comuns als dos vectors, és a dir, el nombre
+d'enters $a$ tals que $a=X[i]=Y[j]$ per a alguns $i$ i $j$.
+
+## Precondició
+
+Els dos vectors estàn ordenats estrictament creixentment.
+
+## Exemples
+
+\@elements_comuns@$([3,5,7,8], [2,3,7,9,10]) = 2.$\
+\@elements_comuns@$([1,2,3,4,5], [3,4,5,6,7,8]) = 3.$\
+\@elements_comuns@$([1,2,3,4,5], [8,9]) = 0.$\
+
+## Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T10:37:58.075Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

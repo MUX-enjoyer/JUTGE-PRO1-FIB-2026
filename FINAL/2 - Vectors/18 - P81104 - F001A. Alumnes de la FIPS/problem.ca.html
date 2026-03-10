@@ -1,0 +1,55 @@
+<h1 id="f001a.-alumnes-de-la-fips">F001A. Alumnes de la FIPS</h1>
+<p>La Facultat d’Informàtica del Poble Sec guarda la informació dels
+seus alumnes i de les notes que han obtingut a les assignatures que han
+cursat en l’estructura de dades següent:</p>
+<pre><code>    struct Alumne {
+        string nom;                 // Nom de l&#39;alumne
+        int dni;                    // DNI de l&#39;alumne
+        vector&lt;Assignatura&gt; ass;    // Llista d&#39;assignatures de l&#39;alumne
+    };</code></pre>
+<p>on |Assignatura| ve donat per:</p>
+<pre><code>    struct Assignatura {
+        string nom;                 // Nom de l&#39;assignatura
+        double nota;                // Entre 0 i 10, -1 indica NP
+    };</code></pre>
+<p>Usant aquestes definicions, implementeu la funció</p>
+<pre><code>    double nota(const vector&lt;Alumne&gt;&amp; alums, int dni, string nom);</code></pre>
+<p>que busqui i retorni la nota que l’alumne |dni| ha obtingut a
+l’assignatura |nom|. Si l’alumne no existeix, no ha cursat l’assignatura
+demanada, o hi ha tret un NP, cal retornar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>.</p>
+<p>Implementeu també la funció</p>
+<pre><code>double mitjana(const vector&lt;Assignatura&gt;&amp; ass);</code></pre>
+<p>que calculi i retorni la nota mitjana de les assignatures del vector
+|ass|. Els NP no compten en el càlcul de la mitjana. Si totes les notes
+són NP o el vector és buit, considereu que la nota mitjana és
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>.</p>
+<p>Usant les dues funcions anteriors, implementeu l’acció</p>
+<pre><code>    void compta(const vector&lt;Alumne&gt;&amp; alums, int dni, string nom, int&amp; com);</code></pre>
+<p>que compti i deixi en el paràmetre de sortida |com| el nombre
+d’alumnes del vector |alums| que tenen una nota mitjana estrictament
+superior a la nota que l’alumne |dni| ha obtingut a l’assignatura
+|nom|.</p>
+<h2 class="unnumbered" id="precondició">Precondició</h2>
+<p>No hi ha alumnes repetits. A la llista d’assignatures de cada alumne
+no hi ha assignatures repetides.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>El programa principal ja se us dóna implementat; no el canvieu.
+Aquest llegeix les dades dels alumnes, i després escriu el resultat de
+la vostra acció |compta()| per a cada combinació d’alumne i assignatura
+de l’entrada.</p>
+<p>(A l’exemple, les notes mitjanes de la Mònica, en Joan, en Pere,
+l’Alícia, en Pol, l’Àstrid i en Jordi són respectivament 9.5, 8, 0,
+5.25,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>,
+9.25 i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>.
+El 2 de la sortida es correspon a la Mònica i l’Àstrid. El 1 es
+correspon a la Mònica. Els 5 es corresponen a la Mònica, en Joan, en
+Pere, l’Alícia i l’Àstrid.)</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Professorat de P1</p>
+<p><span>Generació:</span> 2026-01-25T11:52:49.335Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

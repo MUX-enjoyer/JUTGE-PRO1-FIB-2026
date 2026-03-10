@@ -1,0 +1,46 @@
+<h1 id="màxim-de-seqüències-per-paritat">Màxim de Seqüències per
+Paritat</h1>
+<p>Donada una seqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>,
+una <strong>subseqüència</strong> de parells (o senars) es una seqüència
+d’elements parells (o senars) <strong>adjacents</strong>
+d’<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>.
+Per exemple, si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>8</mn><mo>,</mo><mn>9</mn><mo>,</mo><mn>12</mn><mo>,</mo><mn>14</mn><mo>,</mo><mn>16</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">S = 4,6,5,8,9,12,14,16,5,4</annotation></semantics></math>,
+una subseqüència d’elements parells
+d’<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+podria ser
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">4,6</annotation></semantics></math>,
+o
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mo>,</mo><mn>14</mn></mrow><annotation encoding="application/x-tex">12,14</annotation></semantics></math>
+o
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mo>,</mo><mn>14</mn><mo>,</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">12,14,16</annotation></semantics></math>,
+tot i que n’hi hauria alguna més (per a nombres senars seria igual, però
+òbviament amb senars).</p>
+<p>Una <strong>subseqüència màxima</strong> de parells (senars) seria
+una subseqüència com l’anterior, però que no està pròpiament continguda
+dins de cap altra subseqüència de parells (senars). En l’exemple
+anterior, la subseqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mo>,</mo><mn>14</mn></mrow><annotation encoding="application/x-tex">12,14</annotation></semantics></math>
+no és màxima, perquè està pròpiament continguda dins de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mo>,</mo><mn>14</mn><mo>,</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">12,14,16</annotation></semantics></math>.
+En canvi, la subseqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mo>,</mo><mn>14</mn><mo>,</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">12,14,16</annotation></semantics></math>
+és màxima perquè no està pròpiament continguda dins de cap altra
+subseqüència.</p>
+<p>Cal implementar la <strong>programa</strong> que calculi la mida de
+la subseqüència màxima de parells més llarga i la mida de la
+subseqüència màxima de senars més llarga.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Una seqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+d’enters positius.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>La mida de la subseqüència màxima de parells més llarga i la mida de
+la subseqüència màxima de senars més llarga.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T15:54:31.986Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

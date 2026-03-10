@@ -1,0 +1,57 @@
+<h1 id="suma-fruites">Suma Fruites</h1>
+<p>Fes un programa que llegeix una llista de fruites amb quantitats i
+produeixi una llista <em>ordenada</em> pel nom de la fruita amb les
+quantitats acumulades per a cada fruita.</p>
+<p>Es tracta de completar el següent programa, implementant el
+subprograma <code>add_fruit</code>:</p>
+<pre><code>#include &lt;vector&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+struct Fruit {
+   string name;
+   int amount;
+};
+
+// Cal implementar aquesta funció:
+void add_fruit(vector&lt;Fruit&gt;&amp; fruits, const Fruit&amp; fruit);
+
+int main() {
+    vector&lt;Fruit&gt; fruits;
+    Fruit f;
+    while (cin &gt;&gt; f.name &gt;&gt; f.amount) {
+        add_fruit(fruits, f);  
+    }
+    for (int i = 0; i &lt; fruits.size(); i++) {
+        cout &lt;&lt; fruits[i].name &lt;&lt; &#39; &#39; &lt;&lt; fruits[i].amount &lt;&lt; endl;
+    }
+    return 0;
+}</code></pre>
+<p>El subprograma <code>add_fruit</code> ha de fer dues coses. Primer
+cercar la fruita, per si ja és al vector <code>fruits</code>, i si hi
+és, acumular la quantitat llegida al total. Per altra banda, si es
+tracta del cas en què veiem certa fruita per primera vegada, cal
+insertar-la al vector en el seu lloc (per mantenir l’ordre).</p>
+<p>Ambdues operacions, en el cas òptim, requeririen una cerca
+dicotòmica, però en aquest problema es pot fer servir una cerca linial,
+i per a la inserció es pot afegir la fruita al final del vector i
+desplaçar-la cap avall mentre el nom de la fruita anterior sigui major
+en l’ordre lexicogràfic.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Una seqüència de parelles de fruita (un <code>string</code>) i la
+seva quantitat (un enter). Les fruites típicament estaran repetides.
+S’ha de considerar que el nombre de fruites possibles diferents és molt
+gran (desenes de milers).</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>S’ha de produir una llista de les fruites ordenades pel nom, amb una
+fruita a cada línia, i a on cada fruita va acompañada d’un enter que és
+la suma de les quantitats llegides per a aquesta fruita a l’entrada.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només cal enviar el procediment demanat; el programa principal serà
+ignorat.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T12:46:24.925Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

@@ -1,0 +1,78 @@
+# Quantes frases hi ha despres d'una pregunta i amb més a's que b's
+
+Les entrades d'aquest exercici són vàries frases no-buides formades per
+**`a`**'s i **`b`**'s i acabades en un signe de puntuació, que pot ser
+**`.`** o **`?`** o **`!`**. Cada frase vindrà en una línia diferent per
+a fer més clara la presentació. Per exemple, aquesta seria una possible
+entrada de l'exercici:
+
+    bbb?
+    aabba.
+    b.
+    bbbba?
+    abbaa?
+    aaabbb!
+    babbabb.
+    bbabb!
+    aa!
+
+Les frases acabades en **`.`** s'anomenen sentències.
+
+Les frases acabades en **`?`** s'anomenen preguntes.
+
+Les frases acabades en **`!`** s'anomenen exclamacions.
+
+Implementeu un programa que llegeixi aquestes entrades i digui quantes
+frases hi ha que apareguin inmediàtament després d'una pregunta i que
+tinguin estrictament més **`a`**'s que **`b`**'s.
+
+En l'exemple anterior, la resposta seria 2. Fixeu-vos que després de la
+pregunta **`bbb?`** apareix la frase **`aabba.`**, que té estrictament
+més **`a`**'s que **`b`**'s. A més a més, després de la pregunta
+**`bbbba?`** apareix la frase **`abbaa?`**, que té estrictament més
+**`a`**'s que **`b`**'s. Per tant, sumem 2. També tenim que després de
+la pregunta **`abbaa?`** apareix la frase **`aaabbb!`**, però aquesta no
+té estrictament més **`a`**'s que **`b`**'s.
+
+## Entrada
+
+L'entrada conté un nombre arbitrari de línies. Cada línia té un o més
+caràcters **`a`** o **`b`** finalitzats per un signe de puntuació
+**`.`** o **`?`** o **`!`**.
+
+## Sortida
+
+Per a cada línia d'entrada, heu d'escriure un natural, el nombre total
+de frases que venen inmediatament a continuació de preguntes, i que
+tenen estrictament més **`a`**'s que **`b`**'s.
+
+## Observació
+
+No es pot fer servir cap mètode d'emmagatzemament massiu de dades, ni
+tan sols `string`. Llegiu i tracteu l'entrada caràcter a caràcter. En
+particular, usar `getline` o similar queda prohibit, i el motiu és obvi:
+en condicions normals, les frases no vindrien separades per salts de
+línia. De fet, que l'entrada separi les frases amb salts de línia és
+només per motius de claretat en la presentació de l'exercici. Si aneu
+llegint caràcters amb `cin `$>>$` c`, és irrellevant si hi ha salts de
+línia o no, perquè la lectura amb `cin` ignora els salts de línia.
+
+Avaluació sobre 10 punts:
+
+- Solució lenta: 5 punts.
+
+- solució ràpida: 10 punts.
+
+Entenem com a solució ràpida una que és correcta, de cost lineal i capaç
+de superar els jocs de proves públics i privats. Entenem com a solució
+lenta una que no és ràpida, però és correcta i capaç de superar els jocs
+de proves públics.
+
+## Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T21:38:54.801Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

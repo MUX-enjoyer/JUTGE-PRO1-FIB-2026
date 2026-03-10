@@ -1,0 +1,66 @@
+<h1 id="matriu-de-màscara">Matriu de Màscara</h1>
+<p>Una matriu de màscara
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+és una matriu de caselles de tipus <code>bool</code>. Aplicar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+a una matriu d’enters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+consisteix en multiplicar per 0 aquelles caselles anàlogues de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+(amb la mateixa fila i columna) que a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+contenen <code>false</code>, i no alterar les altres caselles. Per
+exemple:</p>
+<pre><code>    M            K        apply_mask(M, K)
+1  2  3  4    1 1 0 0        1  2 0 0
+5  6  7  8    0 1 0 1        0  6 0 8
+9 10 11 12    1 1 0 0        9 10 0 0</code></pre>
+<p>Les caselles de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+es mostren com a 0 o 1 quan són <code>false</code> o <code>true</code>,
+respectivament. Es veu com la matriu resultat conté zeros en aquelles
+caselles a on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+té un 0 (<code>false</code>), i la resta de valors queden igual que a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>.</p>
+<p>Implementa una funció <code>apply_mask</code> amb la declaració
+següent:</p>
+<pre><code>typedef vector&lt;vector&lt;int&gt;&gt; Matrix;
+typedef vector&lt;vector&lt;bool&gt;&gt; Mask;
+
+/**
+ * @brief Retorna una nova matriu que és `M` aplicant la
+ * màscara `K`. La màscara és una matriu que té caselles de tipus
+ * `bool`, i quan una casella de la màscara és `false`, cal
+ * deixar la casella anàloga (mateixa fila i columna) de `M` a 0, 
+ * altrament no cal fer res.
+ *
+ * @param `K` la matriu de màscara
+ * @param `M` la matriu d&#39;interès (d&#39;enters)
+ *
+ * @returns  La matriu resultat d&#39;aplicar `K` a `M`
+ */
+Matrix apply_mask(const Matrix&amp; M, const Mask&amp; K);</code></pre>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>El centre d’interès d’aquest problema és la <em>correctesa</em>. Els
+jocs de prova comproven que la majoria de casos possibles produeixin la
+sortida correcta.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p><em>L’entrada ja la fa el programa principal proporcionat</em>.
+Consisteix en un seguit de cassos amb dos enters per files i columnes i
+les matrius
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+de costat, en el format mostrat als exemples.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p><em>La sortida també la produeix el programa principal
+proporcionat</em>. Es mostra la matriu resultat de cridar
+<code>apply_mask</code> en el mateix format, separant les matrius per
+una línia buida per claredat.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Pau Fernández</p>
+<p><span>Generació:</span> 2026-01-25T16:43:29.254Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

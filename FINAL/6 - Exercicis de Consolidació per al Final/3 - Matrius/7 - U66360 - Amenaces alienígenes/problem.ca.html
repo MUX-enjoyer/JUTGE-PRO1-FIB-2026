@@ -1,0 +1,50 @@
+<h1 id="amenaces-alienígenes">Amenaces alienígenes</h1>
+<p>Els científics han descobert unes <strong>zones espacials</strong>
+(representades per matrius bidimensionals) on s’han detectat
+alienígenes. Les cel·les de cada matriu contenen un valor enter que
+indica la densitat d’alienígenes en aquella posició específica. Els
+científics necessiten identificar certes &quot;zones crítiques&quot; dins les
+zones espacials que podrien indicar una major amenaça per als
+humans.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Una seqüència de <strong>zones espacials</strong>, acabada amb un
+zero. Cada zona ve indicada per:</p>
+<ul>
+<li><p>Un enter n que representa el nombre de files de la matriu
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">1 \leq n \leq 100</annotation></semantics></math>).</p></li>
+<li><p>Un enter m que representa el nombre de columnes de la matriu
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>m</mi><mo>≤</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">1 \leq m \leq 100</annotation></semantics></math>).</p></li>
+<li><p>Una matriu de mida
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n \times m</annotation></semantics></math>
+que conté enters no negatius que representen la densitat d’alienígenes
+en cada cel·la de la matriu.</p></li>
+<li><p>Un enter k que representa la mida del &quot;quadrat d’anàlisi&quot;
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>k</mi><mo>≤</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>,</mo><mi>m</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">1 \leq k \leq min(n, m)</annotation></semantics></math>).
+Aquest quadrat és una submatriu de mida
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>×</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">k \times k</annotation></semantics></math>
+que es farà servir per analitzar zones crítiques.</p></li>
+</ul>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Cal treure 3 informacions:</p>
+<ul>
+<li><p>Per cada zona espacial de la seqüència, la posició (índex de fila
+i columna) del vèrtex superior esquerre del subquadrat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>×</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">k \times k</annotation></semantics></math>
+que conté la major densitat total d’alienígenes. Si hi ha empat entre
+varis subquadrats, escriure la posició del subquadrat amb la posició de
+la fila més petita.</p></li>
+<li><p>La suma total de les densitats d’alienígenes dins d’aquell
+subquadrat.</p></li>
+<li><p>El valor màxim de densitat dins d’aquell subquadrat.</p></li>
+</ul>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>És obligatori fer, com a mínim, un subprograma que llegeixi una
+<strong>zona espacial</strong> sencera. El subprograma rep una matriu
+per referència i l’omple amb valors llegits de l’entrada. Tanmateix,
+probablement és convenient fer més subprogrames per aquest problema.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Professors PRO1</p>
+<p><span>Generació:</span> 2026-01-25T19:54:35.644Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

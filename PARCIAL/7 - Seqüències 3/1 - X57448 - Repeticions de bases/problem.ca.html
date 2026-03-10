@@ -1,0 +1,51 @@
+<h1 id="repeticions-de-bases">Repeticions de Bases</h1>
+<p>S’anomenen <em>bases</em> les lletres ’<code>A</code>’,
+’<code>C</code>’, ’<code>G</code>’ i ’<code>T</code>’ que representen
+els nucleòtids Adenosina, Citosina, Guanina i Timina, amb els quals els
+construeix l’ADN. Es tracta de fer un programa que busca les repeticions
+més llargues de bases en un genoma.</p>
+<p>El programa treballa amb seccions del genoma, és a dir, seqüències
+dels caràcters ’<code>A</code>’, ’<code>C</code>’, ’<code>G</code>’ i
+’<code>T</code>’ acabades amb ’<code>.</code>’. Tots els càlculs fan la
+suposició que estem en una secció concreta. Així doncs, per a cada base,
+cal mostrar el tram de repeticions consecutives més llarg trobat, i en
+quina posició apareix. La ocurrència d’una sola base aïllada ja es
+considera una &quot;repetició&quot; de longitud 1. Quan, per a la mateixa base, hi
+ha dos trams amb repeticions de la mateixa longitud, cal reportar sempre
+el primer.</p>
+<p>Per exemple, si la seqüència fos &quot;<code>AAACCATGGGTTGTT.</code>&quot;, el
+resultat seria el següent:</p>
+<ul>
+<li><p>per a ’<code>A</code>’, la repetició més llarga és de 3,
+començant a la posició 1;</p></li>
+<li><p>per a ’<code>C</code>’, és de 2, començant a la posició
+4;</p></li>
+<li><p>per a ’<code>G</code>’, és de 3, començant a la posició 7;
+i</p></li>
+<li><p>per a ’<code>T</code>’, és de 2, començant a la posició 11 (n’hi
+ha una altra de longitud 2 començant a la posició 14, però aquesta
+posició és posterior a la posició 11).</p></li>
+</ul>
+<p>Les posicions es refereixen sempre a una sola secció de genoma, no al
+genoma sencer, i comencen per 1.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada és una seqüència de caràcters a on només hi ha
+’<code>A</code>’, ’<code>C</code>’, ’<code>G</code>’, ’<code>T</code>’,
+i ’<code>.</code>’, sense tenir en compte els salts de línia. Cada
+secció de genoma és una seqüència de bases acabada en ’<code>.</code>’ i
+l’entrada sencera és una seqüència de seccions.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>A la sortida s’han de mostrar els resultats de cada secció, per ordre
+i en una sola línia, en el següent format:</p>
+<pre><code>&quot;A&quot; = 0, &quot;C&quot; = 2(1), &quot;G&quot; = 0, &quot;T&quot; = 4(3)</code></pre>
+<p>Per a cada base cal mostrar la base entre cometes dobles, un signe
+d’igual entre dos espais i després la longitud màxima trobada. Si
+aquesta és major que 0, llavors cal afegir la posició entre parèntesis.
+Les bases estan ordenades alfabèticament i se separen entre elles amb
+una coma i un espai.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T17:03:19.152Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

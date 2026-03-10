@@ -1,0 +1,24 @@
+# Moda
+
+Feu un programa que trobi la paraula més freqüent dins de cada seqüència
+de paraules donada.
+
+## Entrada
+
+L'entrada consisteix en diversos casos. Cada cas comença amb un nombre
+$n$ entre 1 i $10^5$, seguit de $n$ paraules formades per lletres
+minúscules. Un cas especial amb $n = 0$ marca el final de l'entrada.
+
+## Sortida
+
+Per a cada cas, escriviu la paraula que apareix més vegades. En cas
+d'empat cal escriure la paraula més gran en ordre alfabètic.
+
+## Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T11:25:11.381Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

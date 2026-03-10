@@ -1,0 +1,85 @@
+# Cerca per Edat
+
+Donat un vector de persones ordenat per edat (de menor a major), has de
+trobar l'índex de la primera persona (la d'índex més petit) en el vector
+que té una edat donada.
+
+Cada persona està representada per una estructura amb el seu nom i la
+seva edat:
+
+    struct Persona {
+        string nom;
+        int edat;
+    };
+
+El vector de persones està *ordenat per edat de forma creixent*, i hi
+pot haver *vàries persones amb la mateixa edat*.
+
+Has de fer la **funció** `cerca_per_edat`, que retorna l'índex de la
+primera persona amb exactament `anys` anys d'edat, o $-1$ si no hi ha
+cap persona amb aquesta edat.
+
+    /**
+     * @brief Troba l'índex de la primera persona (amb el mínim índex)
+     *        d'edat exactament 'anys'.
+     *
+     * @returns Índex de la persona trobada, o -1 si no n'hi ha cap.
+     *
+     * @pre   El vector de persones està ordenat per edat i pot tenir 
+     *        vàries persones amb la mateixa edat.
+     */
+    int cerca_per_edat(const vector<Persona>& persones, int anys)
+
+## Observació
+
+La icona de nom \".CPP\" conté el programa principal per fer proves.
+
+Només has d'enviar un fitxer que contingui la funció requerida, amb els
+`include` necessaris i les funcions auxiliars que hauràs declarat (si
+n'hi ha), i **res més**.
+
+Proposeu una solució utilitzant **cerca dicotòmica** per aquest
+exercici. Qualsevol altre tipus de solució implica l'anul·lació
+**total** de l'exercici, independentment del veredicte del jutge.
+
+Per poder utilitzar la tupla a la solució, cal copiar i enganxar el
+següent codi:
+
+    #ifndef PERSONA
+    #define PERSONA
+
+    struct Persona {
+        string nom;
+        int edat;
+    };
+
+    #endif
+
+Per compilar els dos fitxers `solucio.cc` i `main.cc` conjuntament, cal
+executar la comanda: `g++ -o programa.exe main.cc solucio.cc`.
+
+També pots descarregar el codi del `main.cc`, implementar la funció allà
+mateix, i després esborrar la funció `main` i enviar el fitxer
+resultant.
+
+## Entrada
+
+Primer es llegeix un enter $n$ que indica el nombre de persones. Després
+es llegeixen $n$ línies, cadascuna amb el nom i l'edat d'una persona. El
+vector està ordenat per edat de forma creixent. A continuació, es
+llegeixen diversos enters, cadascun representant una edat a buscar.
+
+## Sortida
+
+Per a cada edat llegida, s'escriu l'índex de la primera persona amb
+exactament aquesta edat, o $-1$ si no hi ha cap persona amb aquesta
+edat.
+
+## Informació del problema
+
+Autoria: Pau Fernández
+
+Generació: 2026-01-25T12:47:25.834Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

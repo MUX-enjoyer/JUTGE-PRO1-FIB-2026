@@ -1,0 +1,48 @@
+<h1 id="trucades-a-cada-hora">Trucades a cada hora</h1>
+<p>Disposem d’un llistat <em>desordenat</em> de trucades a un conjunt
+limitat de telèfons, i per a cada trucada tenim el número de telèfon i
+l’hora d’inici de la trucada. El llistat té el format:</p>
+<pre><code>3 
+666321000 934500000 979808080
+
+979808080 15:45
+666321000 19:01
+934500000 09:09
+979808080 14:22
+666321000 10:43
+...</code></pre>
+<p>Al principi, se’ns dóna una seqüència amb el conjunt de telèfons
+d’interès, ordenats pel seu valor numèric de menor a major. La seqüència
+comença amb el número total de telèfons, que és sempre major que 0 (el
+<code>3</code> de la primera línia), i després venen els números de
+telèfon, tots de 9 xifres. A continuació, després d’una línia buida, ve
+una seqüència sense sentinella de trucades. Cada trucada és una línia, i
+el número de telèfon és al principi de la línia i després hi ha l’hora
+de la trucada en format <code>HH:MM</code>, separada per un sol
+espai.</p>
+<p>Fes un <strong>programa</strong> que llegeix aquestes dades i
+produeix a la sortida la llista de telèfons que han rebut <em>almenys
+una trucada a cada hora del rellotge</em>, és a dir, que tenen una o més
+trucades per a cada valor diferent de les hores (de 0 a 23). Cal
+dissenyar el programa tenint en compte que el llistat de trucades és,
+típicament, entre un i dos ordres de magnitud més gran que el conjunt de
+telèfons.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Aquest problema té com a centre d’interès l’<em>eficiència</em>. Feu
+servir els millors algorismes i estructures de dades que pogueu i
+considereu que rebreu dades d’entrada de grans dimensions.</p>
+<p>En aquest problema, si feu servir vectors, és important donar-los la
+dimensió des del principi per no haver de fer <code>push_back</code>, ja
+que això pot afectar al temps d’execució.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada és el llistat explicat més amunt.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>La sortida és un llistat de telèfons, un per línia, per <em>ordre
+numèric creixent</em>. Si no hi ha cap telèfon que hagi rebut trucades a
+totes les hores del dia, cal mostrar la frase &quot;Empty&quot; en una línia.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Pau Fernández</p>
+<p><span>Generació:</span> 2026-01-25T12:46:54.082Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

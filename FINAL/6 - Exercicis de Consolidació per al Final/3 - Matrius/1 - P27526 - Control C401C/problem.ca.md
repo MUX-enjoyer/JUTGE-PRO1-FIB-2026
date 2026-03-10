@@ -1,0 +1,41 @@
+# Control C401C
+
+Feu un programa que comenci llegint i escrivint una matriu d'enters
+$n \times m$. A continuació, per a cada parell de naturals $j$ i $k$
+donats, cal escriure la matriu anterior amb les columnes $j$ i $k$
+intercanviades. Les columnes es numeren des de 0 fins a $m - 1$.
+
+Utilitzant la definició
+
+        typedef vector<vector<int> > Matriu;
+
+el vostre programa ha d'implementar i usar la funció
+
+        void intercanvia(Matriu& mat, int j, int k);
+
+que, donada la matriu \|mat\| i els naturals $j$ i $k$, intercanvia les
+columnes $j$ i $k$ de \|mat\|. Els índexos $j$ i $k$ sempre estaran
+entre 0 i el nombre de columnes de \|mat\| menys u.
+
+## Entrada
+
+L'entrada comença amb les dimensions $n > 0$ i $m > 0$ de la matriu,
+seguides de $n$ línies amb $m$ elements cadascuna, seguides d'una
+seqüència de parells $j$, $k$. Cada $j$ i cada $k$ es troba entre 0 i
+$m - 1$.
+
+## Sortida
+
+Cal escriure la seqüència de matrius composta per la matriu llegida,
+seguida de la matriu resultat de cada intercanvi. Fixeu-vos que cal
+escriure línies amb cinc guions per separar les matrius, així com al
+principi i al final.
+
+## Informació del problema
+
+Autoria: Professorat de P1
+
+Generació: 2026-01-25T10:32:49.862Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

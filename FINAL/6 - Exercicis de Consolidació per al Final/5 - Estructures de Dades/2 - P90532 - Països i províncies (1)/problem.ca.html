@@ -1,0 +1,38 @@
+<h1 id="països-i-províncies-1">Països i províncies (1)</h1>
+<p>La ONU vol guardar informació sobre l’organització dels seus països
+membres i de les províncies que aquests contenen, juntament amb el seu
+PIB (producte interior brut).</p>
+<p>La informació sobre una província determinada es guarda en el tuple
+següent:</p>
+<pre><code>    struct Provincia {
+        string nom;
+        string capital;
+        int habitants;
+        int area;   
+        double pib;
+    };</code></pre>
+<p>La informació sobre un pais determinat es guarda en el tuple
+següent:</p>
+<pre><code>    struct Pais {
+        string nom;
+        string capital;
+        vector&lt;Provincia&gt; provs;
+    };</code></pre>
+<p>La informació sobre tots els paisos es guarda en un vector de
+paisos:</p>
+<pre><code>    typedef vector&lt;Pais&gt; Paisos;</code></pre>
+<p>Utilitzant les definicions anteriors, implementeu la funció</p>
+<pre><code>    double pib(const Paisos&amp; p, char c, double d);</code></pre>
+<p>que retorni la suma dels productes interiors bruts de totes les
+províncies amb densitat estrictament superior a @d@ de tots els paisos
+en @p@ que comencin per la lletra @c@.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només cal enviar el procediment demanat; el programa principal serà
+ignorat.</p>
+<p>Seguiu estrictament la definició dels tipus de l’enunciat.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Jordi Petit</p>
+<p><span>Generació:</span> 2026-01-25T11:51:22.844Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

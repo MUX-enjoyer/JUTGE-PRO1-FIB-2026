@@ -1,0 +1,42 @@
+Primers perfectes
+
+Donat un natural n, sigui s(n) la suma dels dígits de n. En aquest
+exercici, direm que n és un primer perfecte si la seqüència infinita
+formada per n, s(n), s(s(n)), … només conté nombres primers. Per
+exemple, 977 és un primer perfecte, perquè tant 977, com 9 + 7 + 7 = 23,
+com 2 + 3 = 5, com 5, …, són tots nombres primers.
+
+Feu una funció recursiva que indiqui si un natural @n@ és un primer
+perfecte o no.
+
+Interfície
+
++-------:+:---------------------------------------------------+
+| C++    |     bool es_primer_perfecte(int n);                |
++--------+----------------------------------------------------+
+| C      |     int es_primer_perfecte(int n);                 |
++--------+----------------------------------------------------+
+| Java   |     public static boolean esPrimerPerfecte(int n); |
++--------+----------------------------------------------------+
+| Python |     es_primer_perfecte(n)  # returns bool          |
++--------+----------------------------------------------------+
+|        |     es_primer_perfecte(n: int) -> bool             |
++--------+----------------------------------------------------+
+
+Precondició
+
+Es compleix @n@  ≥ 0.
+
+Observació
+
+Només cal enviar el procediment demanat; el programa principal serà
+ignorat.
+
+Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T10:15:05.637Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

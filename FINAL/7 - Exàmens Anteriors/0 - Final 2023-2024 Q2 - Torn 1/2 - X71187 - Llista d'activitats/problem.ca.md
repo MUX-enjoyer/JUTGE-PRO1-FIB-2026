@@ -1,0 +1,158 @@
+# Llista d'activitats
+
+Al final d'aquest enunciat hi podeu trobar un programa a mig fer que
+haureu de completar. Concretament, hi han dues funcions que estan
+pendents d'implementar. A continuació us expliquem amb quines dades
+treballa el programa i què han de fer aquestes funcions.
+
+El programa treballa amb un tipus de dada `Activity`, que representa una
+activitat, que inclou el nom de l'activitat (name), l'instant de temps
+d'inici de l'activitat (t1), i l'instant de temps d'acabament de
+l'activitat (t2). Per simplificar, t1 i t2 son variables enteres, i el
+programa sempre treballa amb activitats correctament definides cumplint
+t1$<$t2:
+
+    struct Activity {
+      string name;
+      int t1,t2;
+    };
+
+El programa també treballa amb un tipus de dada `ListActivities`, que
+representa una llista d'activitats:
+
+    typedef vector<Activity> ListActivities;
+
+Haureu d'implementar una funció per a verificar que dues activitats son
+compatibles en temps, és a dir, que no se sol.lapen en temps. En el cas
+particular en que una de les activitats acaba exactament quan l'altra
+comença, es consideren compatibles.
+
+    bool compatibleActivities(Activity a, Activity b)
+
+A més a més, haureu d'implementar una funció que rep dues activitats i
+retorna cert si la primera és menor que la segona segons el criteri que
+descrivim a continuació. Una activitat és menor que una altra si comença
+estrictament abans que l'altra, o comença alhora que l'altra i acaba
+estrictament abans, o comença i acaba alhora que l'altra però el seu nom
+és menor que el nom de l'altra en ordre lexicogràfic.
+
+    bool smallerActivity(Activity a, Activity b)
+
+La funció anterior es fa servir des d'un altre lloc del programa per a
+ordenar totes les activitats.
+
+Completeu el següent codi a mig fer per tal de solucionar l'exercici:
+
+    #include <iostream>
+    #include <string>
+    #include <vector>
+    #include <algorithm>
+
+    // Here you can add more includes if you wish.
+
+    using namespace std;
+
+    struct Activity {
+      string name;
+      int t1, t2; // t1<t2 must be satisfied for a correct activity
+    };
+
+    typedef vector<Activity> ListActivities;
+
+    // Auxiliary functions (you can add more functions if you wish)
+
+    // Pre:  The input contains a description of an activity with the format:
+    //
+    //       name t1 t2
+    //
+    //       where name is a non-empty string with lowercase letters and t1<t2
+    // Post: Returns the activity read from the input adapted to the format of struct Activity.
+    Activity readActivity()
+    {
+      Activity a;
+      cin >> a.name >> a.t1 >> a.t2;
+      return a;
+    }
+
+    // Pre:  listactivities represents a list of correct activities
+    // Post: Prints all activities from first to last, one per line, and with the format:
+    //
+    //       name t1 t2
+    void printActivities(const ListActivities &listactivities)
+    {
+      for (int i = 0; i < int(listactivities.size()); i++) {
+        const Activity &a = listactivities[i];
+        cout << a.name << " " << a.t1 << " " << a.t2 << endl;
+      }
+    }
+
+    // Pre:  a, b represent correct activities.
+    // Post: Returns true iff the activities have a compatible timeline,
+    //       i.e. they do not overlap in time.
+    //       Note: if one of them finishes exactly when the other starts, then they are compatible.
+    bool compatibleActivities(Activity a, Activity b)
+    {
+      // Implement this function.
+      // ...
+    }
+
+    // Pre:  a, b represent correct activities.
+    // Post: Returns true iff one of the following conditions holds:
+    //         - a starts strictly before b.
+    //         - a and b start at the same time but a finishes before b.
+    //         - a and b coincide in start and end time, but a has lexicographically-smaller name than b.
+    bool smallerActivity(Activity a, Activity b)
+    {
+      // Implement this function.
+      // ...
+    }
+
+    int main()
+    {
+      ListActivities listactivities;
+      string command;
+      while (cin >> command) {
+        if (command == "NEW") {
+          listactivities.push_back(readActivity());
+        } else if (command == "SORT") {
+          sort(listactivities.begin(), listactivities.end(), smallerActivity);
+        } else if (command == "PRINT") {
+          cout << "Current list activities:" << endl;
+          printActivities(listactivities);
+          cout << endl;
+        } else if (command == "CHECKCOMPATIBLE") {
+          int i, j;
+          cin >> i >> j;
+          string namei = listactivities[i].name;
+          string namej = listactivities[j].name;
+          if (compatibleActivities(listactivities[i], listactivities[j]))
+            cout << "Activities " << namei << " and " << namej << " are compatible" << endl;
+          else
+            cout << "Activities " << namei << " and " << namej << " are incompatible" << endl;
+          cout << endl;
+        }
+      }
+    }
+
+## Entrada
+
+L'entrada consisteix en una llista de comandes per a crear noves
+activitats, ordenar-les, escriure-les totes, i comprovar si dues d'elles
+son compatibles. No us n'heu de preocupar massa perquè el main que us
+donem ja s'encarrega de cridar a les corresponents funcions per a
+manegar aquestes comandes.
+
+## Sortida
+
+La sortida mostra els resultats de les comandes. No us n'heu de
+preocupar massa perquè el main que us donem ja s'encarrega de cridar a
+les corresponents funcions per tal de produïr aquesta sortida.
+
+## Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T22:08:49.048Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

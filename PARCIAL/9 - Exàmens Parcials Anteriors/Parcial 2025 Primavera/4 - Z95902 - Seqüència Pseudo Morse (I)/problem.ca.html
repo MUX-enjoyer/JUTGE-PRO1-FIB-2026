@@ -1,0 +1,49 @@
+<h1 id="seqüència-pseudo-morse">Seqüència Pseudo-Morse</h1>
+<p>Una seqüència <strong>pseudo-morse</strong> és una seqüència que pot
+contenir aquests tres símbols:</p>
+<p><code>                                  0 1 *</code></p>
+<p>Una subseqüència de 0’s i 1’s representa un enter en base 2 escrit a
+l’inrevés. Per exemple, el 65 és, en binari:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>01000001</mn><annotation encoding="application/x-tex">01000001</annotation></semantics></math></p>
+<p>però escrit a l’inrevés és:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10000010</mn><annotation encoding="application/x-tex">10000010</annotation></semantics></math></p>
+<p>En una seqüència pseudo-morse totes les subseqüències màximes de 0’s
+i 1’s representen un caràcter ASCII. Això vol dir que el caràcter
+<code>*</code> separa subseqüències màximes. Per exemple,
+<code>10000010</code> representa el 65, és a dir, el caràcter
+<code>A</code> (recordeu que escrivim amb el bit de menys pes a
+l’esquerra de tot).</p>
+<p>Cal fer un programa que llegeixi una seqüència pseudo-morse i que
+transformi totes les subseqüències de 0’s i 1’s en caràcters ASCII.</p>
+<p>Per exemple, la seqüència:</p>
+<p><code>                00010010 * 11110010 * 00110010 * 10000010 *</code></p>
+<p>representa la seqüència <code>HOLA</code>:</p>
+<p><code>                00010010 * 11110010 * 00110010 * 10000010 *</code></p>
+<p><code>                  72         79         76         65</code></p>
+<p><code>                  H          O          L          A</code></p>
+<p>No totes les subseqüències de 0’s i 1’s han de tenir la mateixa mida.
+Per exemple, la seqüència:</p>
+<p><code>                00010010 * 1111001 * 0011001 * 1000001 *</code></p>
+<p>donaria el mateix resultat que la seqüència anterior (altrament dit:
+els zeros a la dreta són opcionals).</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Com que llegireu caràcters, no cal que tingueu en compte els espais,
+perquè quan feu <code>cin &gt;&gt; c</code> (on <code>char c;</code>) no
+agafa els espais.</p>
+<p>Òbviament, no podeu fer servir la funció d’exponenciació ni tampoc no
+en podeu implementar cap vosaltres (penalització de -8 punts a la
+correcció manual).</p>
+<p>El format de la seqüència d’entrada sempre serà: 0’s i 1’s i un
+<code>*</code>.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Pel canal d’entrada estàndard: una seqüència pseudo-Morse
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>La transformació en ASCII de la seqüència pseudo-Morse
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T20:03:45.020Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

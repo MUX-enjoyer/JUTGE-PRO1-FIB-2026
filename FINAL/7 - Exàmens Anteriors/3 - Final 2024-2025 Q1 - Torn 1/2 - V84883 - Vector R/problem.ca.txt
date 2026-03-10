@@ -1,0 +1,40 @@
+Vector R
+
+Un vector R és un vector que està compost de dues parts:
+
+v = x₁ x₂ x₃ x₄…x_(n) y₁ y₂ y₃…y_(m)
+
+tals que la part x₁…x_(n) i la part y₁…y_(m) estan ordenades de manera
+estrictament creixent però y_(m) < x₁. A més tenim que n, m > 0. És a
+dir, cap de totes dues parts és buida.
+
+Cal implementar la funció int vectorR(const vector<int>& v) amb la
+següent especificació:
+
+PRE: v és un vector R i ∣ v ∣ ≥ 3.
+
+POST: La posició en què es troba y₁ a v.
+
+Observació
+
+Només cal que envieu la funció que us demanem i les accions i funcions
+que vosaltres mateixos definiu. La resta no es tindrà en compte.
+
+Entrada
+
+Un nombre indeterminat de vectors R amb el següent format: un enter que
+n’indica la mida, i després el vector R. Tot vector R té una mida més
+gran o igual a 3.
+
+Sortida
+
+La posició dins del vector en què es troba y₁.
+
+Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T13:13:17.719Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

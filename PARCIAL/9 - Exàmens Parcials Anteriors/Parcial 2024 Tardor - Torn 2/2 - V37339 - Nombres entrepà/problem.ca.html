@@ -1,0 +1,51 @@
+<h1 id="nombres-entrepà">Nombres entrepà</h1>
+<p>Definim com a número <em>entrepà</em> un natural
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+amb només dos dígits
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>
+diferents, que formen una seqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>e</mi><mn>1</mn></msub><msub><mi>e</mi><mn>2</mn></msub><mi>⋯</mi><msub><mi>e</mi><mi>k</mi></msub><mi>d</mi></mrow><annotation encoding="application/x-tex">de_1e_2\cdots e_kd</annotation></semantics></math>.
+És a dir, el digít
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+és el primer i l’últim dígit de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+(és el pa), i el dígit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>
+està repetit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k \geq 1</annotation></semantics></math>
+vegades entremig dels dos dígits
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+(és l’embotit o el farciment). Per exemple, 121 és un número entrepà amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">d = 1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">e = 2</annotation></semantics></math>,
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k = 1</annotation></semantics></math>.
+El 4004 és un número entrepà amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">d = 4</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">e = 0</annotation></semantics></math>,
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">k = 2</annotation></semantics></math>.</p>
+<p>Més exemples de números entrepà: 7227, 41114, 966669, 10001 i
+535.<br />
+Exemples de números que <strong>no</strong> són entrepà: 9, 12, 113311,
+7878, 1234, 9991, 1000.</p>
+<p>Implementa una <strong>funció</strong> <code>is_sandwich</code> que
+rep un nombre natural i retorna <code>true</code> si és un número
+entrepà i <code>false</code> en cas contrari.</p>
+<p>La capçalera de la funció ha de ser:</p>
+<pre><code>/**
+ * @pre  n &gt;= 0
+ * @post retorna cert si n és un número entrepà, fals en cas contrari
+ */
+bool is_sandwich(int n);</code></pre>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només cal enviar la funció demanada; el programa principal serà
+ignorat.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T13:08:40.923Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

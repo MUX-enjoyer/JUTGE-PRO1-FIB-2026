@@ -1,0 +1,87 @@
+<h1 id="plega-matriu">Plega Matriu</h1>
+<p>Sigui
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+una matriu quadrada
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>N</mi><mo>×</mo><mn>2</mn><mi>N</mi></mrow><annotation encoding="application/x-tex">2N \times 2N</annotation></semantics></math>
+d’enters. El <strong>plegat</strong> d’una matriu consisteix en plegar
+la matriu primer per la línia horitzontal que divideix la matriu, i
+després per la línia vertical.</p>
+<p>Per exemple, sigui la següent matriu amb quatre quadrants
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>,</mo><mi>B</mi><mo>,</mo><mi>C</mi><mo>,</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">A,B,C,D</annotation></semantics></math>,
+el plegat fa que la part superior
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A,B</annotation></semantics></math>)
+se superposi amb la part inferior
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>,</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">C,D</annotation></semantics></math>),
+i el segon plegat fa que la part de la dreta
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>,</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">B,D</annotation></semantics></math>)
+se superposi amb la de l’esquerra (A,C).</p>
+<div class="center">
+<pre><code>           =============        =============      ===========
+           |     |     |        |     |     |      |         |                
+           |  A  |  B  |   ==&gt;  | A,C | B,D |  ==&gt; | A,B,C,D |
+           |     |     |        |     |     |      |         |        
+plego --&gt;  -------------        -------------      -----------     
+           |     |     |              ^
+           |  C  |  D  |              |
+           |     |     |              |
+           =============            plego</code></pre>
+</div>
+<p>Fixeu-vos que en aquest cas, la matriu passa de ser de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>N</mi><mo>×</mo><mn>2</mn><mi>N</mi></mrow><annotation encoding="application/x-tex">2N \times 2N</annotation></semantics></math>
+a una matriu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \times N</annotation></semantics></math>
+en què cada posició té 4 números de la matriu original
+<strong>superposats</strong>.</p>
+<p>El següent exemple mostra quines posicions se superposen amb altres
+segons el número. Això vol dir que totes les quatre posicions que tenen
+el número
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+se superposen, les que tenen el número
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+també, etc.</p>
+<pre><code>                          &lt;---- 2N ------&gt;
+                          ################  ^
+                          # 1  2  | 2  1 #  |
+                          # 3  4  | 4  3 #  |
+                          #--------------#  2N
+                          # 3  4  | 4  3 #  |
+                          # 1  2  | 2  1 #  |
+                          ################  v
+</code></pre>
+<p>Cal implementar l’acció
+<code>void plegaMatriu(const Matriu&amp; m, Matriu&amp; r)</code> amb la
+següent especificació:</p>
+<p><code>PRE: </code>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+una matriu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>N</mi><mo>×</mo><mn>2</mn><mi>N</mi></mrow><annotation encoding="application/x-tex">2N \times 2N</annotation></semantics></math>
+d’enters.</p>
+<p><code>POST:</code>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+és una matriu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \times N</annotation></semantics></math>
+en què en cada posició té la <strong>suma</strong> dels elements
+d’<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+superposats pel <strong>plegat</strong>
+d’<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p><strong>IMPORTANT:</strong> Només cal que envieu l’acció que us
+demanem i les accions i funcions que vosaltres mateixos definiu.
+Mantingueu, però, les definicions de tipus i els
+<code>#include</code>s.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Una matriu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>N</mi><mo>×</mo><mn>2</mn><mi>N</mi></mrow><annotation encoding="application/x-tex">2N \times 2N</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Una matriu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \times N</annotation></semantics></math>
+en què en cada posició té la <strong>suma</strong> dels elements
+d’<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+superposats pel <strong>plegat</strong>
+d’<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T12:52:06.650Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

@@ -1,0 +1,94 @@
+<h1 id="files-permutades">Files Permutades</h1>
+<p>Sigui una matriu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+quadrada
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math>
+d’enters
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n \geq 1</annotation></semantics></math>),
+en la qual sabem que els valors d’una mateixa fila són sempre tots
+diferents entre ells (és a dir, no hi ha valors repetits), i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1000</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">M_{ij} \in [0, 1000]</annotation></semantics></math>,
+o sigui, els valors de la matriu estan entre 0 i 1000, ambdós
+inclosos.</p>
+<p>Diem que la matriu satisfà la propietat de <strong>files
+permutades</strong> si i només si:</p>
+<ul>
+<li><p>Per a cada parell de files
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>,
+amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>≠</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i \neq j</annotation></semantics></math>,
+la fila
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+és una permutació de la fila
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>.
+És a dir, cada fila conté els mateixos valors que les altres files, però
+en un ordre diferent. (En particular, això implica que totes les files
+són diferents.)</p></li>
+</ul>
+<p>Per exemple, considerem la matriu de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">3 \times 3</annotation></semantics></math>:</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Aquesta matriu satisfà la propietat perquè totes les files contenen
+els valors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1, 2, 3\}</annotation></semantics></math>,
+i són totes diferents.</p>
+<p>Escriu una funció <code>te_files_permutades</code> amb la següent
+declaració i especificació:</p>
+<pre><code>/*
+ * @pre  M és quadrada i M.size() &gt; 0
+ *       1 &lt;= M[i][j] &lt;= 1000
+ *       Els valors d&#39;una mateixa fila són tots diferents.
+ *
+ * @post Retorna `true` si i només si la matriu satisfà les 
+ *       següents condicions:
+ *       - Totes les files són diferents.
+ *       - Totes les files són permutacions entre elles.
+ */
+bool te_files_permutades(const vector&lt;vector&lt;int&gt;&gt;&amp; M);</code></pre>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>La icona de nom &quot;.CPP&quot; conté el programa principal per fer proves.
+<strong>Només</strong> cal enviar la funció que us demanem (i les
+funcions que hagueu pogut declarar vosaltres). Podeu començar amb
+<code>main.cc</code> i comentar o esborrar les funcions
+<code>llegeix_matriu</code> i <code>main</code> per fer l’enviament.</p>
+<p>En aquest problema és molt avantatjós utilitzar la comparació de
+vectors (és a dir, comparar-los amb els operadors <code>==</code> i
+<code>!=</code>). Per exemple:</p>
+<pre><code>vector&lt;int&gt; a = {1, 2, 3}, b = {1, 2, 3}, c = {4, 5, 6};
+if (a == b) { cout &lt;&lt; &quot;Iguals!&quot; &lt;&lt; endl; }
+if (a != c) { cout &lt;&lt; &quot;Diferents!&quot; &lt;&lt; endl; }</code></pre>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada és una seqüència de matrius quadrades. De la lectura ja se
+n’encarrega el programa principal.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>La sortida són els resultats per a cada matriu: &quot;<code>yes</code>&quot; si
+satisfà la propietat, &quot;<code>no</code>&quot; en cas contrari. De l’escriptura
+també se n’encarrega el programa principal.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Pau Fernández</p>
+<p><span>Generació:</span> 2026-01-25T12:43:05.754Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

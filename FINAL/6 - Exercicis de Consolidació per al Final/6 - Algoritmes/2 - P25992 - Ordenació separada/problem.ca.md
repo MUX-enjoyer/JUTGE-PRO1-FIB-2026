@@ -1,0 +1,25 @@
+# Ordenació separada
+
+Donada una seqüència de naturals, escriviu primer els nombres parells de
+petit a gran, i a continuació els nombres senars de gran a petit.
+
+## Entrada
+
+L'entrada consisteix en zero o més casos. Cada cas consisteix en una
+línia amb com a molt 1000 naturals estrictament positius. Cada línia
+acaba amb un 0 que en marca el final.
+
+## Sortida
+
+Per a cada cas, escriviu en una línia els nombres parells en ordre no
+decreixent, i en la línia següent els nombres senars en ordre no
+creixent.
+
+## Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T10:27:15.873Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

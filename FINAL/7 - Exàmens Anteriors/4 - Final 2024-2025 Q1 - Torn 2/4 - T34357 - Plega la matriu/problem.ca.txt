@@ -1,0 +1,69 @@
+Plega Matriu
+
+Sigui M una matriu quadrada 2N × 2N d’enters. El plegat d’una matriu
+consisteix en plegar la matriu primer per la línia horitzontal que
+divideix la matriu, i després per la línia vertical.
+
+Per exemple, sigui la següent matriu amb quatre quadrants A, B, C, D, el
+plegat fa que la part superior (A, B) se superposi amb la part inferior
+(C, D), i el segon plegat fa que la part de la dreta (B, D) se superposi
+amb la de l’esquerra (A,C).
+
+               =============        =============      ===========
+               |     |     |        |     |     |      |         |                
+               |  A  |  B  |   ==>  | A,C | B,D |  ==> | A,B,C,D |
+               |     |     |        |     |     |      |         |        
+    plego -->  -------------        -------------      -----------     
+               |     |     |              ^
+               |  C  |  D  |              |
+               |     |     |              |
+               =============            plego
+
+Fixeu-vos que en aquest cas, la matriu passa de ser de 2N × 2N a una
+matriu N × N en què cada posició té 4 números de la matriu original
+superposats.
+
+El següent exemple mostra quines posicions se superposen amb altres
+segons el número. Això vol dir que totes les quatre posicions que tenen
+el número 1 se superposen, les que tenen el número 2 també, etc.
+
+                              <---- 2N ------>
+                              ################  ^
+                              # 1  2  | 2  1 #  |
+                              # 3  4  | 4  3 #  |
+                              #--------------#  2N
+                              # 3  4  | 4  3 #  |
+                              # 1  2  | 2  1 #  |
+                              ################  v
+
+Cal implementar l’acció void plegaMatriu(const Matriu& m, Matriu& r) amb
+la següent especificació:
+
+PRE:  m una matriu 2N × 2N d’enters.
+
+POST: r és una matriu N × N en què en cada posició té la suma dels
+elements d’m superposats pel plegat d’m.
+
+Observació
+
+IMPORTANT: Només cal que envieu l’acció que us demanem i les accions i
+funcions que vosaltres mateixos definiu. Mantingueu, però, les
+definicions de tipus i els #includes.
+
+Entrada
+
+Una matriu 2N × 2N.
+
+Sortida
+
+Una matriu N × N en què en cada posició té la suma dels elements d’m
+superposats pel plegat d’m.
+
+Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T12:52:06.650Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

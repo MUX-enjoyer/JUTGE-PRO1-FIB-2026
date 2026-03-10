@@ -1,0 +1,22 @@
+Següent primer
+
+Feu un programa que llegeixi una seqüència de nombres primers i, per a
+cadascun, escrigui el següent nombre primer.
+
+Entrada
+
+L’entrada són tot nombres naturals, i consisteix en una seqüència de
+nombres primers acabada en un nombre no primer.
+
+Sortida
+
+Per a cada primer donat, escriviu en una línia el següent primer.
+
+Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T11:01:50.034Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

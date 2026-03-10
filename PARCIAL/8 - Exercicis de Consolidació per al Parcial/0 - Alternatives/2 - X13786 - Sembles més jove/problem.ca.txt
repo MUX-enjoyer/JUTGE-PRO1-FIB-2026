@@ -1,0 +1,46 @@
+Sembles més jove
+
+Escriviu un programa que llegeix línies. A cada línia d’entrada, algú
+diu quina edat té. Com a resposta, el programa ha de dir que aquest algú
+sembla més jove, i indicar una edat menor.
+
+Per a edats entre 10 i 19 anys, el programa indicarà exactament 1 any
+menys.
+
+Per a edats entre 20 i 29 anys, el programa indicarà exactament 2 anys
+menys.
+
+Per a edats entre 30 i 39 anys, el programa indicarà exactament 3 anys
+menys.
+
+I així successivament.
+
+Seguiu el format dels exemples.
+
+Entrada
+
+Cada línia de l’entrada és de la forma:
+
+    My name is NAME and I am N years old.
+
+A on NAME és un string no buit sense espais i N és un natural major o
+igual a 10.
+
+Sortida
+
+Per a cada cas d’entrada, la sortida conté una línia de la forma:
+
+    NAME, you look younger. I thought you were M years old.
+
+A on NAME és el mateix string de la entrada, i M s’obté a partir de N
+restant un nombre, que serà 1 si N està entre 10 i 19, o 2 si N està
+entre 20 i 29, o 3 si N està entre 30 i 39, i així successivament.
+
+Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T13:43:38.941Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

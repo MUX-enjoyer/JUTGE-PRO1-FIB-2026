@@ -1,0 +1,70 @@
+<h1 id="posicions-dun-màxim-a-dues-seqüències">Posicions d’un màxim a
+dues seqüències</h1>
+<p>Donades dues seqüències
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math>
+de naturals no negatius acabades ambdues en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>,
+feu un programa que calculi el màxim
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+dels elements de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math>
+i indiqui la posició de la seva darrera aparició dins de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math>
+i la seva primera aparició dins de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math>.</p>
+<p>En el vostre programa, heu d’implementar i fer servir el següent
+procediment:</p>
+<blockquote>
+<p><strong>void</strong> infoSequencia(<strong>int</strong>&amp;
+<em>max</em>, <strong>int</strong>&amp; <em>lpos</em>);</p>
+</blockquote>
+<p>que llegeix una seqüència acabada en 0 i calcula els paràmetres
+<em>max</em> i <em>lpos</em>. En finalitzar l’execució del procediment,
+el paràmetre <em>max</em> tindrà el valor més gran que apareix a la
+seqüència i el paràmetre <em>lpos</em> ha d’indicar la última posició on
+apareix el valor màxim.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix en dues seqüències
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math>
+de naturals estrictament positius, ambdues acabades en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>.
+La seqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math>
+no és buida (és a dir, té com a mínim un element diferent de la marca de
+final), però la seqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math>
+pot ser-ho.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>La sortida està formada per tres informacions: L’element màxim de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math>,
+la posició de la darrera aparició de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+dins de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math>,
+i la posició de la primera aparició de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+dins de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math>.
+Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+no apareix a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math>,
+o bé
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math>
+és buida (i, per tant,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+tampoc hi apareix), s’ha d’indicar convenientment.</p>
+<p> <br />
+Seguiu el format especificat als exemples.</p>
+<p> <br />
+</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Maria J. Serna i Maria J. Blesa</p>
+<p><span>Generació:</span> 2026-01-25T21:50:39.466Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

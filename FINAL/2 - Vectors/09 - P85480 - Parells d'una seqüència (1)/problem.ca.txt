@@ -1,0 +1,33 @@
+Parells d’una seqüència (1)
+
+Feu un programa que llegeixi seqüències de naturals, i que per a
+cadascuna indiqui si té dos elements tals que la seva suma és un nombre
+primer.
+
+Entrada
+
+L’entrada consisteix en diverses seqüències, cadascuna en una línia.
+Cada seqüència consisteix en un natural n, seguit de n naturals
+x₁, …, x_(n).
+
+Sortida
+
+Per a cada seqüència d’entrada, escriviu “si” o “no” depenent de si és
+possible trobar dos elements x_(i) i x_(j) (amb i ≠ j) de manera que
+x_(i) + x_(j) sigui un nombre primer.
+
+Observació
+
+Usant vectors, és possible precalcular quins nombres són primers i quins
+no fins a un cert màxim. En aquest exercici no és possible perquè no es
+coneix cap màxim, i no és necessari per qüestions d’eficiència perquè
+tots els nombres són prou petits.
+
+Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T12:06:02.465Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

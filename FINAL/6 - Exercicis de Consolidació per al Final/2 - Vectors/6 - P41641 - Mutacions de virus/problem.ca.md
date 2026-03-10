@@ -1,0 +1,73 @@
+# Mutacions de virus
+
+Recordeu que el codi genètic (vegeu problema P36671) és un conjunt de
+regles que tradueix seqüències de nucleòtids a proteïnes. Quan es
+treballa amb ADN en lloc d'ARN missatger, les seqüències de nucleòtids
+canvien la base `U` per la base `T`.
+
+Sovint, com a reacció de resistència contra els fàrmacs, els virus muten
+el seu ADN tot mantenint la seva funcionalitat, és a dir, sintetitzant
+la mateixa proteïna. Per exemple, si un virus tingués la seqüència
+
+::: center
+\(1\) `GCCAATGACTAAGGCCTAAAGA`
+:::
+
+llavors sintetitzaria la proteïna *Thr--Lys--Ala*. Si el virus mutés a
+la seqüència (2)
+
+::: center
+\(1\) `GCCAATGAC`*`T`*`AAGGCCTAAAGA`\
+(2) `GCCAATGAC`**`C`**`AACGCCTAAAGA`
+:::
+
+(només ha canviat la desena base), aquest continuaria sintetitzant
+*Thr--Lys--Ala*. En aquest cas, diem que s'ha produït una (o més)
+mutacions equivalents.
+
+En canvi, si el virus mutés a la seqüència (3)
+
+::: center
+\(1\) `GCCAATG`*`A`*`CTAAG`*`G`*`CCTAAAGA`\
+(3) `GCCAATG`**`T`**`CTAAG`**`A`**`CCTAAAGA`
+:::
+
+(només la vuitena i la catorzena bases), llavors sintetitzaria
+*Ser--Lys--Thr*, fet que es nota indicant `Thr-1-Ser,Ala-3-Thr` (el
+número indica a quin codó s'ha produït la mutació).
+
+Feu un programa que indiqui si parells de seqüències d'ADN representen
+mutacions equivalents i que, en cas negatiu, indiqui quines mutacions
+s'han produït. El programa també ha de dir quantes bases són diferents
+entre el codó `ATG` i el codó d'*Stop*.
+
+## Entrada
+
+L'entrada comença amb un natural $k$. Després, venen $k$ parells de
+seqüències d'ADN de la mateixa llargada. Cada seqüència d'ADN és formada
+per una tira de caràcters '`A`', '`C`', '`T`' i '`G`' en una línia sense
+blancs.
+
+Totes les seqüències d'ADN tenen un codó `ATG` abans d'un codó d'*Stop*.
+El codó `ATG` i el codó d'*Stop* no muten mai en cap parell de
+seqüències ni cap mutació pot introduir un nou codó d'*Stop*. Els
+parells de seqüències sempre tenen la mateixa llargada.
+
+## Sortida
+
+Per a cada parell de seqüències d'ADN de l'entrada, cal indicar si són o
+no són equivalents. En el cas que no siguin equivalents, cal indicar
+tots els canvis que han produït les mutacions segons la notació
+estàndard descrita anteriorment. El nombre de bases diferents s'ha
+d'escriure al final de la línia, entre parèntesis.
+
+Seguiu el format de l'exemple.
+
+## Informació del problema
+
+Autoria: Lluís Alemany Puig
+
+Generació: 2026-01-25T11:06:18.118Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

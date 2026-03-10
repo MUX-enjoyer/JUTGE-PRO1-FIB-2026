@@ -1,0 +1,71 @@
+Suma Fruites
+
+Fes un programa que llegeix una llista de fruites amb quantitats i
+produeixi una llista ordenada pel nom de la fruita amb les quantitats
+acumulades per a cada fruita.
+
+Es tracta de completar el següent programa, implementant el subprograma
+add_fruit:
+
+    #include <vector>
+    #include <iostream>
+    using namespace std;
+
+    struct Fruit {
+       string name;
+       int amount;
+    };
+
+    // Cal implementar aquesta funció:
+    void add_fruit(vector<Fruit>& fruits, const Fruit& fruit);
+
+    int main() {
+        vector<Fruit> fruits;
+        Fruit f;
+        while (cin >> f.name >> f.amount) {
+            add_fruit(fruits, f);  
+        }
+        for (int i = 0; i < fruits.size(); i++) {
+            cout << fruits[i].name << ' ' << fruits[i].amount << endl;
+        }
+        return 0;
+    }
+
+El subprograma add_fruit ha de fer dues coses. Primer cercar la fruita,
+per si ja és al vector fruits, i si hi és, acumular la quantitat llegida
+al total. Per altra banda, si es tracta del cas en què veiem certa
+fruita per primera vegada, cal insertar-la al vector en el seu lloc (per
+mantenir l’ordre).
+
+Ambdues operacions, en el cas òptim, requeririen una cerca dicotòmica,
+però en aquest problema es pot fer servir una cerca linial, i per a la
+inserció es pot afegir la fruita al final del vector i desplaçar-la cap
+avall mentre el nom de la fruita anterior sigui major en l’ordre
+lexicogràfic.
+
+Entrada
+
+Una seqüència de parelles de fruita (un string) i la seva quantitat (un
+enter). Les fruites típicament estaran repetides. S’ha de considerar que
+el nombre de fruites possibles diferents és molt gran (desenes de
+milers).
+
+Sortida
+
+S’ha de produir una llista de les fruites ordenades pel nom, amb una
+fruita a cada línia, i a on cada fruita va acompañada d’un enter que és
+la suma de les quantitats llegides per a aquesta fruita a l’entrada.
+
+Observació
+
+Només cal enviar el procediment demanat; el programa principal serà
+ignorat.
+
+Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T12:46:24.925Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

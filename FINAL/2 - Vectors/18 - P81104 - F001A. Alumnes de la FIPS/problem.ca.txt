@@ -1,0 +1,69 @@
+F001A. Alumnes de la FIPS
+
+La Facultat d’Informàtica del Poble Sec guarda la informació dels seus
+alumnes i de les notes que han obtingut a les assignatures que han
+cursat en l’estructura de dades següent:
+
+        struct Alumne {
+            string nom;                 // Nom de l'alumne
+            int dni;                    // DNI de l'alumne
+            vector<Assignatura> ass;    // Llista d'assignatures de l'alumne
+        };
+
+on |Assignatura| ve donat per:
+
+        struct Assignatura {
+            string nom;                 // Nom de l'assignatura
+            double nota;                // Entre 0 i 10, -1 indica NP
+        };
+
+Usant aquestes definicions, implementeu la funció
+
+        double nota(const vector<Alumne>& alums, int dni, string nom);
+
+que busqui i retorni la nota que l’alumne |dni| ha obtingut a
+l’assignatura |nom|. Si l’alumne no existeix, no ha cursat l’assignatura
+demanada, o hi ha tret un NP, cal retornar −1.
+
+Implementeu també la funció
+
+    double mitjana(const vector<Assignatura>& ass);
+
+que calculi i retorni la nota mitjana de les assignatures del vector
+|ass|. Els NP no compten en el càlcul de la mitjana. Si totes les notes
+són NP o el vector és buit, considereu que la nota mitjana és −1.
+
+Usant les dues funcions anteriors, implementeu l’acció
+
+        void compta(const vector<Alumne>& alums, int dni, string nom, int& com);
+
+que compti i deixi en el paràmetre de sortida |com| el nombre d’alumnes
+del vector |alums| que tenen una nota mitjana estrictament superior a la
+nota que l’alumne |dni| ha obtingut a l’assignatura |nom|.
+
+Precondició
+
+No hi ha alumnes repetits. A la llista d’assignatures de cada alumne no
+hi ha assignatures repetides.
+
+Observació
+
+El programa principal ja se us dóna implementat; no el canvieu. Aquest
+llegeix les dades dels alumnes, i després escriu el resultat de la
+vostra acció |compta()| per a cada combinació d’alumne i assignatura de
+l’entrada.
+
+(A l’exemple, les notes mitjanes de la Mònica, en Joan, en Pere,
+l’Alícia, en Pol, l’Àstrid i en Jordi són respectivament 9.5, 8, 0,
+5.25, −1, 9.25 i −1. El 2 de la sortida es correspon a la Mònica i
+l’Àstrid. El 1 es correspon a la Mònica. Els 5 es corresponen a la
+Mònica, en Joan, en Pere, l’Alícia i l’Àstrid.)
+
+Informació del problema
+
+Autoria: Professorat de P1
+
+Generació: 2026-01-25T11:52:49.335Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

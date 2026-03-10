@@ -1,0 +1,41 @@
+<h1 id="f002a.-infixos">F002A. Infixos</h1>
+<p>Feu un programa que llegeixi una seqüència de paraules i que
+escrigui, per a cada paraula, totes les altres paraules de la seqüència
+contingudes en ella.</p>
+<p>El vostre programa ha d’implementar i utilitzar la funció</p>
+<pre><code>    bool conte(string s1, string s2);</code></pre>
+<p>que indica si la paraula |s1| conté la paraula |s2| sota la
+precondició que la llargada de |s1| és més gran o igual que la llargada
+de |s2|.</p>
+<p>Per exemple, |conte(&quot;remor&quot;, &quot;em&quot;)|, |conte(&quot;remor&quot;, &quot;remor&quot;)|,
+|conte(&quot;remor&quot;, &quot;mor&quot;)| i<br />
+|conte(&quot;remor&quot;, &quot;rem&quot;)| han de retornar |true|, però, en canvi,
+|conte(&quot;remor&quot;, &quot;eo&quot;)|<br />
+i |conte(&quot;remor&quot;, &quot;rom&quot;)| han de retornar |false|.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix en un natural
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+seguit de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+paraules diferents
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>p</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">p_1,\dots,p_n</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Cal escriure una línia per a cada
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>p</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">p_1,\dots,p_n</annotation></semantics></math>
+en aquest ordre. Cada línia comença amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mi>i</mi></msub><annotation encoding="application/x-tex">p_i</annotation></semantics></math>,
+seguida del símbol de dos punts i de la llista de totes les paraules de
+l’entrada contingudes dins de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mi>i</mi></msub><annotation encoding="application/x-tex">p_i</annotation></semantics></math>,
+en el mateix ordre de l’entrada. Fixeu-vos que la llista corresponent a
+cada
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mi>i</mi></msub><annotation encoding="application/x-tex">p_i</annotation></semantics></math>
+sempre inclou la pròpia
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mi>i</mi></msub><annotation encoding="application/x-tex">p_i</annotation></semantics></math>,
+ja que tota paraula es conté a ella mateixa.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Professorat de P1</p>
+<p><span>Generació:</span> 2026-01-25T10:38:54.374Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

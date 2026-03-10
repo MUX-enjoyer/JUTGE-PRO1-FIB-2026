@@ -1,0 +1,65 @@
+<h1 id="vowel-streaks">Vowel Streaks</h1>
+<p>Una paraula &quot;extruida&quot; és aquella en que té una o més vocals, i
+alguna d’elles té un nombre de repeticions major que 1. Per exemple,
+&quot;boneeees&quot; és una paraula extruida i &quot;miiiiira&quot; i &quot;ooooleeee&quot; també.
+<em>No</em> són paraules extruides: &quot;pa&quot;, &quot;sol&quot;, i &quot;torus&quot;.</p>
+<p>Donada una paraula &quot;extruida&quot;, les seves repeticions de vocals es
+poden representar amb un vector. Si la vocal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+és la
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>-èssima
+de la paraula, la casella
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math>
+del vector contindrà el nombre de repeticions de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>.
+És a dir, les repeticions de la primera vocal van a la casella 0 del
+vector, les de la segona vocal a la casella 1, etc. El vector, doncs,
+tindrà un tamany igual que el nombre de vocals de la paraula (que pot
+ser 0).</p>
+<p>Feu una funció <code>vowel_streaks</code> que, donada una paraula
+&quot;extruida&quot;, retorna el vector de les repeticions de vocals que la
+defineixen. La declaració és la següent:</p>
+<pre><code>/**
+ * @brief   Retorna un vector amb els nombres de repeticions de 
+ *          les vocals de la paraula, per ordre d&#39;aparició.
+ *
+ * Exemples:
+ *   vowel_streaks(&quot;eeoo&quot;) -&gt; [2, 2]
+ *   vowel_streaks(&quot;aeeiouu&quot;) -&gt; [1, 2, 1, 1, 2]
+ *   vowel_streaks(&quot;paraaulaaa&quot;) -&gt; [1, 2, 1, 3]
+ *   vowel_streaks(&quot;aaaabrakadaaavraaaa&quot;) -&gt; [4, 1, 1, 3, 4]
+ *
+ * @returns Un vector d&#39;enters a on cada enter v[i] és el nombre 
+ *          de repeticions de la vocal (i+1)-èssima.
+ * 
+ * @pre     `word` està formada per caràcters en minúscules i pot 
+ *          ser una paraula no &quot;extruida&quot;
+ */
+vector&lt;int&gt; vowel_streaks(string word);</code></pre>
+<p>Es pot suposar que les paraules totes estan compostes de lletres
+minúscules sense accents ni signes de puntuació.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Descarregueu el programa principal, que té la funció declarada, i
+treballeu directament en aquest fitxer. Un cop feta la funció podeu
+enviar al Jutge el fitxer sencer perquè la funció <code>main</code>
+s’ignorarà.</p>
+<p>Recordeu que un <code>string</code> és, en essència, un vector de
+caràcters, i té molts mètodes equivalents als d’un
+<code>vector</code>.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Una seqüència de paraules, algunes &quot;extruides&quot; i altres no. La
+seqüència no té sentinella. El programa principal ja fa aquesta lectura
+i crida la funció <code>vowel_streaks</code> per a cadascuna.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>El programa principal ja s’encarrega de la sortida, no cal programar
+res d’això. La sortida és com segueix. Per a cada paraula de l’entrada
+es produeix una línia a la sortida. Si la paraula no té vocals, es
+mostra un guió. Si la paraula té vocals, es mostra la seqüència de
+repeticions tal com són retornades per <code>vowel_streaks</code>, amb
+els nombres separats per espais.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Pau Fernández</p>
+<p><span>Generació:</span> 2026-01-25T13:07:03.537Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

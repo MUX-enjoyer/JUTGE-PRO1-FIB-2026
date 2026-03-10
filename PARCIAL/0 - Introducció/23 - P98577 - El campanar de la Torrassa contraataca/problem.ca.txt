@@ -1,0 +1,39 @@
+El campanar de la Torrassa contraataca
+
+[image]
+
+El Campanar de la Torrassa és ben conegut per molestar els veïns amb les
+seves campanades. Recentment, el capellà ha decidit iniciar una
+col·lecta per posar una nova campana de ferro a dalt del campanar. Els
+seus plans són fer sonar la campana cada cop que les busques del
+rellotge se solapin. Així, per exemple, la nova campana tocarà a les
+12:00 i cap a les 13:05. Segons el capellà, aquesta innovació doblarà el
+nombre de fidels (cosa que hauria de ser fàcil perquè l’església quasi
+sempre és buida).
+
+Abans d’autoritzar-ho, el bisbat vol saber el nombre de cops que la
+campana tocarà en un període de temps llarg. En particular, donat un
+instant inicial (h:m) i una durada de ℓ minuts, quantes vegades sonarà
+la campana durant tota aquesta estona?
+
+Entrada
+
+L’entrada consisteix en diversos casos, cadascun amb tres enters h, m i
+ℓ. Podeu assumir 0 ≤ h ≤ 23, 0 ≤ m ≤ 59, i 0 ≤ ℓ ≤ 2³⁰.
+
+Sortida
+
+Per a cada cas, escriviu el nombre de vegades que la nova campana sonarà
+començant a les (h:m) per un període de ℓ minuts. Tingueu en compte que,
+per culpa d’un petit retard, la campana sonarà vint-i-quatre milisegons
+després que les busques del rellotge coïncideixin.
+
+Informació del problema
+
+Autoria: Unknown
+Traducció: Jordi Petit
+
+Generació: 2026-01-25T12:18:29.848Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

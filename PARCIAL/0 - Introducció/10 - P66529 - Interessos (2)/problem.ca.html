@@ -1,0 +1,44 @@
+<h1 id="interessos-2">Interessos (2)</h1>
+<p>Considereu una inversió de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+euros en un dipòsit que us dóna un interès
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+(expressat en %) anual. Suposeu, però, que es cobra una part
+proporcional dels interessos cada cert temps, el qual és un divisor d’un
+any (per exemple, un mes, o un trimestre, …). Sigui
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+el benefici obtingut al final d’un any, suposant que tots els interessos
+s’acumulen sempre al capital inicial. La taxa anual equivalent (TAE) de
+la inversió es defineix com
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>b</mi><mi>/</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">100b/c</annotation></semantics></math>.</p>
+<p>Per exemple, suposeu que invertiu 1000 euros en un dipòsit amb un
+interès d’un 10%, cobrat semestralment. Després de sis mesos cobreu un
+5% dels 1000 euros, i teniu un total de 1050 euros. Després de sis mesos
+més cobreu un 5% dels 1050 euros (és a dir, 52.5 euros), i obteniu un
+capital final de 1102.5 euros, que es correspon a un benefici de 102.5
+euros. Per tant, el TAE és
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>⋅</mo><mn>102.5</mn><mi>/</mi><mn>1000</mn><mo>=</mo><mn>10.25</mn></mrow><annotation encoding="application/x-tex">100 \cdot 102.5/1000 = 10.25</annotation></semantics></math>.</p>
+<p>Feu un programa que calculi el TAE corresponent a un dipòsit
+donat.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix en l’interès
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+(un nombre real estrictament positiu), seguit de la paraula
+“<code>setmanal</code>”, “<code>mensual</code>”,
+“<code>trimestral</code>”, o “<code>semestral</code>”. Per fer els
+càlculs, suposeu que un any té exactament 52 setmanes.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Escriviu el TAE amb 4 decimals. Fixeu-vos que no us cal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+per calcular-lo.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Si programeu en C++, feu servir el tipus <code>double</code>, i poseu
+aquestes dues línies al principi del vostre <code>main()</code>:</p>
+<pre><code>    cout.setf(ios::fixed);
+    cout.precision(4);</code></pre>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> David Virgili</p>
+<p><span>Generació:</span> 2026-01-25T11:29:25.457Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

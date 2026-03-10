@@ -1,0 +1,29 @@
+Algun nombre capicua
+
+Fes un programa que llegeix una seqüència d’enters i diu si hi ha algun
+nombre capicua. Els nombres capicua son aquells que es mantenen iguals
+si invertim les seves xifres, com ara 121, 95759 o 8008. En aquest
+problema, però, considerarem que els nombres de 1 i 2 xifres no son
+capicua. Per exemple, no direm que son capicua el 9, 22, 3 i 55.
+
+Entrada
+
+L’entrada consisteix en una seqüència d’enters positius.
+
+Sortida
+
+La sortida ha de ser "Res." si no hi ha cap nombre capicua a la
+seqüència o bé "n!", a on n és el primer nombre capicua trobat.
+
+Observacions
+
+Els números s’han de tractar com a enters, no com a strings.
+
+Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T17:31:32.442Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

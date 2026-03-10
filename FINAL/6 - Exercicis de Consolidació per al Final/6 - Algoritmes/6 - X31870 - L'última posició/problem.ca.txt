@@ -1,0 +1,66 @@
+L’última posició
+
+Disposem d’una llista ordenada de n nombres x₀, x₁, …, x_(n − 1) i d’un
+nombre z tal que x₀ ≤ z < x_(n − 1). Es demana una funció effi_last_pos
+amb un codi molt eficient que calculi l’última posició i tal que
+x_(i) ≤ z. La funció ha d’estar convenientment documentada i s’ha
+d’utilitzar per completar el següent programa.
+
+    #include <iostream>
+    #include <vector>
+    using namespace std;
+
+
+    ///////////////////////////////////////////
+    //
+    // documentation and code of effi_last_pos 
+    // function must be here
+    //
+    ///////////////////////////////////////////
+
+
+    //gets vector v from input chanel
+    void read_vector(vector<int>& v) {
+        int n = v.size();
+        for (int i = 0; i < n; ++i) cin >> v[i];
+    }
+
+
+    int main() {
+        int n;
+        cin >> n;
+        vector<int> v(n);
+        read_vector(v);
+        int z;
+        while (cin >> z)
+            cout << effi_last_pos(v, z) << endl;
+    }
+
+Punts examen: 1.750000 Part automàtica: 40.000000%
+
+Entrada
+
+L’entrada té tres parts. En la primera apareix un nombre enter n més
+gran que un. Després hi ha una llista de n enters ordenats de menor a
+major x₀, x₁, …, x_(n − 1). Finalment, trobem una seqüència de nombres
+enters. Cada número z de l’última seqüència és tal que x₀ ≤ z i
+z < x_(n − 1).
+
+Sortida
+
+Per a cada nombre z de la seqüència, una línia amb l’última posició i on
+el valor de la llista x_(i) no superi a z, és a dir x_(i) ≤ z.
+
+Observació
+
+Les implementacions de la funció effi_last_pos que puguin tenir un temps
+d’execució proporcional a n seran invalidades.
+
+Informació del problema
+
+Autoria: Pro1
+
+Generació: 2026-01-25T15:09:01.284Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

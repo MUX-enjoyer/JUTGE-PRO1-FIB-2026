@@ -1,0 +1,33 @@
+<h1 id="codi-cèsar">Codi Cèsar</h1>
+<p>Feu un programa que criptografiï missatges amb el “codi Cèsar”,
+utilitzat per Juli Cèsar per comunicar-se amb els seus generals. Donada
+una constant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>,
+es canvia cada lletra del missatge original per la lletra que es troba
+alfabèticament
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+posicions a la seva dreta (sical, circularment). Per exemple, si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">k = 5</annotation></semantics></math>,
+cal canviar ‘<code>a</code>’ per ‘<code>f</code>’, ‘<code>b</code>’ per
+‘<code>g</code>’, …, ‘<code>y</code>’ per ‘<code>d</code>’, i
+‘<code>z</code>’ per ‘<code>e</code>’.</p>
+<p>Per resoldre aquest exercici, us pot ser útil usar una funció</p>
+<pre><code>    char codificat(char c, int k);</code></pre>
+<p>que retorni el caràcter corresponent a @c@ quan la constant és
+@k@.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix en diversos casos. Cada cas comença amb un
+natural
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k &gt; 0</annotation></semantics></math>,
+seguit d’un text compost només per lletres minúscules i caràcters
+separadors, però sense espais, i acabat en un punt.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Per a cada cas, escriviu en una línia el text criptografiat, usant
+lletres majúscules. Canvieu cada ‘<code>_</code>’ per un espai en blanc,
+i deixeu els altres caràcters separadors tal qual.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Salvador Roura</p>
+<p><span>Generació:</span> 2026-01-25T10:17:52.085Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

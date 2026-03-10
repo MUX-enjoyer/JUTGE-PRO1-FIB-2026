@@ -1,0 +1,27 @@
+<h1 id="sumar-i-restar-un-segon">Sumar i restar un segon</h1>
+<p>Feu un programa que, donat un temps expressat en hores, minuts i
+segons, calculi el temps corresponent a sumar-li un segon, i també el
+temps corresponent a restar-li un segon.</p>
+<p>El vostre programa ha d’usar la definció</p>
+<pre><code>    struct Temps {
+        int hora, minut, segon;
+    };</code></pre>
+<p>i implementar i fer servir un procediment</p>
+<pre><code>    void un_segon(const Temps&amp; t, Temps&amp; t1, Temps&amp; t2);</code></pre>
+<p>que deixi a @t1@ el temps contingut a @t@ més un segon, i a @t2@ el
+temps contingut a @t@ menys un segon. Per exemple, si @t@ conté 23 59
+59, llavors @t1@ ha de ser 0 0 0 i @t2@ ha de ser 23 59 58.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix en diversos casos, cadascun amb tres nombres
+(hora, minut i segon) que formen un temps correcte. És a dir, l’hora
+està entre 0 i 23, i el minut i el segon entre 0 i 59.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Per a cada temps donat @t@, escriviu dues línies amb @t1@ i @t2@.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Podeu implementar procediments auxiliars.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Salvador Roura</p>
+<p><span>Generació:</span> 2026-01-25T11:22:15.365Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

@@ -1,0 +1,49 @@
+# Nombres perfectes
+
+Feu una funció que indiqui si un natural \@n@ és perfecte o no.
+
+Un natural s'anomena *perfecte* quan és igual a la suma de tots els seus
+divisors llevat d'ell mateix. Per exemple, 28 és perfecte, perquè
+$28=1+2+4+7+14$.
+
+## Interfície
+
++-------:+:-----------------------------------------+
+| C++    | ``` c++                                  |
+|        | bool es_perfecte(int n);                 |
+|        | ```                                      |
++--------+------------------------------------------+
+| C      | ``` c                                    |
+|        | int es_perfecte(int n);                  |
+|        | ```                                      |
++--------+------------------------------------------+
+| Java   | ``` java                                 |
+|        | public static boolean esPerfecte(int n); |
+|        | ```                                      |
++--------+------------------------------------------+
+| Python | ``` python                               |
+|        | es_perfecte(n)  # returns bool           |
+|        | ```                                      |
++--------+------------------------------------------+
+|        | ``` python                               |
+|        | es_perfecte(n: int) -> bool              |
+|        | ```                                      |
++--------+------------------------------------------+
+
+## Precondició
+
+\@n@ és un natural.
+
+## Observació
+
+Només cal enviar el procediment demanat; el programa principal serà
+ignorat.
+
+## Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T10:20:30.592Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

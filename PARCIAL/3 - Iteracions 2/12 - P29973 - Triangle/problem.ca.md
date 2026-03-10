@@ -1,0 +1,22 @@
+# Triangle
+
+Feu un programa que, donat un nombre $n$, escrigui un "triangle de mida
+$n$".
+
+## Entrada
+
+L'entrada consisteix en un natural $n$.
+
+## Sortida
+
+Escriviu $n$ línies, de manera que la línia $i$ contingui $i$
+asteriscos.
+
+## Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T10:39:58.671Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

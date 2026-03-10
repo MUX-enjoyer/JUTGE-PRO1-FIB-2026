@@ -1,0 +1,22 @@
+Inversió de seqüències
+
+Feu un programa que llegeixi seqüències d’enters, i que escrigui
+cadascuna invertint l’ordre dels seus elements.
+
+Entrada
+
+L’entrada consisteix en diverses seqüències. Cada seqüència consisteix
+en un natural n, seguit de n enters.
+
+Sortida
+
+Escriviu cada seqüència en una línia, en ordre invers.
+
+Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T11:31:31.359Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

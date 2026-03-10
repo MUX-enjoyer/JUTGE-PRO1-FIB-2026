@@ -1,0 +1,20 @@
+Mínim de tres enters diferents
+
+Feu un programa que llegeixi tres nombres i que n’escrigui el mínim.
+
+Entrada
+
+L’entrada consisteix en tres enters diferents.
+
+Sortida
+
+Cal escriure una línia amb el mínim dels tres nombres.
+
+Informació del problema
+
+Autoria: Maria Serna
+
+Generació: 2026-01-25T22:49:30.816Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

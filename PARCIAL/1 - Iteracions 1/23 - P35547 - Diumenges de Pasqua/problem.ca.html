@@ -1,0 +1,66 @@
+<h1 id="diumenges-de-pasqua">Diumenges de Pasqua</h1>
+<p>El Diumenge de Pasqua és una festa mòbil que es correspon al primer
+diumenge després de la primera lluna plena de la primavera. Feu un
+programa per calcular el dia
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+i el més
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+en què cau el Diumenge de Pasqua de cada any donat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>.</p>
+<p>A continuació, <code>:=</code> indica assignació, <code>div</code>
+indica divisió entera, i <code>mod</code> indica el residu de la divisió
+entera. Per resoldre aquest problema, utilitzeu el mètode de Gauss:</p>
+<ul>
+<li><p>Calculeu</p>
+<ol>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>:=</mo><mi>A</mi><mspace width="0.222em"></mspace><mtext mathvariant="normal">div</mtext><mspace width="0.222em"></mspace><mn>100</mn></mrow><annotation encoding="application/x-tex">k := A~\text{div}~100</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>:=</mo><mi>A</mi><mspace width="0.222em"></mspace><mtext mathvariant="normal">mod</mtext><mspace width="0.222em"></mspace><mn>19</mn></mrow><annotation encoding="application/x-tex">x := A ~\text{mod}~ 19</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>:=</mo><mi>A</mi><mspace width="0.222em"></mspace><mtext mathvariant="normal">mod</mtext><mspace width="0.222em"></mspace><mn>4</mn></mrow><annotation encoding="application/x-tex">b := A ~\text{mod}~ 4</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>:=</mo><mi>A</mi><mspace width="0.222em"></mspace><mtext mathvariant="normal">mod</mtext><mspace width="0.222em"></mspace><mn>7</mn></mrow><annotation encoding="application/x-tex">c := A ~\text{mod}~ 7</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>:=</mo><mi>k</mi><mspace width="0.222em"></mspace><mtext mathvariant="normal">div</mtext><mspace width="0.222em"></mspace><mn>4</mn></mrow><annotation encoding="application/x-tex">q := k~\text{div}~4</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>:=</mo><mo stretchy="false" form="prefix">(</mo><mn>13</mn><mo>+</mo><mn>8</mn><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mtext mathvariant="normal">div</mtext><mspace width="0.222em"></mspace><mn>25</mn></mrow><annotation encoding="application/x-tex">p := (13+8k)~\text{div}~25</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>:=</mo><mo stretchy="false" form="prefix">(</mo><mn>15</mn><mo>−</mo><mi>p</mi><mo>+</mo><mi>k</mi><mo>−</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mtext mathvariant="normal">mod</mtext><mspace width="0.222em"></mspace><mn>30</mn></mrow><annotation encoding="application/x-tex">y := (15-p+k-q) ~\text{mod}~ 30</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>:=</mo><mo stretchy="false" form="prefix">(</mo><mn>19</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mtext mathvariant="normal">mod</mtext><mspace width="0.222em"></mspace><mn>30</mn></mrow><annotation encoding="application/x-tex">z := (19x+y) ~\text{mod}~ 30</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>:=</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>+</mo><mi>k</mi><mo>−</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mtext mathvariant="normal">mod</mtext><mspace width="0.222em"></mspace><mn>7</mn></mrow><annotation encoding="application/x-tex">n := (4+k-q) ~\text{mod}~ 7</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>:=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>b</mi><mo>+</mo><mn>4</mn><mi>c</mi><mo>+</mo><mn>6</mn><mi>z</mi><mo>+</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mtext mathvariant="normal">mod</mtext><mspace width="0.222em"></mspace><mn>7</mn></mrow><annotation encoding="application/x-tex">e := (2b+4c+6z+n) ~\text{mod}~7</annotation></semantics></math></p></li>
+</ol></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>+</mo><mi>e</mi><mo>≤</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">z+e \le 9</annotation></semantics></math>,
+llavors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>:=</mo><mn>22</mn><mo>+</mo><mi>z</mi><mo>+</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">D := 22+z+e</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">M := 3</annotation></semantics></math>.</p></li>
+<li><p>Altrament, si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>29</mn></mrow><annotation encoding="application/x-tex">z=29</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">e=6</annotation></semantics></math>,
+llavors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>:=</mo><mn>19</mn></mrow><annotation encoding="application/x-tex">D := 19</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">M := 4</annotation></semantics></math>.</p></li>
+<li><p>Altrament, si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>28</mn></mrow><annotation encoding="application/x-tex">z=28</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">e=6</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">x&gt;10</annotation></semantics></math>,
+llavors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>:=</mo><mn>18</mn></mrow><annotation encoding="application/x-tex">D := 18</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">M := 4</annotation></semantics></math>.</p></li>
+<li><p>Altrament,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>:=</mo><mi>z</mi><mo>+</mo><mi>e</mi><mo>−</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">D := z+e-9</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">M := 4</annotation></semantics></math>.</p></li>
+</ul>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix en diversos naturals entre 1800 i 9999.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Cal escriure el dia i el més en què cau el Diumenge de Pasqua de cada
+any.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Jordi Petit</p>
+<p><span>Generació:</span> 2026-01-25T10:26:10.357Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

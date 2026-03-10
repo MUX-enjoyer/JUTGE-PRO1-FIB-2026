@@ -1,0 +1,101 @@
+<h1 id="f006b.-distància-de-manhattan">F006B. Distància de
+Manhattan</h1>
+<p><span>8cm</span></p>
+<p>La distància de Manhattan entre dos punts amb coordenades enteres en
+el pla es defineix com el nombre de passos unitaris cap amunt, avall,
+esquerra o dreta que cal fer per anar d’un punt a l’altre. (Té aquest
+nom perquè és el nombre d’illes que cal caminar en un barri quadricular
+per anar d’un encreuament a un altre.)</p>
+<p>Per exemple, considereu el punt (1, -2) de la figura de la dreta (el
+més gros). El punt més proper és el (2, -3), que es troba a distància 2.
+El punt més llunyà és el (-2, 1), que es troba a distància 6. Excepte el
+(2, 2), la resta de punts es troben a distància 4.</p>
+<p>Feu un programa que, donat un punt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+punts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>y</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>…</mi><mo>,</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>n</mi></msub><mo>,</mo><msub><mi>y</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x_1, y_1), \dots, (x_n, y_n)</annotation></semantics></math>,
+escrigui aquests punts ordenats en funció de la seva distància de
+Manhattan a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math>.</p>
+<div class="picture">
+<p>(205, 230)(-85, -140) (-80, 0)<span>(1, 0)<span>200</span></span>
+(115,
+5)<span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math></span>
+(0, -140)<span>(0, 1)<span>200</span></span> (5,
+55)<span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math></span></p>
+<p>(-80, -2)<span>(0, 1)<span>4</span></span> (-60, -2)<span>(0,
+1)<span>4</span></span> (-40, -2)<span>(0, 1)<span>4</span></span> (-20,
+-2)<span>(0, 1)<span>4</span></span> (20, -2)<span>(0,
+1)<span>4</span></span> (40, -2)<span>(0, 1)<span>4</span></span> (60,
+-2)<span>(0, 1)<span>4</span></span> (80, -2)<span>(0,
+1)<span>4</span></span> (100, -2)<span>(0, 1)<span>4</span></span></p>
+<p>(-2, -140)<span>(1, 0)<span>4</span></span> (-2, -120)<span>(1,
+0)<span>4</span></span> (-2, -100)<span>(1, 0)<span>4</span></span> (-2,
+-80)<span>(1, 0)<span>4</span></span> (-2, -60)<span>(1,
+0)<span>4</span></span> (-2, -40)<span>(1, 0)<span>4</span></span> (-2,
+-20)<span>(1, 0)<span>4</span></span> (-2, 20)<span>(1,
+0)<span>4</span></span> (-2, 40)<span>(1, 0)<span>4</span></span></p>
+<p>(20, -40) (25, -43)<span>(1, -2)</span> (40, -60) (45, -63)<span>(2,
+-3)</span> (20, -120) (25, -123)<span>(1, -6)</span> (100, -40) (105,
+-43)<span>(5, -2)</span> (-60, -40) (-55, -43)<span>(-3, -2)</span>
+(-40, -20) (-35, -23)<span>(-2, -1)</span> (-40, 20) (-53, 25)<span>(-2,
+1)</span> (40, 40) (45, 37)<span>(2, 2)</span> (60, 0) (47, 5)<span>(3,
+0)</span></p>
+<p>(20, -45)<span>(0, -1)<span>4</span></span> (20, -51)<span>(0,
+-1)<span>4</span></span> (20, -57)<span>(0, -1)<span>3</span></span>
+(20, -60)<span>(1, 0)<span>3</span></span> (25, -60)<span>(1,
+0)<span>4</span></span> (31, -60)<span>(1, 0)<span>4</span></span></p>
+<p>(20, 20)<span>(0, -1)<span>4</span></span> (20, 14)<span>(0,
+-1)<span>4</span></span> (20, 8)<span>(0, -1)<span>4</span></span> (20,
+2)<span>(0, -1)<span>4</span></span> (20, -4)<span>(0,
+-1)<span>4</span></span> (20, -10)<span>(0, -1)<span>4</span></span>
+(20, -16)<span>(0, -1)<span>4</span></span> (20, -22)<span>(0,
+-1)<span>4</span></span> (20, -28)<span>(0, -1)<span>4</span></span>
+(20, -34)<span>(0, -1)<span>2</span></span></p>
+<p>(20, 20)<span>(-1, 0)<span>4</span></span> (14, 20)<span>(-1,
+0)<span>4</span></span> (8, 20)<span>(-1, 0)<span>4</span></span> (2,
+20)<span>(-1, 0)<span>4</span></span> (-4, 20)<span>(-1,
+0)<span>4</span></span> (-10, 20)<span>(-1, 0)<span>4</span></span>
+(-16, 20)<span>(-1, 0)<span>4</span></span> (-22, 20)<span>(-1,
+0)<span>4</span></span> (-28, 20)<span>(-1, 0)<span>4</span></span>
+(-34, 20)<span>(-1, 0)<span>2</span></span></p>
+</div>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix només en nombres enters, i està formada per una
+línia amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>,
+una línia amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+i per una o més línies amb les coordenades dels
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+punts:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>y</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo>,</mo><msub><mi>y</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_1, y_1, x_2, y_2, \dots, x_n, y_n</annotation></semantics></math>.
+Podeu suposar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">0 \le n \le 10^5</annotation></semantics></math>.
+Els
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+punts són tots diferents, i venen donats en qualsevol ordre.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Escriviu els
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+punts agrupats segons la seva distància a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math>.
+Si dos punts es troben a la mateixa distància, cal escriure primer
+aquell que tingui la primera coordenada més petita i, en cas d’empat, el
+que tingui la segona coordenada més petita. Seguiu el format dels
+exemples.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>El vostre algorisme ha de ser eficient en tots els casos, perquè
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+pot ser gran, i perquè els jocs de proves privats inclouran casos límit
+com ara molts punts a la mateixa distància.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Professorat de P1</p>
+<p><span>Generació:</span> 2026-01-25T11:20:54.168Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

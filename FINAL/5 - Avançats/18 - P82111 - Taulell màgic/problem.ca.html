@@ -1,0 +1,57 @@
+<h1 id="taulell-màgic">Taulell màgic</h1>
+<p>Un <em>taulell màgic d’ordre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math></em>
+és una matriu de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>×</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">k\times k</annotation></semantics></math>
+lletres de forma que a cada fila i a cada columna hi apareix una paraula
+del diccionari i que les mateixes paraules es llegeixen horitzontalment
+i verticalment. Per exemple, a continuació es dónen diversos taulells
+màgics d’ordre tres a vuit en anglès:</p>
+<pre><code>  B I T    C A R D    H E A R T    G A R T E R    B R A V A D O    L A T E R A L S
+  I C E    A R E A    E M B E R    A V E R S E    R E N A M E D    A X O N E M A L
+  T E N    R E A R    A B U S E    R E C I T E    A N A L O G Y    T O E P L A T E
+           D A R T    R E S I N    T R I B A L    V A L U E R S    E N P L A N E D
+                      T R E N D    E S T A T E    A M O E B A S    R E L A N D E D
+                                   R E E L E D    D E G R A D E    A M A N D I N E
+                                                  O D Y S S E Y    L A T E E N E R
+                                                                   S L E D D E R S</code></pre>
+<p>Feu un programa que llegeixi un diccionari i digui si diverses
+matrius de caràcters són o no taulells màgics.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada té dues parts:</p>
+<ul>
+<li><p>La primera part és un diccionari de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+paraules. Primer, es dóna el valor de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.
+A continuació, venen les
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+paraules del diccionari (totes en majúscules) en ordre
+lexicogràfic.</p></li>
+<li><p>La segona part són diverses matrius de caràcters. Cada matriu
+comença amb un enter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+que en dóna el seu nombre de files i columnes i continua amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>k</mi><mn>2</mn></msup><annotation encoding="application/x-tex">k^2</annotation></semantics></math>
+caràcters (tots lletres majúscules) disposats en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+files i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+columnes. El valor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k=0</annotation></semantics></math>
+indica el final de l’entrada.</p></li>
+</ul>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Per a cada matriu de l’entrada, cal escriure “@SI@” si forma un
+taulell màgic utilitzant algunes de les paraules del diccionari i cal
+escriure “@NO@” altrament.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>En els jocs de proves privats s’utilitza un diccionari derivat de
+@/usr/share/dict/words@ amb unes quatre centes mil paraules i es proven
+un miler de matrius.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Jordi Petit</p>
+<p><span>Generació:</span> 2026-01-25T11:56:26.133Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

@@ -1,0 +1,48 @@
+<h1 id="canvi-recursiu">Canvi Recursiu</h1>
+<p>Donat un enter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n \geq 1</annotation></semantics></math>
+que representa una quantitat d’euros, la <strong>descomposició
+màxima</strong> és una llista d’enters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>1</mn></msub><msub><mi>e</mi><mn>2</mn></msub><msub><mi>e</mi><mn>3</mn></msub><mi>…</mi><msub><mi>e</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">e_1 e_2 e_3 \dots e_n</annotation></semantics></math>
+(que només poden ser 25, 5, 2 o 1, potser repetits) tals que:</p>
+<ol>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><msub><mi>e</mi><mn>1</mn></msub><mo>+</mo><msub><mi>e</mi><mn>2</mn></msub><mo>+</mo><msub><mi>e</mi><mn>3</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>e</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">n = e_1 + e_2 + e_3 + \dots + e_n</annotation></semantics></math>.</p></li>
+<li><p>De totes les possibles combinacions que compleixen l’anterior
+condició, ha de ser la que tingui les monedes més grans
+possibles.</p></li>
+</ol>
+<p>Per exemple, si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">n = 15</annotation></semantics></math>
+podria tornar el canvi amb monedes de 2 i 1 euros:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mo>=</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">15 = 2+2+2+2+2+2+2+1</annotation></semantics></math></p>
+<p>o fins i tot només amb monedes de 5, 2 i 1 euro:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mo>=</mo><mn>5</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">15 = 5+2+2+2+2+2</annotation></semantics></math></p>
+<p>però cap d’aquestes solucions seria correcta, ja que la solució
+correcta és la que fa servir el màxim de monedes de 5:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mo>=</mo><mn>5</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">15 = 5+5+5</annotation></semantics></math></p>
+<p>Fes una <strong>funció</strong> <code>canvi</code> amb la següent
+declaració:</p>
+<pre><code>/*
+ * Torna el canvi de x en monedes de 25, 5, 2 i 1 euros.
+ * El canvi cal que contingui les monedes més grans possibles.
+ * Només una solució recursiva.
+ */
+void canvi(int x);</code></pre>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només has d’enviar un fitxer que contingui la funció requerida, amb
+els <code>include</code> necessaris i les funcions auxiliars que hauràs
+declarat (si n’hi ha), i <strong>res més</strong>.</p>
+<p>Només acceptarem una solució recursiva. Si cal, podeu fer servir
+funcions <em>auxiliars</em> no recursives, però el gruix del càlcul ha
+de ser en la funció recursiva.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Enters més grans que zero.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Per a cada enter, la descomposició màxima en monedes de 25,5,2 i 1
+euros.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T12:53:12.672Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

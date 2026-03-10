@@ -1,0 +1,51 @@
+La seqüència perduda
+
+Com és ben sabut pels seguidors de la sèrie LOST, els sis números
+següents són claus en l’Equació de Valenzetti, una fórmula matemàtica
+per predir la fi de la humanitat.
+
+[image]
+
+La Iniciative Dharma, que té com objectiu canviar els factors que
+portarien al declivi de la humanitat, ha fet el programa següent per
+generar els n primers termes d’allò que ells anomenen la seqüència
+perduda.
+
+        int f(int i) {
+            if (i == 0) return -3;
+            if (i == 1) return -1;
+            if (i == 2) return  4;
+            if (i == 3) return  8;
+            if (i == 4) return 15; 
+            return f(i-5) + f(i-3) + f(i-1);
+        }
+
+
+        int main() {
+            int n;
+            while (cin >> n) {
+                for (int i = 0; i < n; ++i) cout << f(i) << " ";
+                cout << "..." << endl;
+            }
+        }
+
+Malauradament, aquest programa és massa lent. Ajudeu la Iniciativa
+Dharma a salvar el món fent un programa equivalent que vagi molt més
+ràpid.
+
+Entrada
+
+L’entrada consisteix en una seqüencia de naturals entre 0 i 45.
+
+Sortida
+
+Escriviu el mateix que el programa donat.
+
+Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T11:48:20.098Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

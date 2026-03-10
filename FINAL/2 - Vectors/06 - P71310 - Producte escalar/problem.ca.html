@@ -1,0 +1,44 @@
+<h1 id="producte-escalar">Producte escalar</h1>
+<p>El producte escalar de dos vectors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>u</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>u</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">u=(u_0,\dots,u_{n-1})</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>v</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>v</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">v=(v_0,\dots,v_{n-1})</annotation></semantics></math>
+és
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msubsup><msub><mi>u</mi><mi>i</mi></msub><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\sum_{i=0}^{n-1} u_i v_i</annotation></semantics></math>.</p>
+<p>Feu una funció que retorni el producte escalar de @u@ i @v@.</p>
+<h2 class="unnumbered" id="interfície">Interfície</h2>
+<table>
+<tbody>
+<tr>
+<td style="text-align: right;">C++</td>
+<td style="text-align: left;"><div class="sourceCode" id="cb1" data-language="C++" data-morekeywords="string,vector"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> producte_escalar<span class="op">(</span><span class="at">const</span> vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;&amp;</span> u<span class="op">,</span> <span class="at">const</span> vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;&amp;</span> v<span class="op">);</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: right;">C</td>
+<td style="text-align: left;"><div class="sourceCode" id="cb2" data-language="C" data-morekeywords="string"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> producte_escalar<span class="op">(</span><span class="dt">int</span> n<span class="op">,</span> <span class="dt">double</span> u<span class="op">[</span>n<span class="op">],</span> <span class="dt">double</span> v<span class="op">[</span>n<span class="op">]);</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: right;">Java</td>
+<td style="text-align: left;"><div class="sourceCode" id="cb3" data-language="Java" data-morekeywords="String"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">producteEscalar</span><span class="op">(</span><span class="dt">double</span><span class="op">[]</span> u<span class="op">,</span> <span class="dt">double</span><span class="op">[]</span> v<span class="op">);</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: right;">Python</td>
+<td style="text-align: left;"><div class="sourceCode" id="cb4" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>producte_escalar(u, v)  <span class="co"># returns float</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: right;">MyPy</td>
+<td style="text-align: left;"><div class="sourceCode" id="cb5" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>producte_escalar(u: <span class="bu">list</span>[<span class="bu">float</span>], v: <span class="bu">list</span>[<span class="bu">float</span>]) <span class="op">-&gt;</span> <span class="bu">float</span></span></code></pre></div></td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="precondició">Precondició</h2>
+<p>Els vectors @u@ i @v@ tenen la mateixa mida.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només cal enviar el procediment demanat; el programa principal serà
+ignorat.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Jordi Petit</p>
+<p><span>Generació:</span> 2026-01-25T11:38:22.456Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

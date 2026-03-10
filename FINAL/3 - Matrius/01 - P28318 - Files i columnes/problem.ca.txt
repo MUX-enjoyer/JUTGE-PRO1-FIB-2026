@@ -1,0 +1,29 @@
+Files i columnes
+
+Feu un programa que llegeixi una matriu, i que després n’escrigui les
+files, columnes i elements que es demanin.
+
+Entrada
+
+L’entrada consisteix en una matriu, seguida d’una seqüència de consultes
+sobre la matriu. La matriu es descriu amb dos naturals n > 0 i m > 0,
+seguits de n línies amb m enters cadascuna. Cada consulta comença amb la
+paraula “fila”, “columna” o “element”. Si la paraula és “fila”, li
+segueix un número de fila. Si la paraula és “columna”, li segueix un
+número de columna. Si la paraula és “element”, li segueix un número de
+fila i un número de columna. Tots els números donats tant de fila com de
+columna són correctes, i comencen en 1.
+
+Sortida
+
+Per a cada consulta, escriviu la fila, la columna, o l’element que
+s’hagi demanat.
+
+Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T10:35:14.710Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

@@ -1,0 +1,22 @@
+# Potències
+
+Feu un programa que calculi potències.
+
+## Entrada
+
+L'entrada consisteix en diversos parells d'enters $a$ i $b$. Assumiu
+$b \ge 0$.
+
+## Sortida
+
+Per a cada parell $a,b$, cal escriure $a^b$. Suposeu, com és habitual,
+que $0^0 = 1$.
+
+## Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T12:04:44.567Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

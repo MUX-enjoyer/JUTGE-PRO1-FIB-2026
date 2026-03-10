@@ -1,0 +1,29 @@
+Foc!
+
+Feu un programa que llegeixi una seqüència de boscos i escrigui el
+resultat de propagar tots els incendis de cada bosc.
+
+Entrada
+
+L’entrada consisteix en una seqüència de descripcions de boscos. Cada
+descripció consisteix en una línia amb n i m (un parell de naturals
+estrictament positius que indiquen respectivament el nombre de files i
+el nombre de columnes del bosc), seguida de n línies, cadascuna amb m
+caràcters: |’A’| per un arbre sense foc, |’F’| per un arbre amb foc, i
+|’.’| per una posició buida.
+
+Sortida
+
+Per a cada bosc de l’entrada, cal escriure el resultat de propagar tots
+els focs, suposant que aquests es transmeten cap a la dreta, cap a
+l’esquerra, cap amunt i cap avall, i que el resultat final de cada foc
+és una posició buida. Escriviu una línia en blanc després de cada bosc.
+
+Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T11:45:09.709Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

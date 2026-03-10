@@ -1,0 +1,59 @@
+<h1 id="buscar-distancia-d-en-vector-amb-distàncies-consecutives-estríctament-creixents">Buscar
+distancia d en vector amb distàncies consecutives estríctament
+creixents</h1>
+<p>Heu d’implementar una funció que rep un natural
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+i un vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+amb dos o més elements i que cumpleix la següent condició: la successió
+de distàncies entre cada dos elements consecutius de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+és estrictament creixent, és a dir
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mo stretchy="false" form="prefix">|</mo><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mn>2</mn><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mo stretchy="false" form="prefix">|</mo><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mn>2</mn><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mn>3</mn><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mi>⋯</mi></mrow><annotation encoding="application/x-tex">|v[0]-v[1]| &lt; |v[1]-v[2]| &lt; |v[2]-v[3]| &lt; \cdots</annotation></semantics></math>.
+Per exemple, la següent seqüència cumpleix aquesta condició:</p>
+<pre><code>3 2 4 8 0 -10 -22 -8 7</code></pre>
+<p>Fixeu-vos que la distància entre el primer i el segon element és 1,
+la distancia entre el segon i el tercer és 2, entre el tercer i el quart
+és 4, entre el quart i el cinquè és 8, entre el cinquè i el sisè és 10,
+entre el sisè i el setè és 12, entre el setè i el vuitè és 14, i entre
+el vuitè i el novè és 15. Queda clar, doncs, que la seqüència de
+distàncies consecutives és creixent.</p>
+<p>En cas que hi hagi una parella d’elements consecutius a distància
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+la funció ha de retornar la posició (indexant des de 0) del primer
+element d’aquesta parella. En cas contrari, la funció ha de retornar -1.
+En l’exemple anterior, amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">d=12</annotation></semantics></math>
+la funció ha de retornar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>,
+i amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">d=6</annotation></semantics></math>
+la funció ha de retornar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>.
+Aquesta és la capcelera:</p>
+<pre><code>// Pre: Let n be v.size(). n&gt;=2 and d&gt;=0 and |v[0]-v[1]| &lt; |v[1]-v[2]| &lt; ... &lt; |v[n-2]-v[n-1]|
+// Post: If there exists i in {0..n-2} holding |v[i]-v[i+1]| = d, then the function returns this i.
+//       Otherwise, it returns -1.
+int findDistance(int d, const vector&lt;int&gt; &amp;v);</code></pre>
+<p>Els jocs de proves privats miren de comprovar que la vostra solució
+és de cost logarítmic.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només cal enviar el procediment demanat; el programa principal serà
+ignorat.</p>
+<h2 class="unnumbered" id="observació-1">Observació</h2>
+<p>Podeu utilitzar la funció <span><code>abs</code></span> de
+<span><code>cmath</code></span> si voleu. Avaluació sobre 10 punts:</p>
+<ul>
+<li><p>Solució lenta: 5 punts.</p></li>
+<li><p>solució ràpida: 10 punts.</p></li>
+</ul>
+<p>Entenem com a solució ràpida una que és correcta, de cost logarítmic
+i capaç de superar els jocs de proves públics i privats. Entenem com a
+solució lenta una que no és ràpida, però és correcta i capaç de superar
+els jocs de proves públics.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T16:04:30.399Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

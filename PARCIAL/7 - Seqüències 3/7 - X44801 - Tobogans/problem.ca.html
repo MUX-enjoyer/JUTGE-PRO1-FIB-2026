@@ -1,0 +1,43 @@
+<h1 id="tobogans">Tobogans</h1>
+<p>Un <em>tobogan</em> és una seqüència d’enters de com a mínim tres
+elements tal que la diferència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+entre cada dos elements consecutius és la mateixa i és diferent de 0. El
+<em>pendent</em> del togoban és
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+i la <em>longitud</em> del tobogan és el número d’elements d’aquest. Els
+tobogans són <em>ascendents</em> quan
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">d &gt; 0</annotation></semantics></math>
+i són <em>descendents</em> quan
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">d &lt; 0</annotation></semantics></math>.</p>
+<p>Per exemple, les següents seqüències són totes tobogans:</p>
+<ul>
+<li><p>1 2 3, de pendent 1 i longitud 3;</p></li>
+<li><p>5 10 15 20, de pendent 5 i longitud 4;</p></li>
+<li><p>-11 -22 -33 -44 -55, de pendent -11 i longitud 5.</p></li>
+</ul>
+<p>L’objectiu de l’exercici és, donada una seqüència d’enters a
+l’entrada, trobar la subseqüència consecutiva més llarga que és un
+tobogan ascendent, i la subseqüència més llarga consecutiva que és un
+tobogan descendent. Si hi hagués més d’un tobogan ascendent amb la
+mateixa longitud màxima, ens quedarem amb el primer d’ells, i el mateix
+cal fer per tobogans descendents. A més, ens interessa saber en quina
+posició (quin element de la seqüència sencera de l’entrada) comença el
+tobogan, comptant que la posició del primer element és 1.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Una seqüència d’enters sense sentinella. Es garanteix que la
+seqüència té almenys dos elements.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>La sortida ha de contenir una línia per a cada tipus de tobogan
+(ascendent i descendent). Si no s’han trobat tobogans de qualsevol dels
+dos tipus, no cal escriure la línia corresponent. La línia conté un
+caràcter (&quot;<code>/</code>&quot; per a ascendents i &quot;<code>\</code>&quot; per a
+descendents), un espai, i després 3 nombres separats per
+&quot;<code>:</code>&quot;: la posició inicial del tobogan més gran, el pendent, i
+la longitud.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-02-23T17:08:20.862Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

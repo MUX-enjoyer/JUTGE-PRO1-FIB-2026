@@ -1,0 +1,26 @@
+<h1 id="regla-de-horner">Regla de Horner</h1>
+<p>Sigui
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mi>…</mi><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">p[0\dots n]</annotation></semantics></math>
+un vector d’enters que conté els coeficients d’un polinomi de grau
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n\ge0</annotation></semantics></math>.
+Per exemple, el vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mo stretchy="false" form="prefix">⟨</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>5</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">⟩</mo></mrow><annotation encoding="application/x-tex">p=\langle3,2,5,-1\rangle</annotation></semantics></math>
+representa
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">p(x)=3+2x+5x^2-x^3</annotation></semantics></math>,
+un polinomi de grau
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n=3</annotation></semantics></math>.</p>
+<p>Escriviu una funció</p>
+<pre><code>    int avalua(const vector&lt;int&gt;&amp; p, int x);</code></pre>
+<p>que avaluiï el polinomi al punt @x@, és a dir, que retorni
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></msubsup><mi>p</mi><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo stretchy="false" form="postfix">]</mo><msup><mi>x</mi><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">\sum_{i=0}^n p[i]x^i</annotation></semantics></math>.</p>
+<p>Utilitzeu la Regla de Horner:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>n</mi></msub><msup><mi>x</mi><mi>n</mi></msup><mo>+</mo><msub><mi>p</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>p</mi><mn>0</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>p</mi><mi>n</mi></msub><mi>x</mi><mo>+</mo><msub><mi>p</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false" form="postfix">)</mo><mi>x</mi><mo>+</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mi>x</mi><mo>+</mo><msub><mi>p</mi><mn>0</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">p_nx^n+p_{n-1}x^{n-1}+\dots+p_0=((p_nx+p_{n-1})x+\dots)x+p_0.</annotation></semantics></math></p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només cal enviar el procediment demanat; el programa principal serà
+ignorat.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Jordi Petit</p>
+<p><span>Generació:</span> 2026-01-25T11:01:09.243Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

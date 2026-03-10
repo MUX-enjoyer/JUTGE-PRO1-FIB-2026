@@ -1,0 +1,64 @@
+<h1 id="mutacions-de-virus">Mutacions de virus</h1>
+<p>Recordeu que el codi genètic (vegeu problema P36671) és un conjunt de
+regles que tradueix seqüències de nucleòtids a proteïnes. Quan es
+treballa amb ADN en lloc d’ARN missatger, les seqüències de nucleòtids
+canvien la base <code>U</code> per la base <code>T</code>.</p>
+<p>Sovint, com a reacció de resistència contra els fàrmacs, els virus
+muten el seu ADN tot mantenint la seva funcionalitat, és a dir,
+sintetitzant la mateixa proteïna. Per exemple, si un virus tingués la
+seqüència</p>
+<div class="center">
+<p>(1) <code>GCCAATGACTAAGGCCTAAAGA</code></p>
+</div>
+<p>llavors sintetitzaria la proteïna <em>Thr–Lys–Ala</em>. Si el virus
+mutés a la seqüència (2)</p>
+<div class="center">
+<p>(1)
+<code>GCCAATGAC</code><em><code>T</code></em><code>AAGGCCTAAAGA</code><br />
+(2)
+<code>GCCAATGAC</code><strong><code>C</code></strong><code>AACGCCTAAAGA</code></p>
+</div>
+<p>(només ha canviat la desena base), aquest continuaria sintetitzant
+<em>Thr–Lys–Ala</em>. En aquest cas, diem que s’ha produït una (o més)
+mutacions equivalents.</p>
+<p>En canvi, si el virus mutés a la seqüència (3)</p>
+<div class="center">
+<p>(1)
+<code>GCCAATG</code><em><code>A</code></em><code>CTAAG</code><em><code>G</code></em><code>CCTAAAGA</code><br />
+(3)
+<code>GCCAATG</code><strong><code>T</code></strong><code>CTAAG</code><strong><code>A</code></strong><code>CCTAAAGA</code></p>
+</div>
+<p>(només la vuitena i la catorzena bases), llavors sintetitzaria
+<em>Ser–Lys–Thr</em>, fet que es nota indicant
+<code>Thr-1-Ser,Ala-3-Thr</code> (el número indica a quin codó s’ha
+produït la mutació).</p>
+<p>Feu un programa que indiqui si parells de seqüències d’ADN
+representen mutacions equivalents i que, en cas negatiu, indiqui quines
+mutacions s’han produït. El programa també ha de dir quantes bases són
+diferents entre el codó <code>ATG</code> i el codó d’<em>Stop</em>.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada comença amb un natural
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>.
+Després, venen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+parells de seqüències d’ADN de la mateixa llargada. Cada seqüència d’ADN
+és formada per una tira de caràcters ‘<code>A</code>’, ‘<code>C</code>’,
+‘<code>T</code>’ i ‘<code>G</code>’ en una línia sense blancs.</p>
+<p>Totes les seqüències d’ADN tenen un codó <code>ATG</code> abans d’un
+codó d’<em>Stop</em>. El codó <code>ATG</code> i el codó d’<em>Stop</em>
+no muten mai en cap parell de seqüències ni cap mutació pot introduir un
+nou codó d’<em>Stop</em>. Els parells de seqüències sempre tenen la
+mateixa llargada.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Per a cada parell de seqüències d’ADN de l’entrada, cal indicar si
+són o no són equivalents. En el cas que no siguin equivalents, cal
+indicar tots els canvis que han produït les mutacions segons la notació
+estàndard descrita anteriorment. El nombre de bases diferents s’ha
+d’escriure al final de la línia, entre parèntesis.</p>
+<p>Seguiu el format de l’exemple.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Lluís Alemany Puig</p>
+<p><span>Generació:</span> 2026-01-25T11:06:18.118Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

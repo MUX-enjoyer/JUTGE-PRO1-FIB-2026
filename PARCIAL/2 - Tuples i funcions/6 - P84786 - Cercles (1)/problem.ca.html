@@ -1,0 +1,48 @@
+<h1 id="cercles-1">Cercles (1)</h1>
+<p>Per resoldre aquest exercici us caldrà la definició de @Punt@ i de
+@distancia()@ del problema P46254.</p>
+<p>Feu un procediment</p>
+<pre><code>    void desplaca(Punt&amp; p1, const Punt&amp; p2);</code></pre>
+<p>que mou el punt @p1@ segons indiquen les coordenades del punt
+@p2@.</p>
+<p>Per exemple, sigui @p1@ el punt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(2, 1)</annotation></semantics></math>,
+i @p2@ el punt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>0.5</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-0.5, 4)</annotation></semantics></math>.
+Llavors @desplaca(p1, p2)@ faria que @p1@ valgués
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1.5</mn><mo>,</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1.5, 5)</annotation></semantics></math>.</p>
+<p>Addicionalment, usant la definició</p>
+<pre><code>    struct Cercle {
+        Punt centre;
+        double radi;
+    };</code></pre>
+<p>feu dos procediments,</p>
+<pre><code>    void escala(Cercle&amp; c, double esc);</code></pre>
+<p>que escala el cercle @c@ proporcionalment al real estrictament
+positiu @esc@, i</p>
+<pre><code>    void desplaca(Cercle&amp; c, const Punt&amp; p);</code></pre>
+<p>que mou el cercle @c@ segons indiquen les coordenades de @p@.</p>
+<p>Per exemple, sigui @c@ un cercle de centre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1, 2)</annotation></semantics></math>
+i radi 3. Llavors, @escala(c, 2)@ obtindria un cercle de centre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1, 2)</annotation></semantics></math>
+i radi 6. En canvi, si @p@ és
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>3.5</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(3.5, -1)</annotation></semantics></math>,
+@desplaca(c, p)@ obtindria un cercle de centre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>4.5</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4.5, 1)</annotation></semantics></math>
+i radi 3.</p>
+<p>Feu també una funció que indiqui si un punt @p@ és interior a un
+cercle @c@:</p>
+<pre><code>    bool es_interior(const Punt&amp; p, const Cercle&amp; c);</code></pre>
+<p>Suposeu que els radis són sempre estrictament positius, i que @p@ mai
+estarà exactament a la frontera de @c@.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només cal enviar el procediment demanat; el programa principal serà
+ignorat.</p>
+<p>Seguiu estrictament la definició dels tipus de l’enunciat.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Salvador Roura</p>
+<p><span>Generació:</span> 2026-01-25T12:04:15.269Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

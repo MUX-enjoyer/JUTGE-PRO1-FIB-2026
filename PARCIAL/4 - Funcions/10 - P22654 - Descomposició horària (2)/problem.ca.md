@@ -1,0 +1,28 @@
+# Descomposició horària (2)
+
+Feu un procediment
+
+        void descompon(int n, int& h, int& m, int& s);
+
+que, donada una quantitat de segons \@n@ $\ge 0$, calculi quantes hores
+\@h@, minuts \@m@ i segons \@s@ representa. És a dir, cal que \@s@
+$+ \ 60$\@m@ $+ \ 3600$\@h@ $=$ \@n@, amb $0\le$ \@s@ $<60$ i $0\le$
+\@m@ $<60$.
+
+## Precondició
+
+$n$ és un natural.
+
+## Observació
+
+Només cal enviar el procediment demanat; el programa principal serà
+ignorat.
+
+## Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T10:16:03.597Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

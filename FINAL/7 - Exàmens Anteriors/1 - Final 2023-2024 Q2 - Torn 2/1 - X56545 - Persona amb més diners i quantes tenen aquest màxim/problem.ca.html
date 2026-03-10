@@ -1,0 +1,94 @@
+<h1 id="persona-amb-més-diners-i-quantes-tenen-aquest-màxim">Persona amb
+més diners i quantes tenen aquest màxim</h1>
+<p>En aquest exercici us donem un programa que heu de completar. Al
+principi del programa es defineix un struct
+<span><code>Person</code></span>, que defineix una persona, amb un nom i
+quants diners té. El programa principal llegeix varis casos d’entrada.
+Cada cas consisteix en la descripció d’una llista de persones. Per a
+cada cas, el programa principal crida a una funció anomenada
+<span><code>compute</code></span> que és l’única que heu d’implementar
+(no heu de canviar res més). La funció <span><code>compute</code></span>
+rep la llista de persones com a paràmetre, i també té dos paràmetres per
+referència <span><code>namemax</code></span> i
+<span><code>nummax</code></span>. La funció
+<span><code>compute</code></span> ha de desar sobre
+<span><code>namemax</code></span> el nom de la persona que tingui més
+diners. En cas que n’hi hagi més d’una amb màxim nombre de diners,
+<span><code>namemax</code></span> haurà de valer la que aparegui en
+primer lloc d’entre les que tenen màxim nombre de diners. Alhora,
+<span><code>nummax</code></span> haurà de valer quantes persones tenen
+aquest màxim nombre de diners.</p>
+<p>Aquest és el codi que heu de completar:</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+struct Person {
+    string name;
+    int money;
+};
+
+typedef vector&lt;Person&gt; VPerson;
+
+// Pre:  v conté com a mínim una persona.
+//       Totes les persones tenen name no buit i money major o igual a 0.
+// Post: namemax conté el nom de la persona amb màxim nombre de diners.
+//       En cas que hi hagi més d&#39;un màxim, namemax conté el nom de la primera persona amb màxim nombre de diners.
+//       nummax conté quantes persones tenen màxim nombre de diners.
+void compute(const VPerson &amp;v, string &amp;namemax, int &amp;nummax)
+{
+    // Implementeu aquesta funcio.
+    // ...
+}
+
+int main()
+{
+    int n;
+    while (cin &gt;&gt; n) {
+        VPerson v(n);
+        for (int i = 0; i &lt; n; i++)
+            cin &gt;&gt; v[i].name &gt;&gt; v[i].money;
+        string namemax;
+        int nummax;
+        compute(v, namemax, nummax);
+        cout &lt;&lt; namemax &lt;&lt; &quot; &quot; &lt;&lt; nummax &lt;&lt; endl;
+    }
+}</code></pre>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada té varis casos. Cada cas comença amb un natural positiu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+major o igual a 1 en una primera línia. En una segona línia hi ha la
+descripció d’una llista
+d’<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+persones, amb els seus noms (strings sobre lletres minúscules) i quants
+diners tenen (naturals majors o iguals a 0). De fet, no us heu de
+preocupar massa per com son aquestes entrades perquè el programa que us
+donem ja té la part de lectura implementada. Només us heu de preocupar
+d’implementar la funció <span><code>compute</code></span> abans
+esmentada.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Per a cada cas, el programa ha d’escriure en una nova línia el
+corresponent nom de la primera persona amb màxim nombre de diners, i
+quantes persones tenen aquest màxim. De fet, no us heu de preocupar
+massa per com son aquestes sortides perquè el programa que us donem ja
+té la part d’escriptura implementada. Només us heu de preocupar
+d’implementar la funció <span><code>compute</code></span> abans
+esmentada.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Avaluació sobre 10 punts:</p>
+<ul>
+<li><p>Solució lenta: 5 punts.</p></li>
+<li><p>solució ràpida: 10 punts.</p></li>
+</ul>
+<p>Entenem com a solució ràpida una que és correcta, de cost lineal i
+capaç de superar els jocs de proves públics i privats. Entenem com a
+solució lenta una que no és ràpida, però és correcta i capaç de superar
+els jocs de proves públics.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T17:00:59.946Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

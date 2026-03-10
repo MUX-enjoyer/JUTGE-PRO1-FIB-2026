@@ -1,0 +1,31 @@
+Sumes de matrius quadrades
+
+Feu una funció que, donades dues matrius quadrades @a@ i @b@, calculi la
+seva suma.
+
+Interfície
+
++-------:+:--------------------------------------------------------------------+
+| C++    |     typedef vector< vector<int> > Matriu;                           |
++--------+---------------------------------------------------------------------+
+|        |     Matriu suma(const Matriu& a, const Matriu& b);                  |
++--------+---------------------------------------------------------------------+
+| Java   |     public static int[][] suma(int[][] a, int[][] b);               |
++--------+---------------------------------------------------------------------+
+| Python |     suma(a, b)  # returns list                                      |
++--------+---------------------------------------------------------------------+
+| MyPy   |     suma(a: list[list[int]], b: list[list[int]]) -> list[list[int]] |
++--------+---------------------------------------------------------------------+
+
+Precondició
+
+@a@ i @b@ són matrius quadrades n × n amb n ≥ 0.
+
+Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T10:28:59.375Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

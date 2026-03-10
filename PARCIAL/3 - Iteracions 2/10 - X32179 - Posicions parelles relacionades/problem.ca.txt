@@ -1,0 +1,28 @@
+Posicions parelles relacionades
+
+Feu un programa tal que donada una llista d’enters amb almenys dos
+elements, digui quants dels seus elements en posicions parelles són
+iguals al segon enter de la seqüència. Considerem que el primer enter de
+la seqüència està a la posició 1, el segon enter a la posició 2, etc.
+
+Noteu que el segon element de la seqüència està inclòs al recompte.
+
+Punts examen: 3.5 Part automàtica: 50%
+
+Entrada
+
+L’entrada consisteix en una seqüència amb almenys 2 enters.
+
+Sortida
+
+Heu d’escriure quants elements de la seqüència compleixen la condició
+descrita a l’enunciat.
+
+Informació del problema
+
+Autoria: Unknown
+
+Generació: 2026-01-26T07:49:40.544Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

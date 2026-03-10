@@ -1,0 +1,41 @@
+# Diferència de taules
+
+Feu una funció que retorni una taula ordenada amb la diferència dels
+vectors ordenats \@v1@ i \@v2@. El resultat ha de tenir els elements de
+\@v1@ que no es troben a \@v2@, i sense repetits. Per exemple, el
+resultat de fer la diferència d'una taula amb 1, 2, 2, 5, 5 i 7 amb una
+taula amb 2, 3, 3 i 7 és una taula amb 1 i 5.
+
+## Interfície
+
++-------:+:-------------------------------------------------------------------------------+
+| C++    | ``` c++                                                                        |
+|        | vector<double> diferencia(const vector<double>& v1, const vector<double>& v2); |
+|        | ```                                                                            |
++--------+--------------------------------------------------------------------------------+
+| Java   | ``` java                                                                       |
+|        | public static double[] diferencia(double[] v1, double[] v2);                   |
+|        | ```                                                                            |
++--------+--------------------------------------------------------------------------------+
+| Python | ``` python                                                                     |
+|        | diferencia(v1, v2)  # returns list                                             |
+|        | ```                                                                            |
++--------+--------------------------------------------------------------------------------+
+| MyPy   | ``` python                                                                     |
+|        | diferencia(v1: list[float], v2: list[float]) -> list[float]                    |
+|        | ```                                                                            |
++--------+--------------------------------------------------------------------------------+
+
+## Observació
+
+Només cal enviar el procediment demanat; el programa principal serà
+ignorat.
+
+## Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T11:22:20.683Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

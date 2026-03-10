@@ -1,0 +1,99 @@
+<h1 id="codificar-en-base64-2">Codificar en Base64 (2)</h1>
+<p><em>(Aquest problema fa servir la funció
+<code>base64\_to\_char</code> del problema &quot;Codificar en Base64
+(1)&quot;.)</em></p>
+<p>Es tracta de fer un programa que, donada una seqüència de bytes a
+l’entrada (naturals entre 0 i 255), la <strong>codifiqui en base
+64</strong>. La codificació funciona de la següent manera, i treballa
+amb tripletes de 3 bytes:</p>
+<ol>
+<li><p>Primer, cada 3 bytes d’entrada
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mn>1</mn></msub><annotation encoding="application/x-tex">B_1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mn>2</mn></msub><annotation encoding="application/x-tex">B_2</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mn>3</mn></msub><annotation encoding="application/x-tex">B_3</annotation></semantics></math>,
+construïm un enter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+en base 256 de la següent manera:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>B</mi><mn>1</mn></msub><mo>⋅</mo><mn>256</mn><mo>+</mo><msub><mi>B</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>256</mn><mo>+</mo><msub><mi>B</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">x = (B_1 \cdot 256 + B_2) \cdot 256  + B_3</annotation></semantics></math></p></li>
+<li><p>Després, reinterpretem
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+en base 64 i n’extraiem les xifres, que ara són 4:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>1</mn></msub><annotation encoding="application/x-tex">d_1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>2</mn></msub><annotation encoding="application/x-tex">d_2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>3</mn></msub><annotation encoding="application/x-tex">d_3</annotation></semantics></math>,
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>4</mn></msub><annotation encoding="application/x-tex">d_4</annotation></semantics></math>.
+El procés és totalment anàleg a extreure les xifres d’un nombre en base
+10, però en base 64. El que estem fent és calcular els dígits
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math>
+de la fórmula següent:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo>⋅</mo><mn>64</mn><mo>+</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>64</mn><mo>+</mo><msub><mi>d</mi><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>64</mn><mo>+</mo><msub><mi>d</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">x = ((d_1 \cdot 64 + d_2) \cdot 64 + d_3) \cdot 64 + d_4</annotation></semantics></math></p>
+<p><em>(Cal recordar que el procés d’extracció de xifres treballat a
+PRO1 produeix les xifres al <strong>revés</strong>, és a dir, començant
+per
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>4</mn></msub><annotation encoding="application/x-tex">d_4</annotation></semantics></math>.)</em></p></li>
+<li><p>Per últim, usant la funció <code>base64_to_char</code> convertim
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>1</mn></msub><annotation encoding="application/x-tex">d_1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>2</mn></msub><annotation encoding="application/x-tex">d_2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>3</mn></msub><annotation encoding="application/x-tex">d_3</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>4</mn></msub><annotation encoding="application/x-tex">d_4</annotation></semantics></math>
+en caràcters i els mostrem a la sortida en aquest ordre.</p></li>
+</ol>
+<p>Si la seqüència d’entrada no té un llargada múltiple de 3, just al
+final, tindrem un grup de només 1 o 2 bytes:</p>
+<ul>
+<li><p>Si tenim un grup de 2 bytes: assignem
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mn>3</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">B_3 = 0</annotation></semantics></math>,
+i seguim igualment els passos de la codificació. Un cop amb les xifres
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math>,
+canviem
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>4</mn></msub><annotation encoding="application/x-tex">d_4</annotation></semantics></math>
+pel caràcter ’<code>=</code>’.</p></li>
+<li><p>Si tenim un grup d’1 byte: assignem
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">B_2 = 0</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mn>3</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">B_3 = 0</annotation></semantics></math>,
+i seguim igualment els passos de la codificació. Un cop amb les xifres
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math>,
+canviem tant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>3</mn></msub><annotation encoding="application/x-tex">d_3</annotation></semantics></math>
+com
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>4</mn></msub><annotation encoding="application/x-tex">d_4</annotation></semantics></math>
+pel caràcter ’<code>=</code>’.</p></li>
+</ul>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix en diverses seqüències de bytes. Cadascuna
+comença amb un enter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+que indica el nombre de bytes que segueixen i després hi ha
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+bytes, a on cadascún és només un nombre natural entre 0 i 255 (ambdós
+inclosos).</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>La sortida ha de ser una línia per a cada cas amb la codificació en
+base 64 de la seqüència de bytes de l’entrada, sense espais entre els
+caràcters.</p>
+<h2 class="unnumbered" id="observacions">Observacions</h2>
+<ul>
+<li><p>Aquest problema té com a centre d’interès la
+<strong>correctesa</strong> i la <strong>llegibilitat</strong>. Sobre la
+llegibilitat, es valorarà que el programa utilitzi funcions per evitar
+repetició i separar les diverses tasques.</p></li>
+<li><p>Si teniu la funció <code>base64_to_char</code> i el Jutge us l’ha
+acceptat, useu-la directament. Si no, copieu la següent definició:</p>
+<pre><code>char base64_to_char(int d) {
+    static char _syms[65] =
+        &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+        &quot;abcdefghijklmnopqrstuvwxyz&quot;
+        &quot;0123456789+/&quot;;
+    return _syms[d];
+}</code></pre></li>
+</ul>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Pau Fernández</p>
+<p><span>Generació:</span> 2026-01-25T13:19:01.988Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

@@ -1,0 +1,42 @@
+Vector V
+
+Un vector V és un vector que està compost de dues parts:
+
+v = x₁ x₂ x₃ x₄…x_(n) y₁ y₂ y₃…y_(m)
+
+tals que x₁…x_(n) està ordenat de manera escrictament decreixent i
+y₁…y_(m) està ordenat de manera escrictament creixent. A més,
+x_(n) > y₁. Finalment tenim que n, m > 0. És a dir, cap de totes dues
+parts és buida.
+
+Cal implementar la funció int picV(const vector<int>& v) amb la següent
+especificació:
+
+PRE: v és un vector V i ∣ v ∣ ≥ 3.
+
+POST: La posició en què es troba y₁ a v.
+
+Observació
+
+IMPORTANT: Només cal que envieu la funció que us demanem i les accions i
+funcions que vosaltres mateixos definiu. Mantingueu, però, les
+definicions de tipus i els #includes.
+
+Entrada
+
+Un nombre indeterminat de vectors V amb el següent format: un enter que
+n’indica la mida, i després el vector V. Tot vector V té una mida més
+gran o igual a 3.
+
+Sortida
+
+La posició dins del vector en què es troba y₁.
+
+Informació del problema
+
+Autoria: PRO1
+
+Generació: 2026-01-25T13:13:42.068Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

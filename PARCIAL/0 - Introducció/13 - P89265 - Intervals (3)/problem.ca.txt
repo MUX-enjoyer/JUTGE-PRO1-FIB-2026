@@ -1,0 +1,27 @@
+Intervals (3)
+
+Feu un programa que, donats dos intervals, indiqui si un es troba dins
+de l’altre, i que calculi l’interval corresponent a la seva intersecció
+o indiqui que aquesta és buida.
+
+Entrada
+
+L’entrada consisteix en quatre enters a₁, b₁, a₂, b₂ que representen els
+intervals [a₁, b₁] i [a₂, b₂]. Assumiu a₁ ≤ b₁ i a₂ ≤ b₂.
+
+Sortida
+
+Cal escriure ‘=’ si els intervals són iguals, ‘1’ si el primer es troba
+dins del segon (però no són iguals), ‘2’ si el segon es troba dins del
+primer (però no són iguals), o bé ‘?’ altrament. També, cal escriure
+“[]” si els intervals no tenen intersecció, o bé “[x,y]” si aquesta és
+la seva intersecció no buida.
+
+Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T12:19:12.320Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

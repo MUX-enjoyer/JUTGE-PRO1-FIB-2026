@@ -1,0 +1,30 @@
+Matriu transposta
+
+Feu un procediment que transposi una matriu quadrada @m@.
+
+Interfície
+
++-------:+:---------------------------------------------+
+| C++    |     typedef vector< vector<int> > Matriu;    |
++--------+----------------------------------------------+
+|        |     void transposa(Matriu& m);               |
++--------+----------------------------------------------+
+| Java   |     public static void transposa(int[][] m); |
++--------+----------------------------------------------+
+| Python |     transposa(m)  # returns None             |
++--------+----------------------------------------------+
+| MyPy   |     transposa(m: list[list[int]]) -> None    |
++--------+----------------------------------------------+
+
+Precondició
+
+@m@ és una matriu quadrada n × n amb n ≥ 0.
+
+Informació del problema
+
+Autoria: Jordi Petit
+
+Generació: 2026-01-25T10:32:37.708Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

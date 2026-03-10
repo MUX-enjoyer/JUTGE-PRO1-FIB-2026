@@ -1,0 +1,24 @@
+# Suma de dígits (2)
+
+Feu un programa que llegeixi una base de numeració $b$ i diversos
+nombres i que, per a cadascun, n'escrigui la suma en base 10 dels dígits
+de $x$ en base $b$.
+
+## Entrada
+
+L'entrada consisteix en el valor de $b\geq 2$ seguit d'una seqüència de
+naturals.
+
+## Sortida
+
+Per a cada nombre, escriviu la suma (en base 10) dels seus digits en
+base $b$ seguint el format dels exemples.
+
+## Informació del problema
+
+Autoria: Maria Serna
+
+Generació: 2026-01-25T21:25:57.692Z
+
+© *Jutge.org*, 2006--2026.\
+<https://jutge.org>

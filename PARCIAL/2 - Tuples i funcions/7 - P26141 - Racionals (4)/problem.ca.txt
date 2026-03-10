@@ -1,0 +1,29 @@
+Racionals (4)
+
+Aprofitant els procediments fets als exercicis RACI1, RACI2 i RACI3, feu
+un programa que llegeixi una seqüència de racionals i operacions
+r₀  o₁ r₁  o₂ r₂  …  o_(n − 1) r_(n − 1)  o_(n) r_(n)  ,
+i escrigui el resultat després de cada operació.
+
+Entrada
+
+L’entrada consisteix en una línia amb un racional inicial, seguit d’una
+seqüència de línies, cadascuna amb un parell operació/racional. Com a
+l’exercici RACI2, cada racional ve donat per un parell d’enters, el
+segon dels quals no és zero. Les operacions poden ser “suma”, “resta”,
+“multiplica” o “divideix”. En aquest darrer cas, el següent racional no
+és un zero.
+
+Sortida
+
+Cal escriure el racional inicial, seguit del resultat acumulat de cada
+operació. Cada racional ha d’anar en una línia aprt.
+
+Informació del problema
+
+Autoria: Salvador Roura
+
+Generació: 2026-01-25T10:28:23.193Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

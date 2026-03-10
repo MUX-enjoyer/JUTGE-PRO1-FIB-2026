@@ -1,0 +1,78 @@
+<h1 id="rampes">Rampes</h1>
+<p>En aquest exercici direm que a la posició
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+d’un vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+tenim una <em>rampa</em> quan els elements
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">v[i]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">v[i + 1]</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo>+</mo><mn>2</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">v[i + 2]</annotation></semantics></math>
+estan ordenats en ordre estrictament creixent o decreixent.</p>
+<p>Per exemple, si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">n = 7</annotation></semantics></math>,
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>3</mn><mo>,</mo><mi>−</mi><mn>4</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">v = [4,5,4,3, -4,2,4]</annotation></semantics></math>
+tenim rampes a les posicions 1, 2 i 4. Quan
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">v = [0,0, 0,0,0,0]</annotation></semantics></math>
+no tenim cap posició amb rampa.</p>
+<p>Dues posicions amb rampa,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>&lt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i &lt;j</annotation></semantics></math>,
+són <em>potencialment conflictives</em> si les corresponents rampes
+involucren alguna posició comuna.</p>
+<p>En l’exemple anterior les rampes de les posicions 1 i 2 són
+potencialment conflictives, la de la posició 2 és potencialment
+conflictiva amb la de la posició 4. La rampa de la posició 1 no
+comparteix cap posició amb la de la posició 4 i per això les rampes de
+les posicions 1 i 4 no són potencialment conflictives.</p>
+<p>Escriviu un programa que indiqui les posicions en les que tenim
+rampes i el nombre de parells
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(i, j)</annotation></semantics></math>
+amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>&lt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i &lt;j</annotation></semantics></math>
+corresponents a parells de posicions amb rampa i potencialment
+conflictives.</p>
+<p>El vostre programa ha de definir, implementar i utilitzar els
+procediments:</p>
+<pre><code>vector &lt;bool&gt; pos_rampas (const vector &lt;int&gt;&amp; V);</code></pre>
+<p>que donat un vector d’enters retorna un vector, amb la mateixa
+dimensió, de valors booleans, on la posició
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+conté el valor <strong>true</strong> si i només si el vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+té una rampa a la posició
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>.</p>
+<pre><code>int pot_conflictives (const vector &lt;bool&gt;&amp; B) ;</code></pre>
+<p>que donat un vector indicant les posicions on hi ha una rampa
+determini el nombre de parells de posicions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(i, j)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>&lt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i &lt;j</annotation></semantics></math>,
+amb rampes i potencialment conflictives.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada està formada per una seqüència no buida de casos. Cada cas
+està descrit per un enter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n \geq 3</annotation></semantics></math>
+seguit dels
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+valors enters del vector corresponent.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Indicar per a cada cas les posicions en les que tenim rampes i el
+nombre de parells de posicions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(i,j)</annotation></semantics></math>,
+amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>&lt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">i &lt;j</annotation></semantics></math>
+amb rampes i potencialment conflictives.</p>
+<p>Seguiu el format especificat als exemples. El vostre codi ha de
+seguir les normes d’estil i contenir els comentaris que considereu
+oportuns. Es valorarà la senzillesa i l’eficiència de les solucions
+proposades.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Professorat de PRO1</p>
+<p><span>Generació:</span> 2026-01-25T13:26:16.036Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

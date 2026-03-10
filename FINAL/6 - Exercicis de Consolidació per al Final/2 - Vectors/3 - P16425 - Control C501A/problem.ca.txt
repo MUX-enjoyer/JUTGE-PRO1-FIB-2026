@@ -1,0 +1,28 @@
+Control C501A
+
+Feu un programa que, per a cada n donat, escrigui els n nombres primers
+més petits.
+
+Entrada
+
+L’entrada és una seqüència de naturals n amb 1 ≤ n ≤ 1000.
+
+Sortida
+
+Per a cada n, escriviu una línia amb els n primers nombres primers,
+ordenats de petit a gran, i separats per una coma.
+
+Observació
+
+Abans de llegir cap n, feu un garbell d’Eratòstenes per precalcular els
+1000 nombres primers més petits. Potser us serà útil saber que el 7919
+és el nombre primer número 1000.
+
+Informació del problema
+
+Autoria: Professorat de P1
+
+Generació: 2026-01-25T10:15:54.300Z
+
+© Jutge.org, 2006–2026.
+https://jutge.org

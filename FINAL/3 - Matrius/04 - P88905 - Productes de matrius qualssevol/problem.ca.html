@@ -1,0 +1,32 @@
+<h1 id="productes-de-matrius-qualssevol">Productes de matrius
+qualssevol</h1>
+<p>Feu una funció que, donades dues matrius @a@ i @b@, calculi el seu
+producte.</p>
+<h2 class="unnumbered" id="interfície">Interfície</h2>
+<table>
+<tbody>
+<tr>
+<td style="text-align: right;">C++</td>
+<td style="text-align: left;"><div class="sourceCode" id="cb1" data-language="C++" data-morekeywords="string,vector"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> vector<span class="op">&lt;</span> vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">&gt;</span> Matriu<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    Matriu producte<span class="op">(</span><span class="at">const</span> Matriu<span class="op">&amp;</span> a<span class="op">,</span> <span class="at">const</span> Matriu<span class="op">&amp;</span> b<span class="op">);</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: right;">MyPy</td>
+<td style="text-align: left;"><div class="sourceCode" id="cb2" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Matriu: TypeAlias <span class="op">=</span> <span class="bu">list</span>[<span class="bu">list</span>[<span class="bu">int</span>]]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> producte(a: Matriu, b: Matriu) <span class="op">-&gt;</span> Matriu</span></code></pre></div></td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="precondició">Precondició</h2>
+<p>@a@ és una matriu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>×</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">p\times q</annotation></semantics></math>
+i @b@ és una matriu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>×</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">q\times r</annotation></semantics></math>,
+amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>,</mo><mi>q</mi><mo>,</mo><mi>r</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p,q,r\ge1</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Jordi Petit</p>
+<p><span>Generació:</span> 2026-01-25T12:17:25.347Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

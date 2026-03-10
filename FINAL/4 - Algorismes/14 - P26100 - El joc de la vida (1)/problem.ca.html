@@ -1,0 +1,54 @@
+<h1 id="el-joc-de-la-vida-1">El joc de la vida (1)</h1>
+<p>El matemàtic anglès John Conway es va inventar l’any 1970 el joc
+següent: Imagineu una matriu amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+files i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+columnes. Es consideren posicions veïnes a una posició les (vuit, com a
+molt) posicions adjacents, ja sigui horitzontalment, verticalment o bé
+en diagonal. En cada instant, cada posició està buida o conté una
+bactèria. Les regles són:</p>
+<ul>
+<li><p>Una posició buida en un instant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+contindrà una bactèria en l’instant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t + 1</annotation></semantics></math>
+si i només si en l’instant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+tenia exactament tres bactèries veïnes.</p></li>
+<li><p>Una posició ocupada en un instant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+contindrà una bactèria en l’instant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t + 1</annotation></semantics></math>
+si i només si en l’instant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+tenia dos o tres bactèries veïnes.</p></li>
+</ul>
+<p>Feu un programa que, per a cada matriu donada, escrigui la matriu a
+l’instant de temps posterior.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada consisteix en diversos casos. Cada cas comença amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>,
+ambdós estrictament positius, seguits de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+línies, cadascuna amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+caràcters: ‘<code>B</code>’ si la posició té una bactèria, i
+‘<code>.</code>’ si la posició és buida. Un cas especial amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mi>m</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n = m = 0</annotation></semantics></math>
+marca el final de l’entrada.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Per a cada cas, escriviu la matriu corresponent a l’instant següent
+usant el mateix format de l’entrada (excepte
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>,
+que no s’escriuen). Separeu les matrius amb una línia buida.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Salvador Roura</p>
+<p><span>Generació:</span> 2026-01-25T10:28:02.611Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

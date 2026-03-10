@@ -1,0 +1,91 @@
+<h1 id="escala-consonant-de-paraules">Escala consonant de paraules</h1>
+<p><strong>Definició 1:</strong> Un parell de paraules en majúscula
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub><mo>,</mo><msub><mi>p</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">p_1, p_2</annotation></semantics></math>)
+forma una <em>escala consonant</em> si el nombre d’aparicions de
+consonants a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mn>2</mn></msub><annotation encoding="application/x-tex">p_2</annotation></semantics></math>
+supera al nombre d’aparicions de consonants a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mn>1</mn></msub><annotation encoding="application/x-tex">p_1</annotation></semantics></math>.</p>
+<p>Per exemple, el parell (MADUIXOT, PRESSEC) forma una escala
+consonant, perquè MADUIXOT té 4 consonants i PRESSEC en té 5. També la
+formen (POMA, PLATAN). Però en canvi no formen escala consonant
+(SINDRIA, PRUNA) ni (PERA, KIWI).</p>
+<p><strong>Definició 2:</strong> Una <em>escala consonant de
+paraules</em> de longitud
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+és una seqüència de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+paraules escrites amb lletres majúscules, on tot parell de paraules
+consecutives de la seqüència forma una escala consonat.</p>
+<p>Per exemple: POMA, MADUIXA, PLATAN, PRESSEC, ALBERCOCS és una escala
+consonant de paraules de longitud 5.</p>
+<p><strong>Definició 3:</strong> Donada una matriu amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+files i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+columnes, diem que una seqüència de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+posicions de la matriu és <em>esglaonada</em> si és de la forma
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo>,</mo><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>+</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo>,</mo><mi>j</mi><mo>+</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{(i,j), (i+1, j+1),..., (i+k-1, j+k-1)\}</annotation></semantics></math>,
+per
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>,</mo><mi>j</mi><mo>,</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">i, j, k</annotation></semantics></math>
+complint
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">0\leq i</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>+</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">i+k-1 &lt; n</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">0\leq j</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>+</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo>&lt;</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">j+k-1&lt;m</annotation></semantics></math>.</p>
+<p>Per exemple, donada una matriu de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">6\times 10</annotation></semantics></math>,
+la seqüència
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{(0,2),(1,3),(2,4),(3,5),(4,6)\}</annotation></semantics></math>
+és una seqüència esglaonada de posicions que comença a la posició
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,2)</annotation></semantics></math>
+i té longitud
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math>.</p>
+<p><strong>Es demana:</strong></p>
+<p>Feu un programa que, donada una matriu de paraules i un natural
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+, recorri la matriu per files i indiqui la primera posició
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(i,j)</annotation></semantics></math>
+que conté una escala consonant de paraules de longitud
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+en la seqüència esglaonada de posicions que comença a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(i,j)</annotation></semantics></math>.</p>
+<p>El vostre programa ha de representar la matriu de paraules mitjançant
+el següent tipus:</p>
+<pre><code>struct Paraula {
+     string contingut;          // la paraula
+     int consonants;            // nombre d&#39;aparicions de consonants 
+};
+ 
+typedef vector&lt; vector&lt;Paraula&gt; &gt; MatParaules;</code></pre>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>L’entrada conté un únic cas. El cas consisteix en el nombre de files
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\geq
+1</annotation></semantics></math>, el nombre de columnes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m\geq 1</annotation></semantics></math>
+de la matriu i un natural positiu
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+que determina la longitud de l’escala consonant de paraules a cercar. A
+continuació venen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+línies amb
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+strings cadascuna. Cada string està format només per lletres
+majúscules.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>Cal escriure en una línia el número de fila, el número de columna de
+la matriu, i la paraula amb què comença la primera (segons un recorregut
+per files) escala consonant de paraules de longitud
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+en una seqüència esglaonada de posicions. Cal escriure -1 -1 si la
+matriu no en conté cap.</p>
+<p>Seguiu el format especificat als exemples. El vostre codi ha de
+seguir bones normes d’estil, i ha de contenir els comentaris que
+considereu oportuns.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> Gabriel Valiente, Maria Blesa</p>
+<p><span>Generació:</span> 2026-01-25T21:34:41.648Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>

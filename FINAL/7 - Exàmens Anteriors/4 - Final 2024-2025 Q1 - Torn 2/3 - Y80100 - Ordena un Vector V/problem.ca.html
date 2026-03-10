@@ -1,0 +1,68 @@
+<h1 id="ordena-un-vector-v">Ordena un Vector V</h1>
+<p>Un <strong>vector V</strong> és un vector que està compost de dues
+parts:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>2</mn></msub><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>3</mn></msub><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>4</mn></msub><mi>…</mi><msub><mi>x</mi><mi>n</mi></msub><mspace width="0.222em"></mspace><msub><mi>y</mi><mn>1</mn></msub><mspace width="0.222em"></mspace><msub><mi>y</mi><mn>2</mn></msub><mspace width="0.222em"></mspace><msub><mi>y</mi><mn>3</mn></msub><mi>…</mi><msub><mi>y</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">v = x_1 ~ x_2 ~ x_3 ~ x_4 \dots x_n ~ y_1 ~ y_2~  y_3 \dots y_m</annotation></semantics></math></p>
+<p>tals que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mi>…</mi><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_1 \dots x_n</annotation></semantics></math>
+està ordenat de manera escrictament <strong>decreixent</strong> i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mn>1</mn></msub><mi>…</mi><msub><mi>y</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">y_1 \dots y_m</annotation></semantics></math>
+està ordenat de manera escrictament <strong>creixent</strong>. A més,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>n</mi></msub><mo>&gt;</mo><msub><mi>y</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_n &gt; y_1</annotation></semantics></math>.
+Finalment tenim que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>,</mo><mi>m</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n,m &gt; 0</annotation></semantics></math>.
+És a dir, cap de totes dues parts és buida.</p>
+<p>Cal implementar la <strong>funció</strong></p>
+<p><code>void ordena(const vector&lt;int&gt;&amp; v, int pos, vector&lt;int&gt;&amp; r)</code></p>
+<p>amb la següent especificació:</p>
+<p><code>PRE:</code>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+és un vector V tal que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∣</mi><mspace width="-0.167em"></mspace><mi>v</mi><mspace width="-0.167em"></mspace><mi>∣</mi><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\mid \! v \! \mid \geq 3</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pos</annotation></semantics></math>
+és la posició en què es troba
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mn>1</mn></msub><annotation encoding="application/x-tex">y_1</annotation></semantics></math>
+a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+i
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∣</mi><mspace width="-0.167em"></mspace><mi>v</mi><mspace width="-0.167em"></mspace><mi>∣</mi><mo>=</mo><mi>∣</mi><mspace width="-0.167em"></mspace><mi>r</mi><mspace width="-0.167em"></mspace><mo>∣</mo></mrow><annotation encoding="application/x-tex">\mid \! v \! \mid = \mid \! r \! \mid</annotation></semantics></math>.</p>
+<p><code>POST:</code> El vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+conté tots els elements del vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+i està ordenat.</p>
+<h2 class="unnumbered" id="observació">Observació</h2>
+<p>Només cal que envieu la funció que us demanem i les accions i
+funcions que vosaltres mateixos definiu. La resta no es tindrà en
+compte.</p>
+<p>No es pot fer servir l’operació <code>sort</code> de la biblioteca
+<code>stl</code>.</p>
+<p>Pista: saber la posició en què es troba
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mn>1</mn></msub><annotation encoding="application/x-tex">y_1</annotation></semantics></math>
+us pot ajudar a ordenar el vector en temps lineal.</p>
+<p><strong>IMPORTANT:</strong> Només cal que envieu la funció que us
+demanem i les accions i funcions que vosaltres mateixos definiu.
+Mantingueu, però, les definicions de tipus i els
+<code>#include</code>s.</p>
+<h2 class="unnumbered" id="entrada">Entrada</h2>
+<p>Un nombre indeterminat de vectors V amb el següent format: un enter
+que n’indica la mida, després el vector V, després la posició on es
+troba
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mn>1</mn></msub><annotation encoding="application/x-tex">y_1</annotation></semantics></math>
+a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+i finalment un vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+de la mateixa mida que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>.
+Tot vector V té una mida més gran o igual a 3.</p>
+<h2 class="unnumbered" id="sortida">Sortida</h2>
+<p>El vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+està ordenat i conté tots els elements de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>.</p>
+<h2 class="unnumbered" id="informació-del-problema">Informació del
+problema</h2>
+<p><span>Autoria:</span> PRO1</p>
+<p><span>Generació:</span> 2026-01-25T23:07:30.570Z</p>
+<p>© <em>Jutge.org</em>, 2006–2026.<br />
+<a href="https://jutge.org">https://jutge.org</a></p>
