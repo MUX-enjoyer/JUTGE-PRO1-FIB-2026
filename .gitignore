@@ -1,0 +1,31 @@
+# Enunciats dels exercicis (no per al repo públic)
+*.pdf
+*.html
+*.txt
+*.md
+
+# Fitxers de test/sample
+*.inp
+*.cor
+*.dt
+sample*
+
+# Solucions en altres llenguatges
+*.c
+*.java
+*.py
+
+# Executables i compilats
+*.exe
+*.out
+*.o
+
+# Fitxers .cc genèrics dins carpetes d'exercici (main.cc, a.cc, ex.cc, etc.)
+# Les solucions vàlides estan a l'arrel de cada categoria amb nom descriptiu
+main.cc
+a.cc
+ex.cc
+
+# Fitxers .cc amb nom de codi de problema (P12345-Nom.cc, dins subcarptetes)
+[A-Z][0-9]*.cc
+[A-Z][A-Z]*.cc
