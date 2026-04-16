@@ -29,3 +29,12 @@ ex.cc
 # Fitxers .cc amb nom de codi de problema (P12345-Nom.cc, dins subcarptetes)
 [A-Z][0-9]*.cc
 [A-Z][A-Z]*.cc
+
+
+# No incloure directoris que encara no hem arribat:
+2 - Vectors/
+3 - Matrius/
+4 - Algorismes/
+5 - Avançats/
+6 - Exercicis de Consolidació per al Final/
+7 - Exàmens Anteriors/
