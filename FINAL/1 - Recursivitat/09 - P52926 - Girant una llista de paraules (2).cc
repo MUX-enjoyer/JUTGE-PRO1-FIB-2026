@@ -8,6 +8,7 @@ void girar_ordre() {
         if (paraula == "fi") {
             return;
         }
+        
         // Cas recursiu: llegim la següent paraula abans d'imprimir l'actual
         girar_ordre();
         cout << paraula << endl;

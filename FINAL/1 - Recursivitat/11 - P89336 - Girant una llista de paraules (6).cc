@@ -3,22 +3,21 @@ using namespace std;
 #include <string>
 
 // Funció recursiva que llegeix paraules i imprimeix la primera meitat en ordre invers
-void girar_ordre(int& n, int& n_par) {
+void girar_ordre(int n, int& num_total) {
     string paraula;
     if (cin >> paraula) {
-        ++n_par;  // Incrementa el comptador de paraules llegides
-        girar_ordre(n, n_par);  // Crida recursiva per llegir la següent paraula
+        ++num_total;  // Incrementa el comptador de paraules llegides
         
-        // Imprimeix la paraula si pertany a la primera meitat (en ordre invers)
-        if (n*2 > n_par - 1) { 
-            cout << paraula << endl;
+        girar_ordre(n + 1, num_total);  // Crida recursiva per llegir la següent paraula
+
+        if (n < num_total/2) {
+            cout << paraula << endl;  // Imprimeix la paraula si estem a la primera meitat
         }
-        ++n;  // Incrementa el comptador total de paraules després de la recursió
     }
 }
 
 int main() {
-    int n, n_par;  // n: comptador total, n_par: comptador de paraules llegides
-    n = n_par = 0;  // Inicialitza els comptadors a 0
-    girar_ordre(n, n_par);  // Crida la funció recursiva
+    int n, num_total;  // n: comptador total, num_total: comptador de paraules llegides
+    n = num_total = 0;  // Inicialitza els comptadors a 0
+    girar_ordre(n, num_total);  // Crida la funció recursiva
 }
