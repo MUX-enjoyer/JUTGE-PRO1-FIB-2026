@@ -1,9 +1,17 @@
 #include <iostream>
 using namespace std;
 
+void imprimir_digit(int digit) {
+    if (digit >= 10) {
+        char c = 'A' + (digit - 10);
+        cout << c;
+    }
+    else cout << digit;
+}
+
 void imprimir_en_base(int n, int base) {
     // Cas base: si n és menor que la base (1 digit)
-    if (n < base) cout << n;
+    if (n < base) imprimir_digit(n);
 
     // Cas recursiu:
     else {
@@ -13,8 +21,7 @@ void imprimir_en_base(int n, int base) {
 
         // Després imprimeixo el dígit actual
         int digit = n%base;
-        if (digit > 10) cout << 'A' + digit-10;
-        else cout << n%base;
+        imprimir_digit(digit);
     }
 }
 
