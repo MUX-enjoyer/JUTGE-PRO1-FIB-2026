@@ -9,7 +9,7 @@ int suma_k_primers(int n, int k)
 #include <iostream>
 using namespace std;
 
-// Helper recursiu senzill: processa els dígits d'esquerra a dreta
+// Processa els dígits d'esquerra a dreta
 // utilitzant `k` per referència per saber quants queden per sumar.
 int suma_k_primers(int n, int &k) {
     if (n == 0) return 0;
