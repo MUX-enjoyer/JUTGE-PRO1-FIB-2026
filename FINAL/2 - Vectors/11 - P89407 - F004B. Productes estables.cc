@@ -25,13 +25,11 @@ bool mateixos_digits(int x, int y, int b) {
 }
 
 void escriu(int n, int b) {
-    if (n == 0) cout << 0;
-    else {
-        escriu(n/b, b);
-        int digit = n%b;
-        if (digit < 10) cout << digit;
-        else cout << char('A' + (digit - 10));
-    }
+    if (n == 0) return;
+    escriu(n/b, b);
+    int digit = n%b;
+    if (digit < 10) cout << digit;
+    else cout << char('A' + (digit - 10));
 }
 
 int main() {

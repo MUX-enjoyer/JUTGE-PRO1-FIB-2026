@@ -11,6 +11,19 @@ bool es_primer(int num) {
     return true;
 }
 
+// Funció per comprovar si hi ha un parell d'elements en el vector
+// que sumen un nombre primer
+bool hi_ha_parell_primer(const vector<int>& nums) {
+    for (int i = 0; i < nums.size(); ++i) {
+        for (int j = i + 1; j < nums.size(); ++j) {
+            if (es_primer(nums[i] + nums[j])) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 int main() {
     int n;
     while (cin >> n) {
@@ -19,24 +32,7 @@ int main() {
             cin >> nums[i];
         }
 
-        bool found = false;
-        for (int i = 0; i < n && !found; ++i) {
-            for (int j = i + 1; j < n && !found; ++j) {
-                if (es_primer(nums[i] + nums[j])) {
-                    found = true;
-                }
-            }
-        }
-
-
-        bool found = false;
-        for (int i = 0; i < n && !found; ++i) {
-            for (int j = i + 1; j < n && !found; ++j) {
-                if (es_primer(nums[i]+nums[j])) {
-                    found = true;
-                }
-            }
-        }
+        bool found = hi_ha_parell_primer(nums);
 
         if (found) cout << "si" << endl;
         else cout << "no" << endl;

@@ -1,42 +1,48 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
-
+// Verifica si s1 conté s2 com a subcadena (no necessàriament contínua)
 bool conte(string s1, string s2) {
-    int i = 0, j = 0;
-    while (i < s1.size()) {
-        // Si coincideixen, avancem en les dues cadenes
-        if (s1[i] == s2[j]) {
-            i++;
-            j++;
-            // Si hem arribat al final de s2, s1 conte s2
-            if (j == s2.size()) return true;
+    int n1 = s1.size();
+    int n2 = s2.size();
+    
+    // Per a cada posició inicial en s1
+    for (int i = 0; i < n1; ++i) {
+        // Si el primer caracter de s2 coincideix amb s1[i]
+        if (s1[i] == s2[0]) {
+            int matches = 1;
+            // Verifica que tots els caracters següents coincideixen
+            for (int k = 1; k < n2; ++k) {
+                if (s1[i + k] == s2[k]) ++matches;
+            }
+            // Si tots els n2 caracters coincideixen
+            if (matches == n2) return true;
         }
-        // Si no coincideixen reiniciem j a 0
-        else if (j !=0 ) j = 0;
-        // Si no coincideixen i j ja és 0, avancem només en s1
-        else i++;
     }
-    // Si hem recorregut s1 i no hem trobat s2, s1 no conte s2
     return false;
 }
-
 
 int main() {
     int n;
     cin >> n;
+    
     vector<string> paraules(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         cin >> paraules[i];
     }
-
-    // Mirar combinacions si s1 conte s2
-    for (int i = 0; i < n; i++) {
-        cout << paraules[i] << ":";
-        for (int j = 0; j < n; j++) {
-            if (i != j && conte(paraules[i], paraules[j])) {
-                cout << " " << paraules[j];
+    
+    // Per a cada paraula
+    for (int i = 0; i < n; ++i) {
+        cout << paraules[i] << ':';
+        
+        // Busca totes les paraules que conté
+        for (int j = 0; j < n; ++j) {
+            // Només comprova si la longitud permet que s'hi contingui
+            if (paraules[i].size() >= paraules[j].size() && 
+                conte(paraules[i], paraules[j])) {
+                cout << ' ' << paraules[j];
             }
         }
         cout << endl;
