@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerca dicotòmica, inserció i ordenació per inserció</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:        #f5efe2;
+  --paper-deep:   #ede4cf;
+  --ink:          #1d1a16;
+  --ink-soft:     #4b4438;
+  --ink-faded:    #8a8170;
+  --accent:       #b6442e;
+  --accent-soft:  #e8c4b9;
+  --accent-deep:  #7d2b1a;
+  --rule:         #c9bda4;
+  --highlight:    #f3d77a;
+  --cool:         #2c5f6e;
+  --cool-soft:    #b8d2d8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(182, 68, 46, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(44, 95, 110, 0.04) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' /></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.18'/></svg>");
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 80px 48px 120px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============ HEADER ============ */
+header {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 48px;
+  margin-bottom: 64px;
+  position: relative;
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+h1 {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent-deep);
+}
+
+.lede {
+  font-family: 'Newsreader', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 680px;
+  font-variation-settings: "opsz" 24;
+}
+
+.toc {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+}
+.toc a {
+  display: block;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.92rem;
+  border-left: 2px solid transparent;
+  transition: all 0.25s ease;
+}
+.toc a:hover {
+  border-left-color: var(--accent);
+  background: rgba(182, 68, 46, 0.05);
+  padding-left: 22px;
+}
+.toc-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.08em;
+}
+
+/* ============ SECTIONS ============ */
+section.chapter {
+  margin: 96px 0;
+  position: relative;
+}
+
+.chapter-marker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 32px;
+  color: var(--ink);
+  font-variation-settings: "opsz" 36;
+}
+h2 .num {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.7em;
+  color: var(--accent);
+  margin-right: 12px;
+  vertical-align: 0.05em;
+}
+
+h3 {
+  font-family: 'Newsreader', serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin: 36px 0 16px;
+  color: var(--ink);
+  font-variation-settings: "opsz" 18;
+}
+
+h4 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 24px 0 10px;
+}
+
+p {
+  margin-bottom: 18px;
+  max-width: 70ch;
+}
+p strong, li strong {
+  font-weight: 600;
+  color: var(--ink);
+  background: linear-gradient(transparent 65%, var(--accent-soft) 65%);
+  padding: 0 2px;
+}
+em { font-style: italic; color: var(--ink-soft); }
+
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.88em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--accent-deep);
+}
+
+ul, ol {
+  margin: 16px 0 24px 24px;
+  max-width: 70ch;
+}
+li { margin-bottom: 8px; }
+
+/* ============ CODE BLOCKS ============ */
+.code-wrapper {
+  position: relative;
+  margin: 24px 0;
+}
+
+.code-block {
+  background: #1d1a16;
+  color: #ede4cf;
+  border-radius: 6px;
+  padding: 24px 28px;
+  padding-top: 44px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  overflow-x: auto;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(29, 26, 22, 0.12);
+  white-space: pre;
+}
+
+.code-block-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px 10px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.15);
+  border-radius: 6px 6px 0 0;
+}
+
+.code-lang {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: #6a6052;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.copy-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: #8a8170;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.copy-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ede4cf;
+  border-color: rgba(255,255,255,0.25);
+}
+.copy-btn.copied {
+  color: #7ec896;
+  border-color: rgba(126,200,150,0.35);
+  background: rgba(126,200,150,0.08);
+}
+.copy-btn svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.code-block .kw  { color: #f3d77a; }
+.code-block .ty  { color: #b8d2d8; }
+.code-block .fn  { color: #e8c4b9; }
+.code-block .cm  { color: #6a6052; font-style: italic; }
+.code-block .nm  { color: #d4a574; }
+.code-block .str { color: #c2c47e; }
+.code-block .op  { color: #ede4cf; opacity: 0.7; }
+.code-block .pu  { color: #ede4cf; opacity: 0.55; }
+
+/* ============ INTERACTIVE PANELS ============ */
+.demo {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 32px;
+  margin: 32px 0;
+  position: relative;
+}
+.demo::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 24px;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.demo-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.demo-sub {
+  font-family: 'Newsreader', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.array-row {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 24px 0 18px;
+}
+
+.cell {
+  width: 48px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 1.05rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cell .idx {
+  position: absolute;
+  bottom: -22px;
+  font-size: 0.7rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--ink-faded);
+  font-weight: 400;
+}
+.cell.discarded {
+  background: var(--paper);
+  color: var(--ink-faded);
+  opacity: 0.35;
+  border-color: var(--rule);
+}
+.cell.in-range {
+  background: #fff8e8;
+  border-color: var(--highlight);
+  color: var(--ink);
+}
+.cell.middle {
+  background: var(--highlight);
+  border-color: #d4a83a;
+  font-weight: 600;
+  transform: scale(1.06);
+}
+.cell.found {
+  background: #b8e0c2;
+  border-color: #4d8a5e;
+  color: #1d3a25;
+  font-weight: 600;
+  animation: pulse 0.6s ease;
+}
+.cell.target {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: var(--accent-deep);
+}
+.cell.sorted-zone {
+  background: var(--cool-soft);
+  border-color: var(--cool);
+  color: var(--ink);
+}
+.cell.current-key {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--ink);
+  transform: translateY(-8px);
+}
+.cell.v1-only {
+  background: #d4f0e8;
+  border-color: #4a9e7c;
+  color: #1a4030;
+}
+.cell.v2-elem {
+  background: var(--cool-soft);
+  border-color: var(--cool);
+  color: var(--ink);
+}
+.cell.active-ptr {
+  background: var(--highlight);
+  border-color: #d4a83a;
+  font-weight: 600;
+  transform: scale(1.06);
+}
+.cell.eliminated {
+  background: var(--paper);
+  color: var(--ink-faded);
+  opacity: 0.3;
+  border-color: var(--rule);
+  text-decoration: line-through;
+}
+.cell.result-cell {
+  background: #b8e0c2;
+  border-color: #4d8a5e;
+  color: #1d3a25;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1.06); }
+  50% { transform: scale(1.14); }
+}
+
+.pointers {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  min-height: 24px;
+}
+.pointer-slot {
+  width: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  gap: 2px;
+}
+.pointer-slot .arrow { font-size: 1rem; line-height: 1; }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.88rem;
+  padding: 10px 20px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.btn:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn.secondary {
+  background: transparent;
+  color: var(--ink);
+}
+.btn.secondary:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+.input-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.input-group label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.input-group input {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 2px;
+  width: 80px;
+  text-align: center;
+}
+.input-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.status {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: var(--paper);
+  border-left: 3px solid var(--accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  min-height: 60px;
+}
+.status .step-count { color: var(--accent); font-weight: 600; }
+
+/* ============ ASIDE / NOTES ============ */
+.note {
+  border-left: 3px solid var(--cool);
+  background: rgba(44, 95, 110, 0.05);
+  padding: 18px 22px;
+  margin: 28px 0;
+  font-size: 0.95rem;
+}
+.note-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cool);
+  margin-bottom: 6px;
+  display: block;
+}
+.warn {
+  border-left: 3px solid var(--accent);
+  background: rgba(182, 68, 46, 0.06);
+  padding: 18px 22px;
+  margin: 28px 0;
+  font-size: 0.95rem;
+}
+.warn-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ============ TWO-COLUMN ============ */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 32px 0;
+}
+
+/* diff demo two-panel layout */
+.diff-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 20px 0;
+}
+.diff-panel-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.diff-result-row {
+  margin-top: 12px;
+}
+.diff-result-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #4a9e7c;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .two-col { grid-template-columns: 1fr; }
+  .diff-panels { grid-template-columns: 1fr; }
+  .toc { grid-template-columns: 1fr; }
+  .container { padding: 48px 24px 80px; }
+  .cell { width: 40px; height: 48px; font-size: 0.95rem; }
+  .pointer-slot { width: 40px; }
+}
+
+/* ============ COMPARISON TABLE ============ */
+.table-wrap {
+  margin: 32px 0;
+  overflow-x: auto;
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+  font-weight: 600;
+}
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+td:first-child {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--accent-deep);
+}
+td code { font-size: 0.85em; }
+
+/* ============ FOOTER ============ */
+footer {
+  margin-top: 120px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--ink-faded);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.chapter > p:first-of-type::first-letter {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 3.6rem;
+  line-height: 0.85;
+  float: left;
+  margin: 6px 10px 0 0;
+  color: var(--accent);
+  font-variation-settings: "opsz" 60;
+}
+
+.ornament {
+  text-align: center;
+  margin: 60px 0;
+  color: var(--rule);
+  font-size: 1.4rem;
+  letter-spacing: 1em;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-top: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+.tab {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 10px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-faded);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="eyebrow">Apunts d'introducció a la programació</div>
+  <h1>Quatre algorismes sobre vectors:<br>cerca, inserció, ordenació i <em>diferència</em>.</h1>
+  <p class="lede">Quatre procediments que comparteixen una mateixa idea — explotar l'ordre per fer més feina amb menys passes. Els veurem un darrere l'altre perquè cadascun és la peça que necessita el següent.</p>
+
+  <nav class="toc">
+    <a href="#cerca">
+      <span class="toc-num">§ 01</span>
+      Cerca dicotòmica
+    </a>
+    <a href="#insercio">
+      <span class="toc-num">§ 02</span>
+      Inserció en vector ordenat
+    </a>
+    <a href="#ordenacio">
+      <span class="toc-num">§ 03</span>
+      Ordenació per inserció
+    </a>
+    <a href="#diferencia">
+      <span class="toc-num">§ 04</span>
+      Diferència de taules
+    </a>
+  </nav>
+</header>
+
+<!-- ============ SECTION 1: CERCA DICOTÒMICA ============ -->
+<section class="chapter" id="cerca">
+  <div class="chapter-marker">Capítol primer · cerca</div>
+  <h2><span class="num">I.</span>Cerca dicotòmica</h2>
+
+  <p>Imaginem-nos un vector de nombres <strong>ordenat creixentment</strong> i la pregunta: «hi és, el valor <code>x</code>?». La cerca lineal recorreria tots els elements un a un, en el pitjor cas. La cerca dicotòmica, en canvi, aprofita l'ordre per descartar la <strong>meitat dels candidats</strong> a cada pas.</p>
+
+  <h3>La idea</h3>
+  <p>Mantenim dos índexs, <code>esq</code> (esquerra) i <code>dre</code> (dreta), que delimiten la zona del vector on encara pot ser-hi <code>x</code>. Mirem l'element del mig, <code>mig = (esq+dre)/2</code>, i:</p>
+  <ul>
+    <li>si <code>v[mig] == x</code>, l'hem trobat.</li>
+    <li>si <code>v[mig] &lt; x</code>, com que el vector és ordenat, <code>x</code> (si hi és) ha de ser a la dreta de <code>mig</code> → recursió amb <code>esq = mig+1</code>.</li>
+    <li>si <code>v[mig] &gt; x</code>, ha de ser a l'esquerra → recursió amb <code>dre = mig-1</code>.</li>
+  </ul>
+  <p>El procés acaba quan trobem l'element o quan <code>esq &gt; dre</code> (la zona ha quedat buida).</p>
+
+  <!-- DEMO 1: BINARY SEARCH -->
+  <div class="demo">
+    <div class="demo-title">Demostració interactiva</div>
+    <div class="demo-sub">Cerquem un valor en un vector ordenat</div>
+    <div class="array-row" id="bs-array"></div>
+    <div class="pointers" id="bs-pointers"></div>
+    <div class="controls">
+      <div class="input-group">
+        <label for="bs-target">x =</label>
+        <input type="number" id="bs-target" value="42">
+      </div>
+      <button class="btn" id="bs-step">Següent pas</button>
+      <button class="btn secondary" id="bs-reset">Reinicia</button>
+    </div>
+    <div class="status" id="bs-status">Tria un valor i fes clic a <strong>Següent pas</strong> per començar.</div>
+  </div>
+
+  <h3>Codi en C++</h3>
+  <p>Implementació recursiva: retorna la posició si el trobem, o <code>-1</code> si no hi és.</p>
+
+  <div class="code-wrapper">
+    <div class="code-block-header">
+      <span class="code-lang">C++</span>
+      <button class="copy-btn" onclick="copyCode(this)">
+        <svg viewBox="0 0 16 16"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z"/></svg>
+        Copia
+      </button>
+    </div>
+    <div class="code-block" id="code-cerca"><span class="cm">// Pre:  v[esq..dre] està ordenat creixentment</span>
+<span class="cm">// Post: retorna una posició i tal que v[i] == x,</span>
+<span class="cm">//       o -1 si x no apareix a v[esq..dre]</span>
+<span class="ty">int</span> <span class="fn">posicio</span><span class="pu">(</span><span class="ty">double</span> x<span class="pu">,</span> <span class="kw">const</span> <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;&amp;</span> v<span class="pu">,</span> <span class="ty">int</span> esq<span class="pu">,</span> <span class="ty">int</span> dre<span class="pu">)</span> <span class="pu">{</span>
+    <span class="cm">// Si l'interval és buit, retornem -1</span>
+    <span class="kw">if</span> <span class="pu">(</span>esq <span class="op">&gt;</span> dre<span class="pu">)</span> <span class="kw">return</span> <span class="nm">-1</span><span class="pu">;</span>
+
+    <span class="ty">int</span> mig <span class="op">=</span> <span class="pu">(</span>esq <span class="op">+</span> dre<span class="pu">)</span> <span class="op">/</span> <span class="nm">2</span><span class="pu">;</span>
+
+    <span class="kw">if</span> <span class="pu">(</span>v<span class="pu">[</span>mig<span class="pu">]</span> <span class="op">==</span> x<span class="pu">)</span> <span class="kw">return</span> mig<span class="pu">;</span>
+
+    <span class="kw">else if</span> <span class="pu">(</span>v<span class="pu">[</span>mig<span class="pu">]</span> <span class="op">&lt;</span> x<span class="pu">)</span> <span class="pu">{</span>
+        <span class="kw">return</span> <span class="fn">posicio</span><span class="pu">(</span>x<span class="pu">,</span> v<span class="pu">,</span> mig<span class="op">+</span><span class="nm">1</span><span class="pu">,</span> dre<span class="pu">);</span>
+    <span class="pu">}</span>
+    <span class="kw">else if</span> <span class="pu">(</span>v<span class="pu">[</span>mig<span class="pu">]</span> <span class="op">&gt;</span> x<span class="pu">)</span> <span class="pu">{</span>
+        <span class="kw">return</span> <span class="fn">posicio</span><span class="pu">(</span>x<span class="pu">,</span> v<span class="pu">,</span> esq<span class="pu">,</span> mig<span class="op">-</span><span class="nm">1</span><span class="pu">);</span>
+    <span class="pu">}</span>
+
+    <span class="cm">// Si no hem trobat el valor, retornem -1</span>
+    <span class="kw">return</span> <span class="nm">-1</span><span class="pu">;</span>
+<span class="pu">}</span></div>
+  </div>
+
+  <div class="note">
+    <span class="note-label">Atenció</span>
+    La implementació és <strong>recursiva</strong>: cada crida s'encarrega de l'interval <code>[esq..dre]</code>. El cas base és quan <code>esq &gt; dre</code> (interval buit) i retornem <code>-1</code>. A cada pas recursiu l'interval es divideix per dos, garantint la terminació.
+  </div>
+
+  <h3>Cost</h3>
+  <p>A cada crida recursiva <strong>la zona candidata es divideix per dos</strong>. Si partim de <code>n</code> elements, després de <code>k</code> crides en queden com a molt <code>n/2<sup>k</sup></code>. La cerca s'atura quan en queda menys d'un, és a dir, quan <code>k ≈ log₂ n</code>.</p>
+  <p>El cost en el pitjor cas és <strong>Θ(log n)</strong>. Per a un vector de mil milions d'elements, només calen unes 30 comparacions.</p>
+</section>
+
+<div class="ornament">· · ·</div>
+
+<!-- ============ SECTION 2: INSERCIÓ EN VECTOR ORDENAT ============ -->
+<section class="chapter" id="insercio">
+  <div class="chapter-marker">Capítol segon · inserció</div>
+  <h2><span class="num">II.</span>Inserció en un vector ordenat</h2>
+
+  <p>Suposem que tenim un vector ordenat i hi volem afegir un nou valor <code>x</code> mantenint la propietat d'estar ordenat. No n'hi ha prou amb posar-lo al final: cal trobar-li <strong>el lloc correcte</strong> i, abans, fer-li espai desplaçant els elements més grans una posició a la dreta.</p>
+
+  <h3>Dues fases</h3>
+  <p>L'algorisme recorre el vector <em>de dreta a esquerra</em> i fa les dues coses alhora:</p>
+  <ol>
+    <li>Mentre l'element actual sigui més gran que <code>x</code>, el copiem una posició a la dreta.</li>
+    <li>Quan trobem un element <code>≤ x</code> (o arribem al començament), el forat resultant és exactament on ha d'anar <code>x</code>.</li>
+  </ol>
+
+  <!-- DEMO 2: INSERCIÓ ORDENADA -->
+  <div class="demo">
+    <div class="demo-title">Demostració interactiva</div>
+    <div class="demo-sub">Inserim un valor preservant l'ordre</div>
+    <div class="array-row" id="ins-array"></div>
+    <div class="pointers" id="ins-pointers"></div>
+    <div class="controls">
+      <div class="input-group">
+        <label for="ins-value">x =</label>
+        <input type="number" id="ins-value" value="27">
+      </div>
+      <button class="btn" id="ins-step">Següent pas</button>
+      <button class="btn secondary" id="ins-reset">Reinicia</button>
+    </div>
+    <div class="status" id="ins-status">Tria un valor i fes clic a <strong>Següent pas</strong> per inserir-lo.</div>
+  </div>
+
+  <h3>Codi en C++</h3>
+  <p>El vector rep el nou element ja afegit al final; la funció el col·loca a la seva posició correcta.</p>
+
+  <div class="code-wrapper">
+    <div class="code-block-header">
+      <span class="code-lang">C++</span>
+      <button class="copy-btn" onclick="copyCode(this)">
+        <svg viewBox="0 0 16 16"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z"/></svg>
+        Copia
+      </button>
+    </div>
+    <div class="code-block" id="code-insercio"><span class="cm">// Pre:  v[0..n-2] està ordenat creixentment; v[n-1] és el nou element</span>
+<span class="cm">// Post: v[0..n-1] està ordenat creixentment i conté</span>
+<span class="cm">//       els mateixos elements que abans més l'últim valor original</span>
+<span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;vector&gt;</span>
+<span class="kw">using namespace</span> <span class="ty">std</span><span class="pu">;</span>
+
+<span class="ty">void</span> <span class="fn">insereix</span><span class="pu">(</span><span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;&amp;</span> v<span class="pu">)</span> <span class="pu">{</span>
+    <span class="ty">int</span> n <span class="op">=</span> v.<span class="fn">size</span><span class="pu">();</span>
+    <span class="kw">if</span> <span class="pu">(</span>n <span class="op">&lt;</span> <span class="nm">2</span><span class="pu">)</span> <span class="kw">return</span><span class="pu">;</span> <span class="cm">// Si el vector té 0 o 1 elements, ja està "ordenat"</span>
+
+    <span class="ty">double</span> x <span class="op">=</span> v<span class="pu">[</span>n <span class="op">-</span> <span class="nm">1</span><span class="pu">];</span> <span class="cm">// Agafem l'últim element</span>
+    <span class="ty">int</span> j <span class="op">=</span> n <span class="op">-</span> <span class="nm">2</span><span class="pu">;</span>       <span class="cm">// Comencem a comparar des del penúltim element</span>
+
+    <span class="cm">// Desplacem els elements més grans que x cap a la dreta</span>
+    <span class="kw">while</span> <span class="pu">(</span>j <span class="op">&gt;=</span> <span class="nm">0</span> <span class="op">&amp;&amp;</span> v<span class="pu">[</span>j<span class="pu">]</span> <span class="op">&gt;</span> x<span class="pu">)</span> <span class="pu">{</span>
+        v<span class="pu">[</span>j <span class="op">+</span> <span class="nm">1</span><span class="pu">]</span> <span class="op">=</span> v<span class="pu">[</span>j<span class="pu">];</span> <span class="cm">// Desplacem l'element a la dreta</span>
+        <span class="op">--</span>j<span class="pu">;</span>
+    <span class="pu">}</span>
+
+    <span class="cm">// Col·loquem x a la seva posició correcta</span>
+    v<span class="pu">[</span>j <span class="op">+</span> <span class="nm">1</span><span class="pu">]</span> <span class="op">=</span> x<span class="pu">;</span>
+<span class="pu">}</span>
+
+<span class="ty">int</span> <span class="fn">main</span><span class="pu">()</span>
+<span class="pu">{</span>
+    cout.<span class="fn">setf</span><span class="pu">(</span>ios<span class="pu">::</span>fixed<span class="pu">,</span> ios<span class="pu">::</span>floatfield<span class="pu">);</span>
+    cout.<span class="fn">precision</span><span class="pu">(</span><span class="nm">4</span><span class="pu">);</span>
+    <span class="ty">int</span> n<span class="pu">;</span>
+    <span class="kw">while</span> <span class="pu">(</span>cin <span class="op">&gt;&gt;</span> n<span class="pu">)</span> <span class="pu">{</span>
+        <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;</span> V<span class="pu">(</span>n<span class="pu">);</span>
+        <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> i <span class="op">&lt;</span> n<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> <span class="pu">{</span>
+            cin <span class="op">&gt;&gt;</span> V<span class="pu">[</span>i<span class="pu">];</span>
+        <span class="pu">}</span>
+        <span class="fn">insereix</span><span class="pu">(</span>V<span class="pu">);</span>
+        <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> i <span class="op">&lt;</span> n<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> <span class="pu">{</span>
+            cout <span class="op">&lt;&lt;</span> <span class="str">" "</span> <span class="op">&lt;&lt;</span> V<span class="pu">[</span>i<span class="pu">];</span>
+        <span class="pu">}</span>
+        cout <span class="op">&lt;&lt;</span> endl<span class="pu">;</span>
+    <span class="pu">}</span>
+    <span class="kw">return</span> <span class="nm">0</span><span class="pu">;</span>
+<span class="pu">}</span></div>
+  </div>
+
+  <div class="note">
+    <span class="note-label">Observació</span>
+    Fixeu-vos que <strong>no</strong> hem fet una cerca dicotòmica per trobar la posició. Tot i que sabríem on va <code>x</code> en temps Θ(log n), igualment hauríem de desplaçar fins a <code>n</code> elements; el cost dominant és el desplaçament, no la cerca. Per això és més senzill fer-ho tot en un sol bucle.
+  </div>
+
+  <h3>Cost</h3>
+  <p>En el pitjor cas — quan <code>x</code> és més petit que tots els elements del vector — cal desplaçar-los tots. El cost és <strong>Θ(n)</strong>.</p>
+  <p>En el millor cas — quan <code>x</code> és més gran o igual que l'últim element — el bucle no s'executa cap vegada i el cost és <strong>Θ(1)</strong>.</p>
+</section>
+
+<div class="ornament">· · ·</div>
+
+<!-- ============ SECTION 3: ORDENACIÓ PER INSERCIÓ ============ -->
+<section class="chapter" id="ordenacio">
+  <div class="chapter-marker">Capítol tercer · ordenació</div>
+  <h2><span class="num">III.</span>Ordenació per inserció</h2>
+
+  <p>Ja tenim el procediment per inserir un element en un vector ordenat. Què passaria si l'apliquéssim repetidament? Si comencem amb un vector ordenat de zero elements i hi anem afegint, un a un, tots els valors d'un vector desordenat... obtenim un mètode d'ordenació.</p>
+
+  <h3>La invariant</h3>
+  <p>Recorrem el vector d'esquerra a dreta amb un índex <code>i</code>. En tot moment, garantim aquesta propietat:</p>
+
+  <div class="warn">
+    <span class="warn-label">Invariant del bucle</span>
+    Just abans de processar la posició <code>i</code>, el subvector <code>v[0..i-1]</code> està ordenat (conté els mateixos elements que tenia al principi, però ordenats), i <code>v[i..n-1]</code> encara no s'ha tocat.
+  </div>
+
+  <p>A cada iteració agafem <code>v[i]</code> (l'anomenem <em>la clau</em>) i la inserim al lloc correcte dins de <code>v[0..i-1]</code>, fent servir exactament la mateixa tècnica del capítol anterior. Després, la zona ordenada creix fins a <code>v[0..i]</code>, i avancem.</p>
+
+  <!-- DEMO 3: INSERTION SORT -->
+  <div class="demo">
+    <div class="demo-title">Demostració interactiva</div>
+    <div class="demo-sub">Ordenem el vector sencer pas a pas</div>
+    <div class="array-row" id="sort-array"></div>
+    <div class="pointers" id="sort-pointers"></div>
+    <div class="controls">
+      <button class="btn" id="sort-step">Següent pas</button>
+      <button class="btn secondary" id="sort-reset">Reinicia</button>
+      <button class="btn secondary" id="sort-shuffle">Nou vector</button>
+    </div>
+    <div class="status" id="sort-status">Fes clic a <strong>Següent pas</strong> per començar a ordenar.</div>
+  </div>
+
+  <h3>Codi en C++</h3>
+  <p>Comparem-ho amb la inserció de la secció anterior: gairebé és la mateixa estructura, però dins d'un bucle extern sobre <code>i</code>.</p>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="sort-v1">Versió bàsica</button>
+    <button class="tab" data-tab="sort-v2">Variant amb intercanvis</button>
+  </div>
+
+  <div class="tab-content active" id="sort-v1">
+    <div class="code-wrapper">
+      <div class="code-block-header">
+        <span class="code-lang">C++</span>
+        <button class="copy-btn" onclick="copyCode(this)">
+          <svg viewBox="0 0 16 16"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z"/></svg>
+          Copia
+        </button>
+      </div>
+      <div class="code-block" id="code-sort-v1"><span class="cm">// Pre:  v té n elements</span>
+<span class="cm">// Post: v està ordenat creixentment</span>
+<span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;vector&gt;</span>
+<span class="kw">using namespace</span> <span class="ty">std</span><span class="pu">;</span>
+
+<span class="ty">void</span> <span class="fn">ordena_per_insercio</span><span class="pu">(</span><span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;&amp;</span> v<span class="pu">)</span> <span class="pu">{</span>
+    <span class="ty">int</span> n <span class="op">=</span> v.<span class="fn">size</span><span class="pu">();</span>
+
+    <span class="cm">// Per cada element a partir del segon (i = 1)</span>
+    <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">1</span><span class="pu">;</span> i <span class="op">&lt;</span> n<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> <span class="pu">{</span>
+        <span class="ty">double</span> x <span class="op">=</span> v<span class="pu">[</span>i<span class="pu">];</span>
+        <span class="cm">// L'inserim a la part ordenada (a l'esquerra)</span>
+
+        <span class="ty">int</span> j <span class="op">=</span> i <span class="op">-</span> <span class="nm">1</span><span class="pu">;</span>
+        <span class="cm">// Mentre no arribem al principi (j >= 0)</span>
+        <span class="cm">//    i l'element de l'esquerra sigui més gran que x</span>
+        <span class="kw">while</span> <span class="pu">(</span>j <span class="op">&gt;=</span> <span class="nm">0</span> <span class="op">&amp;&amp;</span> v<span class="pu">[</span>j<span class="pu">]</span> <span class="op">&gt;</span> x<span class="pu">)</span> <span class="pu">{</span>
+            v<span class="pu">[</span>j <span class="op">+</span> <span class="nm">1</span><span class="pu">]</span> <span class="op">=</span> v<span class="pu">[</span>j<span class="pu">];</span> <span class="cm">// Desplacem</span>
+            <span class="op">--</span>j<span class="pu">;</span>
+        <span class="pu">}</span>
+
+        <span class="cm">// Posem l'element a la seva posició correcta</span>
+        v<span class="pu">[</span>j <span class="op">+</span> <span class="nm">1</span><span class="pu">]</span> <span class="op">=</span> x<span class="pu">;</span>
+    <span class="pu">}</span>
+<span class="pu">}</span>
+
+<span class="ty">int</span> <span class="fn">main</span><span class="pu">()</span>
+<span class="pu">{</span>
+    cout.<span class="fn">setf</span><span class="pu">(</span>ios<span class="pu">::</span>fixed<span class="pu">,</span> ios<span class="pu">::</span>floatfield<span class="pu">);</span>
+    cout.<span class="fn">precision</span><span class="pu">(</span><span class="nm">4</span><span class="pu">);</span>
+    <span class="ty">int</span> n<span class="pu">;</span>
+    <span class="kw">while</span> <span class="pu">(</span>cin <span class="op">&gt;&gt;</span> n<span class="pu">)</span> <span class="pu">{</span>
+        <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;</span> V<span class="pu">(</span>n<span class="pu">);</span>
+        <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> i <span class="op">&lt;</span> n<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> <span class="pu">{</span>
+            cin <span class="op">&gt;&gt;</span> V<span class="pu">[</span>i<span class="pu">];</span>
+        <span class="pu">}</span>
+        <span class="fn">ordena_per_insercio</span><span class="pu">(</span>V<span class="pu">);</span>
+        <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> i <span class="op">&lt;</span> n<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> <span class="pu">{</span>
+            cout <span class="op">&lt;&lt;</span> <span class="str">" "</span> <span class="op">&lt;&lt;</span> V<span class="pu">[</span>i<span class="pu">];</span>
+        <span class="pu">}</span>
+        cout <span class="op">&lt;&lt;</span> endl<span class="pu">;</span>
+    <span class="pu">}</span>
+    <span class="kw">return</span> <span class="nm">0</span><span class="pu">;</span>
+<span class="pu">}</span></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="sort-v2">
+    <div class="code-wrapper">
+      <div class="code-block-header">
+        <span class="code-lang">C++</span>
+        <button class="copy-btn" onclick="copyCode(this)">
+          <svg viewBox="0 0 16 16"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z"/></svg>
+          Copia
+        </button>
+      </div>
+      <div class="code-block" id="code-sort-v2"><span class="cm">// Variant amb intercanvis: més senzilla però una mica</span>
+<span class="cm">// menys eficient, perquè cada swap fa 3 assignacions</span>
+<span class="ty">void</span> <span class="fn">ordena_per_insercio</span><span class="pu">(</span><span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;&amp;</span> v<span class="pu">)</span> <span class="pu">{</span>
+    <span class="ty">int</span> n <span class="op">=</span> v.<span class="fn">size</span><span class="pu">();</span>
+    <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">1</span><span class="pu">;</span> i <span class="op">&lt;</span> n<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> <span class="pu">{</span>
+        <span class="ty">int</span> j <span class="op">=</span> i<span class="pu">;</span>
+        <span class="kw">while</span> <span class="pu">(</span>j <span class="op">&gt;</span> <span class="nm">0</span> <span class="op">&amp;&amp;</span> v<span class="pu">[</span>j <span class="op">-</span> <span class="nm">1</span><span class="pu">]</span> <span class="op">&gt;</span> v<span class="pu">[</span>j<span class="pu">])</span> <span class="pu">{</span>
+            <span class="fn">swap</span><span class="pu">(</span>v<span class="pu">[</span>j <span class="op">-</span> <span class="nm">1</span><span class="pu">],</span> v<span class="pu">[</span>j<span class="pu">]);</span>
+            <span class="op">--</span>j<span class="pu">;</span>
+        <span class="pu">}</span>
+    <span class="pu">}</span>
+<span class="pu">}</span></div>
+    </div>
+  </div>
+
+  <h3>Per què comença a <code>i = 1</code>?</h3>
+  <p>Un vector d'un sol element ja està ordenat trivialment, així que el subvector <code>v[0..0]</code> compleix la invariant abans de la primera iteració. La feina comença a la posició <code>1</code>.</p>
+
+  <h3>Cost</h3>
+  <p>Cada inserció parcial costa <strong>Θ(i)</strong> en el pitjor cas. Sumant per a totes les <code>i</code> entre 1 i <code>n-1</code>:</p>
+  <p style="text-align: center; font-family: 'Newsreader', serif; font-size: 1.2rem; margin: 24px 0;">
+    1 + 2 + 3 + ··· + (n−1) = <em>n(n−1)/2</em> ∈ <strong>Θ(n²)</strong>
+  </p>
+  <p>En el millor cas — vector ja ordenat — el bucle intern no s'executa cap vegada i el cost total és <strong>Θ(n)</strong>. Aquesta és una propietat interessant: l'ordenació per inserció és <strong>adaptativa</strong>, és a dir, va més de pressa com més ordenat estigui ja el vector.</p>
+</section>
+
+<div class="ornament">· · ·</div>
+
+<!-- ============ SECTION 4: DIFERÈNCIA DE TAULES ============ -->
+<section class="chapter" id="diferencia">
+  <div class="chapter-marker">Capítol quart · diferència</div>
+  <h2><span class="num">IV.</span>Diferència de taules</h2>
+
+  <p>Donats dos vectors <strong>ordenats creixentment</strong> <code>v1</code> i <code>v2</code>, volem obtenir un tercer vector que contingui tots els elements de <code>v1</code> que <strong>no apareixen</strong> a <code>v2</code>, mantenint l'ordre. Aquesta operació és anàloga a la diferència de conjunts: <em>v1 \ v2</em>.</p>
+
+  <h3>L'estratègia de dos punters</h3>
+  <p>Aprofitem que tots dos vectors estan ordenats. Mantenim un índex <code>i</code> per a <code>v1</code> i un índex <code>j</code> per a <code>v2</code>, i els avancem coordinadament:</p>
+
+  <ul>
+    <li>Si <code>v1[i] &lt; v2[j]</code>: com que <code>v2</code> és creixent, <code>v1[i]</code> no pot aparèixer a <code>v2</code> → l'afegim al resultat i avancem <code>i</code>.</li>
+    <li>Si <code>v1[i] == v2[j]</code>: <code>v1[i]</code> sí apareix a <code>v2</code> → el saltem (no l'afegim) i avancem <code>i</code>.</li>
+    <li>Si <code>v1[i] &gt; v2[j]</code>: <code>v2[j]</code> és massa petit per coincidir; pot ser que un element posterior de <code>v2</code> sí coincideixi → avancem <code>j</code>.</li>
+    <li>Si <code>j</code> ha arribat al final de <code>v2</code>: qualsevol element restant de <code>v1</code> va directament al resultat.</li>
+  </ul>
+
+  <!-- DEMO 4: DIFERÈNCIA -->
+  <div class="demo">
+    <div class="demo-title">Demostració interactiva</div>
+    <div class="demo-sub">Calculem v1 \ v2 pas a pas</div>
+
+    <div class="diff-panels">
+      <div>
+        <div class="diff-panel-label">Vector v1</div>
+        <div class="array-row" id="diff-v1-array"></div>
+        <div class="pointers" id="diff-v1-pointers"></div>
+      </div>
+      <div>
+        <div class="diff-panel-label">Vector v2</div>
+        <div class="array-row" id="diff-v2-array"></div>
+        <div class="pointers" id="diff-v2-pointers"></div>
+      </div>
+    </div>
+    <div class="diff-result-label">Resultat (v1 \ v2)</div>
+    <div class="array-row" id="diff-result-array"></div>
+
+    <div class="controls">
+      <button class="btn" id="diff-step">Següent pas</button>
+      <button class="btn secondary" id="diff-reset">Reinicia</button>
+    </div>
+    <div class="status" id="diff-status">Fes clic a <strong>Següent pas</strong> per començar a calcular la diferència.</div>
+  </div>
+
+  <h3>Codi en C++</h3>
+
+  <div class="code-wrapper">
+    <div class="code-block-header">
+      <span class="code-lang">C++</span>
+      <button class="copy-btn" onclick="copyCode(this)">
+        <svg viewBox="0 0 16 16"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z"/></svg>
+        Copia
+      </button>
+    </div>
+    <div class="code-block" id="code-diferencia"><span class="cm">// Pre:  v1 i v2 estan ordenats creixentment</span>
+<span class="cm">// Post: retorna un vector ordenat amb els elements de v1</span>
+<span class="cm">//       que no apareixen a v2 (v1 \ v2)</span>
+<span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;vector&gt;</span>
+<span class="kw">using namespace</span> <span class="ty">std</span><span class="pu">;</span>
+
+<span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;</span> <span class="fn">diferencia</span><span class="pu">(</span><span class="kw">const</span> <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;&amp;</span> v1<span class="pu">,</span> <span class="kw">const</span> <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;&amp;</span> v2<span class="pu">)</span> <span class="pu">{</span>
+    <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;</span> resultat<span class="pu">;</span>
+
+    <span class="ty">int</span> i <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> <span class="cm">// Punter per a v1</span>
+    <span class="ty">int</span> j <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> <span class="cm">// Punter per a v2</span>
+
+    <span class="kw">while</span> <span class="pu">(</span>i <span class="op">&lt;</span> v1.<span class="fn">size</span><span class="pu">())</span> <span class="pu">{</span>
+        <span class="cm">// Si v2 s'ha acabat, qualsevol element nou de v1 va al resultat</span>
+        <span class="kw">if</span> <span class="pu">(</span>j <span class="op">==</span> v2.<span class="fn">size</span><span class="pu">())</span> <span class="pu">{</span>
+            resultat.<span class="fn">push_back</span><span class="pu">(</span>v1<span class="pu">[</span>i<span class="pu">]);</span>
+            i<span class="op">++</span><span class="pu">;</span>
+        <span class="pu">}</span>
+
+        <span class="cm">// Si v1[i] < v2[j], no pot estar a v2 → l'afegim i avancem i</span>
+        <span class="kw">else if</span> <span class="pu">(</span>v1<span class="pu">[</span>i<span class="pu">]</span> <span class="op">&lt;</span> v2<span class="pu">[</span>j<span class="pu">])</span> <span class="pu">{</span>
+            resultat.<span class="fn">push_back</span><span class="pu">(</span>v1<span class="pu">[</span>i<span class="pu">]);</span>
+            i<span class="op">++</span><span class="pu">;</span>
+        <span class="pu">}</span>
+
+        <span class="cm">// Si són iguals, l'ignorem i avancem i</span>
+        <span class="kw">else if</span> <span class="pu">(</span>v1<span class="pu">[</span>i<span class="pu">]</span> <span class="op">==</span> v2<span class="pu">[</span>j<span class="pu">])</span> <span class="pu">{</span>
+            i<span class="op">++</span><span class="pu">;</span>
+        <span class="pu">}</span>
+
+        <span class="cm">// Si v1[i] > v2[j], avancem j per buscar el possible igual</span>
+        <span class="kw">else</span> <span class="pu">{</span> <span class="cm">// v1[i] > v2[j]</span>
+            j<span class="op">++</span><span class="pu">;</span>
+        <span class="pu">}</span>
+    <span class="pu">}</span>
+    <span class="kw">return</span> resultat<span class="pu">;</span>
+<span class="pu">}</span>
+
+<span class="ty">int</span> <span class="fn">main</span><span class="pu">()</span> <span class="pu">{</span>
+    cout.<span class="fn">setf</span><span class="pu">(</span>ios<span class="pu">::</span>fixed<span class="pu">,</span> ios<span class="pu">::</span>floatfield<span class="pu">);</span>
+    cout.<span class="fn">precision</span><span class="pu">(</span><span class="nm">4</span><span class="pu">);</span>
+
+    <span class="ty">int</span> n1<span class="pu">;</span>
+    <span class="kw">while</span> <span class="pu">(</span>cin <span class="op">&gt;&gt;</span> n1<span class="pu">)</span> <span class="pu">{</span>
+        <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;</span> V1<span class="pu">(</span>n1<span class="pu">);</span>
+        <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> i <span class="op">&lt;</span> n1<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> cin <span class="op">&gt;&gt;</span> V1<span class="pu">[</span>i<span class="pu">];</span>
+        <span class="ty">int</span> n2<span class="pu">;</span>
+        cin <span class="op">&gt;&gt;</span> n2<span class="pu">;</span>
+        <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;</span> V2<span class="pu">(</span>n2<span class="pu">);</span>
+        <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> i <span class="op">&lt;</span> n2<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> cin <span class="op">&gt;&gt;</span> V2<span class="pu">[</span>i<span class="pu">];</span>
+
+        <span class="ty">vector</span><span class="pu">&lt;</span><span class="ty">double</span><span class="pu">&gt;</span> res <span class="op">=</span> <span class="fn">diferencia</span><span class="pu">(</span>V1<span class="pu">,</span> V2<span class="pu">);</span>
+
+        <span class="ty">int</span> n3 <span class="op">=</span> res.<span class="fn">size</span><span class="pu">();</span>
+        cout <span class="op">&lt;&lt;</span> n3 <span class="op">&lt;&lt;</span> endl<span class="pu">;</span>
+        <span class="kw">for</span> <span class="pu">(</span><span class="ty">int</span> i <span class="op">=</span> <span class="nm">0</span><span class="pu">;</span> i <span class="op">&lt;</span> n3<span class="pu">;</span> <span class="op">++</span>i<span class="pu">)</span> cout <span class="op">&lt;&lt;</span> <span class="str">" "</span> <span class="op">&lt;&lt;</span> res<span class="pu">[</span>i<span class="pu">];</span>
+        cout <span class="op">&lt;&lt;</span> endl <span class="op">&lt;&lt;</span> endl<span class="pu">;</span>
+    <span class="pu">}</span>
+    <span class="kw">return</span> <span class="nm">0</span><span class="pu">;</span>
+<span class="pu">}</span></div>
+  </div>
+
+  <div class="note">
+    <span class="note-label">Eficiència clau</span>
+    Cada índex (<code>i</code> i <code>j</code>) avança únicament cap endavant i mai retrocedeix. Per tant, el bucle fa com a molt <code>|v1| + |v2|</code> iteracions. El cost total és <strong>Θ(|v1| + |v2|)</strong>, molt millor que la cerca lineal per a cada element de <code>v1</code>, que costaria Θ(|v1| · |v2|).
+  </div>
+
+  <h3>Cost</h3>
+  <p>En el pitjor cas, quan cap element de <code>v1</code> no apareix a <code>v2</code> (o <code>v2</code> és buit), recorrem <code>v1</code> sencer. En el millor cas, quan <code>v2</code> conté tots els elements de <code>v1</code>, avancem tots dos punters simultàniament. En ambdós casos el cost és <strong>Θ(|v1| + |v2|)</strong>.</p>
+</section>
+
+<div class="ornament">· · ·</div>
+
+<!-- ============ SUMMARY ============ -->
+<section class="chapter" id="resum">
+  <div class="chapter-marker">Quadre resum</div>
+  <h2><span class="num">∞</span>Costos comparats</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Algorisme</th>
+          <th>Precondició</th>
+          <th>Millor cas</th>
+          <th>Pitjor cas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cerca dicotòmica</td>
+          <td>vector ordenat</td>
+          <td>Θ(1)</td>
+          <td>Θ(log n)</td>
+        </tr>
+        <tr>
+          <td>Inserció en ordenat</td>
+          <td>vector ordenat</td>
+          <td>Θ(1)</td>
+          <td>Θ(n)</td>
+        </tr>
+        <tr>
+          <td>Ordenació per inserció</td>
+          <td>cap</td>
+          <td>Θ(n)</td>
+          <td>Θ(n²)</td>
+        </tr>
+        <tr>
+          <td>Diferència de taules</td>
+          <td>ambdós ordenats</td>
+          <td>Θ(|v1|+|v2|)</td>
+          <td>Θ(|v1|+|v2|)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Els quatre algorismes formen una cadena natural: cada un assumeix la propietat que l'anterior ajuda a construir o explotar. La cerca <em>aprofita</em> l'ordre, la inserció el <em>preserva</em>, l'ordenació per inserció el <em>construeix</em> aplicant la inserció repetidament, i la diferència el <em>combina</em> coordinant dos punters sobre dos vectors ja ordenats.</p>
+</section>
+
+<footer>
+  <div>Apunts de programació · Facultat d'Informàtica</div>
+  <div>v.2 — algorismes sobre vectors</div>
+</footer>
+
+</div>
+
+<script>
+// ============================================================
+// COPY CODE
+// ============================================================
+function copyCode(btn) {
+  const wrapper = btn.closest('.code-block-header').parentElement;
+  const codeBlock = wrapper.querySelector('.code-block');
+  const text = codeBlock.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Copiat!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = '<svg viewBox="0 0 16 16"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z"/></svg> Copia';
+    }, 2000);
+  });
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function makeCell(value, idx, classes) {
+  classes = classes || '';
+  var cell = document.createElement('div');
+  cell.className = 'cell ' + classes;
+  cell.textContent = value;
+  var idxLabel = document.createElement('span');
+  idxLabel.className = 'idx';
+  idxLabel.textContent = idx;
+  cell.appendChild(idxLabel);
+  return cell;
+}
+
+function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
+
+function makePointerRow(slots, count, pointers) {
+  // slots: array of {index, label, color}
+  for (var i = 0; i < count; i++) {
+    var slot = document.createElement('div');
+    slot.className = 'pointer-slot';
+    slot.style.cssText = 'width:48px;display:flex;flex-direction:column;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:0.72rem;';
+    var match = pointers.filter(function(p) { return p.index === i; });
+    match.forEach(function(p) {
+      var arrow = document.createElement('span');
+      arrow.className = 'arrow';
+      arrow.textContent = '▲';
+      arrow.style.color = p.color;
+      arrow.style.fontSize = '1rem';
+      var lab = document.createElement('span');
+      lab.textContent = p.label;
+      lab.style.color = p.color;
+      lab.style.fontWeight = '600';
+      slot.appendChild(arrow);
+      slot.appendChild(lab);
+    });
+    slots.appendChild(slot);
+  }
+}
+
+// ============================================================
+// DEMO 1 — CERCA DICOTÒMICA
+// ============================================================
+(function() {
+  var DATA = [3, 8, 12, 17, 21, 25, 29, 34, 38, 42, 47, 51, 56, 60, 64];
+  var arrayEl = document.getElementById('bs-array');
+  var pointersEl = document.getElementById('bs-pointers');
+  var statusEl = document.getElementById('bs-status');
+  var stepBtn = document.getElementById('bs-step');
+  var resetBtn = document.getElementById('bs-reset');
+  var targetInput = document.getElementById('bs-target');
+  var state = null;
+
+  function init() {
+    var x = parseInt(targetInput.value, 10);
+    state = { x: isNaN(x) ? 42 : x, e: 0, d: DATA.length - 1, step: 0, done: false, result: null, m: null };
+    render('Cerquem x = ' + state.x + '. Posem esq = 0 i dre = ' + (DATA.length - 1) + '.');
+    stepBtn.disabled = false;
+  }
+
+  function render(message) {
+    clear(arrayEl);
+    clear(pointersEl);
+    for (var i = 0; i < DATA.length; i++) {
+      var cls = '';
+      if (state.done && state.result === i) cls = 'found';
+      else if (i < state.e || i > state.d) cls = 'discarded';
+      else if (i === state.m) cls = 'middle';
+      else cls = 'in-range';
+      arrayEl.appendChild(makeCell(DATA[i], i, cls));
+    }
+    var ptrs = [];
+    if (!state.done) {
+      if (state.e !== null) ptrs.push({index: state.e, label: 'esq', color: 'var(--cool)'});
+      if (state.d !== null && state.d !== state.e) ptrs.push({index: state.d, label: 'dre', color: 'var(--accent)'});
+      else if (state.d === state.e) ptrs[0] && (ptrs[0].label = 'esq=dre');
+      if (state.m !== null) ptrs.push({index: state.m, label: 'mig', color: '#8a6a14'});
+    }
+    makePointerRow(pointersEl, DATA.length, ptrs);
+    statusEl.innerHTML = (state.step > 0 ? '<span class="step-count">Pas ' + state.step + '</span> · ' : '') + message;
+  }
+
+  function step() {
+    if (state.done) return;
+    if (state.e > state.d) {
+      state.done = true; state.result = -1; state.m = null;
+      render('esq > dre: la zona ha quedat buida. El valor <strong>no és</strong> al vector. Retornem -1.');
+      stepBtn.disabled = true; return;
+    }
+    state.step++;
+    state.m = Math.floor((state.e + state.d) / 2);
+    var vm = DATA[state.m];
+    if (vm === state.x) {
+      state.done = true; state.result = state.m;
+      render('v[' + state.m + '] = ' + vm + ' = x. <strong>Trobat!</strong> Retornem ' + state.m + '.');
+      stepBtn.disabled = true;
+    } else if (vm < state.x) {
+      var oldM = state.m; state.e = state.m + 1; state.m = null;
+      render('v[' + oldM + '] = ' + vm + ' < ' + state.x + '. Descartem l\'esquerra: esq = ' + state.e + '.');
+    } else {
+      var oldM2 = state.m; state.d = state.m - 1; state.m = null;
+      render('v[' + oldM2 + '] = ' + vm + ' > ' + state.x + '. Descartem la dreta: dre = ' + state.d + '.');
+    }
+  }
+
+  stepBtn.addEventListener('click', step);
+  resetBtn.addEventListener('click', init);
+  targetInput.addEventListener('change', init);
+  init();
+})();
+
+// ============================================================
+// DEMO 2 — INSERCIÓ ORDENADA
+// ============================================================
+(function() {
+  var BASE = [5, 11, 18, 24, 33, 41, 50, 58];
+  var arrayEl = document.getElementById('ins-array');
+  var pointersEl = document.getElementById('ins-pointers');
+  var statusEl = document.getElementById('ins-status');
+  var stepBtn = document.getElementById('ins-step');
+  var resetBtn = document.getElementById('ins-reset');
+  var valueInput = document.getElementById('ins-value');
+  var state = null;
+
+  function init() {
+    var x = parseInt(valueInput.value, 10);
+    state = { arr: BASE.slice().concat([null]), n: BASE.length, x: isNaN(x) ? 27 : x, j: BASE.length - 1, phase: 'start', step: 0 };
+    render('Inserim x = ' + state.x + '. Comencem amb j = ' + state.j + ' (l\'últim element).');
+    stepBtn.disabled = false;
+  }
+
+  function render(message) {
+    clear(arrayEl); clear(pointersEl);
+    var len = state.arr.length;
+    for (var i = 0; i < len; i++) {
+      var cls = '';
+      var val = state.arr[i] === null ? '·' : state.arr[i];
+      if (state.arr[i] === null) cls = 'discarded';
+      else if (state.phase === 'done' && i === state.j + 1) cls = 'current-key';
+      arrayEl.appendChild(makeCell(val, i, cls));
+    }
+    var ptrs = state.phase !== 'done' ? [{index: state.j, label: 'j', color: 'var(--cool)'}] : [];
+    makePointerRow(pointersEl, len, ptrs);
+    statusEl.innerHTML = (state.step > 0 ? '<span class="step-count">Pas ' + state.step + '</span> · ' : '') + message;
+  }
+
+  function step() {
+    if (state.phase === 'done') return;
+    state.step++;
+    if (state.j >= 0 && state.arr[state.j] > state.x) {
+      state.arr[state.j + 1] = state.arr[state.j];
+      state.arr[state.j] = null;
+      var prev = state.j; state.j--;
+      render('v[' + prev + '] = ' + state.arr[prev + 1] + ' > ' + state.x + ': desplacem a la dreta. Ara j = ' + state.j + '.');
+    } else {
+      state.arr[state.j + 1] = state.x; state.n++; state.phase = 'done';
+      var reason = state.j < 0 ? 'Hem arribat al principi (j = -1).' : 'v[' + state.j + '] = ' + state.arr[state.j] + ' ≤ ' + state.x + '.';
+      render(reason + ' Posem x a la posició ' + (state.j + 1) + '. <strong>Inserció completada.</strong>');
+      stepBtn.disabled = true;
+    }
+  }
+
+  stepBtn.addEventListener('click', step);
+  resetBtn.addEventListener('click', init);
+  valueInput.addEventListener('change', init);
+  init();
+})();
+
+// ============================================================
+// DEMO 3 — ORDENACIÓ PER INSERCIÓ
+// ============================================================
+(function() {
+  var BASE = [29, 10, 14, 37, 13, 25, 8, 22];
+  var arrayEl = document.getElementById('sort-array');
+  var pointersEl = document.getElementById('sort-pointers');
+  var statusEl = document.getElementById('sort-status');
+  var stepBtn = document.getElementById('sort-step');
+  var resetBtn = document.getElementById('sort-reset');
+  var shuffleBtn = document.getElementById('sort-shuffle');
+  var state = null;
+
+  function init() {
+    state = { arr: BASE.slice(), i: 1, j: 0, key: BASE[1], phase: 'pickup', step: 0 };
+    render('Comencem amb i = 1. La clau és v[1] = ' + state.key + '. La zona ordenada és <code>v[0..0]</code>.');
+    stepBtn.disabled = false;
+  }
+
+  function render(message) {
+    clear(arrayEl); clear(pointersEl);
+    for (var k = 0; k < state.arr.length; k++) {
+      var cls = '';
+      if (state.phase === 'done') cls = 'sorted-zone';
+      else if (state.phase === 'pickup' && k === state.i) cls = 'current-key';
+      else if (k < state.i) cls = 'sorted-zone';
+      var val = state.arr[k] === null ? '·' : state.arr[k];
+      arrayEl.appendChild(makeCell(val, k, cls));
+    }
+    var ptrs = [];
+    if (state.phase !== 'done') {
+      ptrs.push({index: state.i, label: 'i', color: 'var(--accent)'});
+      if (state.phase === 'shift' || state.phase === 'placed') ptrs.push({index: state.j, label: 'j', color: 'var(--cool)'});
+    }
+    makePointerRow(pointersEl, state.arr.length, ptrs);
+    var extra = state.phase !== 'done' ? ' <em>clau = ' + state.key + '</em>' : '';
+    statusEl.innerHTML = (state.step > 0 ? '<span class="step-count">Pas ' + state.step + '</span> · ' : '') + message + extra;
+  }
+
+  function step() {
+    if (state.phase === 'done') return;
+    state.step++;
+
+    if (state.phase === 'pickup') {
+      state.key = state.arr[state.i];
+      state.arr[state.i] = null;
+      state.j = state.i - 1;
+      state.phase = 'shift';
+      render('Agafem la clau v[' + state.i + '] = ' + state.key + '. La inserim dins de <code>v[0..' + (state.i - 1) + ']</code>.');
+      return;
+    }
+
+    if (state.phase === 'shift') {
+      if (state.j >= 0 && state.arr[state.j] > state.key) {
+        state.arr[state.j + 1] = state.arr[state.j];
+        state.arr[state.j] = null;
+        var prev = state.j; state.j--;
+        render('v[' + prev + '] = ' + state.arr[prev + 1] + ' > ' + state.key + ': desplacem a la dreta.');
+      } else {
+        state.arr[state.j + 1] = state.key;
+        var where = state.j + 1;
+        state.phase = 'placed';
+        var reason = state.j < 0 ? 'j = -1: la clau va al principi.' : 'v[' + state.j + '] = ' + state.arr[state.j] + ' ≤ ' + state.key + '.';
+        render(reason + ' Posem ' + state.key + ' a la posició ' + where + '. Ara <code>v[0..' + state.i + ']</code> està ordenat.');
+      }
+      return;
+    }
+
+    if (state.phase === 'placed') {
+      state.i++;
+      if (state.i >= state.arr.length) {
+        state.phase = 'done';
+        render('Hem processat totes les posicions. <strong>El vector està ordenat.</strong>');
+        stepBtn.disabled = true; return;
+      }
+      state.key = state.arr[state.i];
+      state.phase = 'pickup';
+      render('Avançem a i = ' + state.i + '. La nova clau serà v[' + state.i + '] = ' + state.key + '.');
+    }
+  }
+
+  stepBtn.addEventListener('click', step);
+  resetBtn.addEventListener('click', init);
+  shuffleBtn.addEventListener('click', function() {
+    BASE = Array.from({length: 8}, function() { return Math.floor(Math.random() * 60) + 5; });
+    init();
+  });
+  init();
+})();
+
+// ============================================================
+// DEMO 4 — DIFERÈNCIA DE TAULES
+// ============================================================
+(function() {
+  var V1 = [3, 7, 11, 15, 20, 25, 30, 35];
+  var V2 = [7, 15, 22, 25, 33];
+
+  var v1ArrayEl   = document.getElementById('diff-v1-array');
+  var v2ArrayEl   = document.getElementById('diff-v2-array');
+  var v1PtrsEl    = document.getElementById('diff-v1-pointers');
+  var v2PtrsEl    = document.getElementById('diff-v2-pointers');
+  var resArrayEl  = document.getElementById('diff-result-array');
+  var statusEl    = document.getElementById('diff-status');
+  var stepBtn     = document.getElementById('diff-step');
+  var resetBtn    = document.getElementById('diff-reset');
+
+  var state = null;
+
+  function init() {
+    state = { i: 0, j: 0, result: [], eliminated: new Set(), done: false, step: 0 };
+    render('Iniciem amb i = 0 (v1) i j = 0 (v2). Compararem v1[0] = ' + V1[0] + ' amb v2[0] = ' + V2[0] + '.');
+    stepBtn.disabled = false;
+  }
+
+  function renderVector(el, data, activeIdx, cls) {
+    clear(el);
+    data.forEach(function(val, i) {
+      var c = '';
+      if (state.eliminated && state.eliminated.has('v1:' + i) && el === v1ArrayEl) c = 'eliminated';
+      else if (i === activeIdx) c = 'active-ptr';
+      else c = cls || '';
+      el.appendChild(makeCell(val, i, c));
+    });
+  }
+
+  function render(message) {
+    renderVector(v1ArrayEl, V1, state.done ? -1 : state.i, 'v1-only');
+    renderVector(v2ArrayEl, V2, state.done ? -1 : state.j, 'v2-elem');
+
+    clear(v1PtrsEl);
+    clear(v2PtrsEl);
+    if (!state.done) {
+      makePointerRow(v1PtrsEl, V1.length, state.i < V1.length ? [{index: state.i, label: 'i', color: 'var(--accent)'}] : []);
+      makePointerRow(v2PtrsEl, V2.length, state.j < V2.length ? [{index: state.j, label: 'j', color: 'var(--cool)'}] : []);
+    }
+
+    clear(resArrayEl);
+    state.result.forEach(function(val, k) {
+      resArrayEl.appendChild(makeCell(val, k, 'result-cell'));
+    });
+    if (state.result.length === 0) {
+      var ph = document.createElement('span');
+      ph.style.cssText = 'font-family:"IBM Plex Mono",monospace;font-size:0.85rem;color:var(--ink-faded);padding:14px 0;';
+      ph.textContent = '(buit)';
+      resArrayEl.appendChild(ph);
+    }
+
+    statusEl.innerHTML = (state.step > 0 ? '<span class="step-count">Pas ' + state.step + '</span> · ' : '') + message;
+  }
+
+  function step() {
+    if (state.done) return;
+    state.step++;
+
+    if (state.i >= V1.length) {
+      state.done = true;
+      render('i ha arribat al final de v1. <strong>Diferència completada.</strong> Resultat: [' + state.result.join(', ') + '].');
+      stepBtn.disabled = true;
+      return;
+    }
+
+    var v1i = V1[state.i];
+
+    if (state.j >= V2.length) {
+      // v2 exhausted
+      state.result.push(v1i);
+      state.i++;
+      var next = state.i < V1.length ? '. Comprovem v1[' + state.i + '] = ' + V1[state.i] + '.' : '.';
+      render('v2 exhaurit: afegim v1[' + (state.i-1) + '] = ' + v1i + ' al resultat' + next);
+    } else {
+      var v2j = V2[state.j];
+      if (v1i < v2j) {
+        state.result.push(v1i);
+        state.i++;
+        render('v1[' + (state.i-1) + '] = ' + v1i + ' &lt; v2[' + state.j + '] = ' + v2j + ': no pot estar a v2 → afegim ' + v1i + ' i avancem i = ' + state.i + '.');
+      } else if (v1i === v2j) {
+        state.eliminated.add('v1:' + state.i);
+        state.i++;
+        render('v1[' + (state.i-1) + '] = ' + v1i + ' = v2[' + state.j + '] = ' + v2j + ': element <strong>comú</strong>, l\'eliminem. Avancem i = ' + state.i + '.');
+      } else {
+        state.j++;
+        render('v1[' + state.i + '] = ' + v1i + ' &gt; v2[' + (state.j-1) + '] = ' + v2j + ': avancem j = ' + state.j + ' per trobar possible igual a v2.');
+      }
+    }
+
+    if (state.i >= V1.length && !state.done) {
+      state.done = true;
+      render('i ha arribat al final de v1. <strong>Diferència completada.</strong> Resultat: [' + state.result.join(', ') + '].');
+      stepBtn.disabled = true;
+    }
+  }
+
+  stepBtn.addEventListener('click', step);
+  resetBtn.addEventListener('click', init);
+  init();
+})();
+
+// ============================================================
+// TABS
+// ============================================================
+document.querySelectorAll('.tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    var target = tab.dataset.tab;
+    var parent = tab.parentElement;
+    parent.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+    var contents = parent.parentElement.querySelectorAll('.tab-content');
+    contents.forEach(function(c) { c.classList.toggle('active', c.id === target); });
+  });
+});
+</script>
+</body>
+</html>

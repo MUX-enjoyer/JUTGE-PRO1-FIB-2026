@@ -30,9 +30,9 @@ ex.cc
 [A-Z][0-9]*.cc
 [A-Z][A-Z]*.cc
 
+!FINAL/4 - Algorismes/apunts_algorismes.html
 
 # No incloure directoris que encara no hem arribat:
-4 - Algorismes/
 5 - Avançats/
 6 - Exercicis de Consolidació per al Final/
 7 - Exàmens Anteriors/
