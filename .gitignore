@@ -27,7 +27,6 @@ a.cc
 ex.cc
 
 # Fitxers .cc amb nom de codi de problema (P12345-Nom.cc, dins subcarptetes)
-[A-Z][0-9]*.cc
 [A-Z][A-Z]*.cc
 
 !FINAL/4 - Algorismes/apunts_algorismes.html
