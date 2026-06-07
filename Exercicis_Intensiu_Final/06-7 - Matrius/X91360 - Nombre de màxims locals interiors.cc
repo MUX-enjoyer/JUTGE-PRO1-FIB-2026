@@ -12,21 +12,7 @@ void llegir_matriu(Matriu & m) {
     }
 }
 
-bool comprovar_numeros_voltant_menors(Matriu &m, int centre_i, int centre_j) {
-    int num = m[centre_i][centre_j];
-
-    for (int i = centre_i-1; i < centre_i+2; ++i) {
-        for (int j = centre_j-1; j < centre_j+2; ++j) {
-            if (i != centre_i && j != centre_j && m[i][j] >= num) {
-                return false;
-            }
-        }
-    }
-
-    return true;
-
-
-    ///////////////////////
+bool comprovar_numeros_voltant_menors(Matriu &m, int i, int j) {
     int num = m[i][j];
     
     if (num <= m[i-1][j-1]) return false;
